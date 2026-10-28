@@ -1,0 +1,45 @@
+{
+  "title": "Universal Support Theorems for Resilient Coverage",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "publication_date": "2026-10-28",
+  "version": "1.0.0",
+  "description": "We prove a finite support theorem for monotone combinations of functions with a common convex part. On a compact polyhedral target, one set of points suffices to locate the maximum for every monotone rule and every common convex term. A critical point on a face of dimension f needs at most f+1 supporting functions. For rational geometric data, the support points are rational. Applied to sensing disks, the theorem determines exact coverage radii and power thresholds for every monotone failure rule. It also gives the complete radius--failure-budget frontier from one finite construction. At a fixed geometry, the inclusion-minimal contact sets form a canonical target certificate with explicit failure witnesses. We prove exact update rules, reductions for independent geometric uncertainty and primal--dual certificates for protection allocation. Symbolic engineering examples distinguish overlap count, fault-domain resilience and protection cost. The proofs are analytical throughout. Detailed derivations, diagrams, counterexamples and appendices make the assumptions and conclusions explicit; the established geometric, topological and reliability foundations are credited.",
+  "creators": [
+    {
+      "name": "Bhattacharjee, Deep",
+      "affiliation": "Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha, India",
+      "orcid": "0000-0003-0466-750X"
+    },
+    {
+      "name": "Bhattacharya, Ushashi",
+      "affiliation": "Dortmund, Germany; National Taiwan University, Taipei, Taiwan"
+    },
+    {
+      "name": "Singha Roy, Sanjeevan",
+      "affiliation": "Formerly, Birla Institute of Technology (BIT) Mesra, India",
+      "orcid": "0000-0002-6148-1421"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "support theorem",
+    "convexity",
+    "geometric coverage",
+    "structured failures",
+    "reliability",
+    "robust optimization"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23731783",
+      "scheme": "doi",
+      "relation": "cites"
+    },
+    {
+      "identifier": "10.20944/preprints202606.1351.v2",
+      "scheme": "doi",
+      "relation": "references"
+    }
+  ]
+}

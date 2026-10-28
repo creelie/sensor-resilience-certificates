@@ -1,51 +1,55 @@
-# Hexagon / preprint submission metadata — prepared v3
+# Hexagon submission form
 
 ## Title
-Sensor Coverage under Structured Failures
+Universal Support Theorems for Resilient Coverage
 
 ## Abstract
-We study the part of a sensor field that remains covered after every failure in a prescribed downward-closed family. The model includes independent contact failures, weighted failure budgets and losses of entire fault domains. For a convex sensor cover with nerve $N$, we express the surviving region by a complex on the maximal faces of $N$: a collection of maximal faces is a simplex exactly when its common contact set cannot fail. This is a coverage formulation of classical nerve and Dowker duality, for which we give explicit comparison maps and prove naturality under increasing failure families. For $n$ closed planar disks, all maximal nerve faces are witnessed by at most $n^2$ circle points. Exact rational sign tests consequently construct the full two-skeleton of the dual model without enumerating the original nerve or the coalition shadow. A separate Lipschitz margin theorem gives continuous coverage certificates for prescribed triangulated targets under the same failure rules. Recomputing five supplied fields completes the previously unfinished dense example: its two-fold covered region has Betti numbers $(5,6)$, calculated from a dual complex with $130$ vertices and independently checked boundary rank. The implementation, inputs, exact arithmetic conventions and verification records are supplied.
+We prove a finite support theorem for monotone combinations of functions with a common convex part. On a compact polyhedral target, one set of points suffices to locate the maximum for every monotone rule and every common convex term. A critical point on a face of dimension $f$ needs at most $f+1$ supporting functions. For rational geometric data, the support points are rational. Applied to sensing disks, the theorem determines exact coverage radii and power thresholds for every monotone failure rule. It also gives the complete radius--failure-budget frontier from one finite construction. At a fixed geometry, the inclusion-minimal contact sets form a canonical target certificate with explicit failure witnesses. We prove exact update rules, reductions for independent geometric uncertainty and primal--dual certificates for protection allocation. Symbolic engineering examples distinguish overlap count, fault-domain resilience and protection cost. The proofs are analytical throughout. Detailed derivations, diagrams, counterexamples and appendices make the assumptions and conclusions explicit; the established geometric, topological and reliability foundations are credited.
 
-## Classification
+## Primary subject
+**math.MG — Metric Geometry**
 
-- Primary subject: **math.AT — Algebraic Topology**
-- Suggested cross-lists: **cs.CG — Computational Geometry**; **math.CO — Combinatorics**
-- MSC2020: **55U10**, **55N31**, **68U05**, **90B18**
-- Tags: sensor coverage, structured failures, Dowker duality, multicover, exact geometric predicates, target certificates
-- License: **CC BY 4.0**
-- arXiv identifier: **leave blank**; none is asserted for this revision.
+## Suggested cross-list subjects
+**math.CO — Combinatorics**, **math.OC — Optimization and Control**, **math.AT — Algebraic Topology**, **cs.CG — Computational Geometry**.
 
-## Contributors in citation order
+## MSC2020
+**68U05**, **05C65**, **55U10**, **90B25**, **90C05**.
 
-1. **Deep Bhattacharjee** — Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha, India; itsdeep@live.com; https://orcid.org/0000-0003-0466-750X
-2. **Ushashi Bhattacharya** — Dortmund, Germany; National Taiwan University, Taipei, Taiwan. Confirm current affiliation details before submission; carried forward from the supplied v2.
-3. **Sanjeevan Singha Roy** — Formerly, Birla Institute of Technology (BIT) Mesra, India; sanjeevan9905@gmail.com; https://orcid.org/0000-0002-6148-1421
+## Tags
+support theorem, convexity, geometric coverage, structured failures, power diagrams, reliability, robust optimization.
 
-AI systems are not contributors. The submitting contributor should use their own verified account details.
+## Authors in citation order
+1. **Deep Bhattacharjee*** — Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha, India. First and corresponding author. Email: **itsdeep@live.com**. ORCID: https://orcid.org/0000-0003-0466-750X
+2. **Ushashi Bhattacharya** — Dortmund, Germany; National Taiwan University, Taipei, Taiwan. Affiliation carried forward from the supplied source; confirm current details in the account form.
+3. **Sanjeevan Singha Roy** — Formerly, Birla Institute of Technology (BIT) Mesra, India. Email: **sanjeevan9905@gmail.com**. ORCID: https://orcid.org/0000-0002-6148-1421
 
-## Text provenance
+The asterisk marks the corresponding author in the manuscript. Enter the names without that symbol in structured contributor fields. AI is not an author.
 
-Suggested text-origin category: **A mix of human-written and AI-generated text**, based on the supplied two-author v2 and the AI-assisted revision. The author must confirm this declaration.
+## Required text-origin declaration
+**A mix of human-written and AI-generated text.**
 
-Human-understanding declaration: **author to select for this new v3**. Earlier answers about other papers are not treated as verification of every new argument in this revision. No unconfirmed human-review claim has been inserted.
+## Required human-understanding declaration
+**All parts of this contribution have been checked and understood by a human.**
 
-Provenance statement for the form:
+These two selections record the submitting user's explicit declarations on 28 October 2026. They are not represented as an independent certification by the assistant.
 
-> This revision builds on the supplied two-author v2 and supplementary synthetic fields. OpenAI Codex assisted with mathematical exposition, exact geometry and homology code, independent computational checks, figures and LaTeX assembly. The proofs and their assumptions are written in the manuscript. Ten controls and the independent geometry/rank audit were run. No Lean formalization is supplied. The authors remain responsible for final review and submission declarations. Further details are in aiprovenance.md.
+## Provenance statement
+This standalone article develops a finite support theorem and its geometric, reliability and optimization consequences. OpenAI Codex assisted with mathematical exposition, supplementary verification code, figures and LaTeX preparation. The mathematical results and symbolic examples are proved analytically in the manuscript. Optional computational controls are separate and are not proof premises. The author has declared full human checking and understanding and mixed human/AI text. The complete account is in **aiprovenance.md**.
 
-Tools actually used: OpenAI Codex; Python 3.12.14; Python Fraction arbitrary-precision rational arithmetic; NumPy and Matplotlib for input conversion/figures; pdfTeX/LaTeX with amsart and TikZ; pypdf and pypdfium2 for PDF inspection; Git/GitHub. Do not list Lean as a verification tool for this v3.
+## Tools used
+OpenAI Codex; Python rational arithmetic; NumPy and Matplotlib for diagrams; LaTeX/pdfTeX with amsart and TikZ; pypdf and pypdfium2 for PDF inspection; Git/GitHub. SciPy was used only for optional protection-allocation hints, followed by rational checking. No Lean formalization of this article is claimed.
 
-Formalization link: **leave blank**; none is supplied for the new arguments.
+## Formalization
+Leave blank. No formal proof-assistant project is supplied for the new theorems.
 
-## Files
+## arXiv identifier
+Leave blank. No arXiv identifier is asserted.
 
-- Upload **SensorCoverageStructuredFailuresV3tex.zip**, whose `main.tex` is at the archive root.
-- The TeX ZIP includes figures and permissible ancillary Python/CSV/JSON data under `anc/`; it contains no Lean sources or embedded external article.
-- Use **SensorCoverageStructuredFailuresV3.pdf** to compare the compiled output before final submission.
-- Provide **aiprovenance.md** separately as the provenance attachment where accepted; it is not needed to compile the manuscript.
+## License
+**CC BY 4.0**.
 
-## Existing identifiers
+## Upload files
+Extract this outer package. Upload **UniversalSupportTheoremsForResilientCoveragetex.zip** to Hexagon's source-file field or to Overleaf. Its root file is **main.tex**. The compiled PDF is included for comparison. Provide **aiprovenance.md** separately in the provenance upload area where supported. Do not upload the outer package as if it were the TeX-only source ZIP.
 
-- Original Preprints.org v2: https://doi.org/10.20944/preprints202606.1351.v2
-- Required related ECoG reference: https://doi.org/10.5281/zenodo.23731783
-- This prepared v3 has not yet been posted to Preprints.org or Hexagon by this task. Do not invent a v3 platform identifier or use the companion DOI as this paper's DOI.
+## Identifier status
+This is a standalone article, not a v3 posting. Its cited companion archive is https://doi.org/10.5281/zenodo.23731783; that DOI is not this article's DOI. No new Hexagon identifier or Zenodo DOI is asserted for this manuscript.

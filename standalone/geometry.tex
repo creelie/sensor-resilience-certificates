@@ -1,0 +1,111 @@
+\section{Exact geometry without nerve-face enumeration}
+\label{sec:geometry}
+The duality theorem is useful only if the maximal nerve faces can be obtained reliably. For disks, a finite arrangement construction avoids listing every intersecting subfamily. In this section
+\[
+D_i=\{x\in\R^2:\|x-c_i\|\le r_i\},\qquad r_i\ge0,
+\]
+and coincident disks keep their distinct contact labels.
+
+\begin{definition}
+The \emph{witness list} consists of the leftmost point $\ell_i=(c_{i,x}-r_i,c_{i,y})$ of each disk and all intersections of the boundaries of pairs of disks whose supporting circles are distinct. A zero-radius disk contributes its center through $\ell_i$. A coincident pair contributes no additional points. The label of a witness $x$ is $L(x)=\{i:x\in D_i\}$.
+\end{definition}
+
+\begin{theorem}[Quadratic witness bound]\label{thm:witness}
+Every maximal face of the nerve is the label of a point on the witness list. Hence the inclusion-maximal nonempty witness labels are exactly $\Max N$, and
+\begin{equation}\label{eq:witness-count}
+\abs{\Max N}\le n+2\binom n2=n^2.
+\end{equation}
+The assertion allows unequal radii, tangency, zero radii and coincident disks.
+\end{theorem}
+\begin{proof}
+Every witness label is a nerve face, because the witness itself lies in all its labeled disks. Let $\sigma$ be a maximal nerve face and set $K=\bigcap_{i\in\sigma}D_i$. This is nonempty and compact. Choose a point $x\in K$ with minimal first coordinate.
+
+If $\sigma$ contains a zero-radius disk, then $K$ consists of its center, which is a listed witness. Suppose all its disks have positive radius. At least one constraint is active at $x$: if all were strict, a small open neighborhood of $x$ would lie in $K$, contradicting minimality. If two active constraints have distinct supporting circles, $x$ is one of their boundary intersections and is listed.
+
+The remaining case has only one distinct active supporting circle, possibly repeated with several labels. Every other disk of $\sigma$ contains a neighborhood of $x$. In a sufficiently small neighborhood the only effective constraint is therefore the closed disk bounded by that active circle. Unless $x$ is its leftmost point, there are points of that disk arbitrarily close to $x$ with smaller first coordinate. They still satisfy every locally slack constraint, a contradiction. Thus $x$ is the leftmost point of an active disk and is listed.
+
+In all cases $\sigma\subseteq L(x)$. The label is a nerve face and $\sigma$ is maximal, so equality follows. Taking maximal labels removes only proper subfaces and duplicates. Each noncoincident pair of circles has at most two intersection points, which proves \cref{eq:witness-count}.
+\end{proof}
+
+\begin{remark}
+The extremal-point argument is an elementary disk-arrangement method. The bound concerns the number of maximal nerve faces, not the number of all nerve faces or all simplices of the dual complex. A single maximal face on $n$ labels contains $2^n-1$ nonempty nerve faces. Likewise $n^2$ dual vertices alone do not give a quadratic bound on all dual simplices.
+\end{remark}
+
+\subsection{Circle intersections in a quadratic extension}
+The witness labels can be determined without evaluating square roots approximately. Suppose $c_i\ne c_j$ and put
+\begin{align}
+d&=c_j-c_i,\qquad s=d\cdot d>0,\nonumber\\
+\alpha&=\frac{s+r_i^2-r_j^2}{2s},\qquad
+h=\frac{r_i^2}{s}-\alpha^2,\label{eq:circle-parameters}\\
+B&=c_i+\alpha d,\qquad P=(-d_y,d_x).\nonumber
+\end{align}
+If $h<0$, the boundaries do not meet. If $h=0$, they meet at $B$. If $h>0$, their intersections are
+\begin{equation}\label{eq:circle-points}
+x_{\pm}=B\pm\sqrt h\,P.
+\end{equation}
+Indeed, subtracting the two circle equations gives the line $(x-c_i)\cdot d=\alpha s$. Substituting $x=B+tP$ in the first equation gives $t^2=h$. This also covers internal and external tangency.
+
+For a third disk, write $z=B-c_k$. Membership of $x_\pm$ is the inequality
+\begin{equation}\label{eq:quadratic-membership}
+A+C\sqrt h\le0,
+\quad A=z\cdot z+h(P\cdot P)-r_k^2,
+\quad C=\pm2z\cdot P.
+\end{equation}
+When input numbers are rational, $A,C,h$ are rational. No coordinates of a square-root point need be rounded.
+
+\begin{lemma}[Exact radical sign]\label{lem:sign}
+Let $A,C,h\in\mathbb Q$ with $h\ge0$. The truth of $A+C\sqrt h\le0$ is determined by rational comparisons as follows:
+\begin{enumerate}
+\item if $h=0$ or $C=0$, test $A\le0$;
+\item if $A=0$ and $h>0$, test $C\le0$;
+\item if $A<0$ and $C<0$, the inequality holds; if $A>0$ and $C>0$, it fails;
+\item if $A>0$ and $C<0$, test $A^2\le C^2h$;
+\item if $A<0$ and $C>0$, test $C^2h\le A^2$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The first three cases follow from signs. In the fourth case the desired inequality is $A\le(-C)\sqrt h$, with both sides nonnegative, so squaring preserves its direction and equivalence. In the fifth case it is $C\sqrt h\le -A$, again with nonnegative sides. These cases exhaust all possibilities. Equality is retained because the disks are closed.
+\end{proof}
+
+\subsection{Enumeration and chain construction}
+\begin{algorithm}[Exact facet computation]\label{alg:facets}
+\leavevmode
+\begin{enumerate}
+\item Interpret the finite coordinates and radii as rationals; reject negative radii or nonfinite input.
+\item Label the $n$ leftmost points by squared-distance comparisons.
+\item For each pair of distinct centers, compute \cref{eq:circle-parameters}. If $h\ge0$, label its one or two boundary intersections using \cref{lem:sign}. Pairs with equal centers require no boundary computation.
+\item Delete empty labels and duplicates. Sort the remaining masks by decreasing cardinality, and retain a mask exactly when it is not contained in a previously retained mask.
+\end{enumerate}
+The output is $\Max N$ by \cref{thm:witness}.
+\end{algorithm}
+
+With $m=\abs\M$ and a winning predicate $w$, the full dual two-skeleton is constructed as follows. Retain $M\in\M$ as a vertex if $w(M)$ is true. An edge $\{M_i,M_j\}$ is retained if $w(M_i\cap M_j)$ is true. A candidate triangle is retained if all three edges exist and $w(M_i\cap M_j\cap M_k)$ is true. The edge checks are redundant mathematically for an upward-closed rule, but they avoid unnecessary work and ensure a consistent boundary indexing.
+
+Each triangle gives a boundary column with three nonzero edge entries over $\FF$. Gaussian elimination determines its rank, while a union--find structure computes the graph components. \Cref{eq:betti-formula} then gives both Betti numbers.
+
+\begin{theorem}[Finite exact low-degree computation]\label{thm:algorithm}
+For $n$ closed planar disks with rational input data, and an exactly evaluable monotone winning predicate, \cref{alg:facets} and the complete dual two-skeleton compute $H_0$ and $H_1$ of the surviving region exactly over $\FF$. Witness labeling uses $O(n^3)$ rational sign tests. A naive maximal-label filter uses $O(n^4)$ mask-containment tests. The dual two-skeleton uses at most $n^2$ vertices, $\binom{n^2}{2}$ edge predicates and $\binom{n^2}{3}$ triangle predicates.
+\end{theorem}
+\begin{proof}
+There are at most $n^2$ witnesses and $n$ membership tests per witness. A quadratic comparison of at most $n^2$ labels bounds the naive filtering step. Correctness of those steps follows from \cref{thm:witness,lem:sign}. The simplex count follows from $m\le n^2$, and every simplex through dimension two is included by its defining predicate. \Cref{thm:duality,prop:two-skeleton} identify the resulting homology with that of the surviving region.
+\end{proof}
+
+This is an arithmetic-operation and oracle-query bound. It is not a unit-time bit-complexity bound: rational numerator sizes, arbitrary-precision mask operations, predicate costs and elimination all matter. The worst-case number of dual triangles is $O(n^6)$, and the full dual complex may have exponentially many simplices. For $H_j$ with fixed $j$, its full $(j+1)$-skeleton suffices, giving at most $O(n^{2j+4})$ simplex tests by the same argument. These bounds are deliberately separate from the much more refined multicover bifiltration algorithms of~\cite{corbet,alonso}.
+
+\subsection{Equal-radius verification by a different geometric formula}
+For equal-radius disks there is another exact intersection criterion, expressed through minimum enclosing circles of center triples. If $a,b,c$ are three centers, let
+\[
+u=\|a-b\|^2,\quad v=\|a-c\|^2,\quad w=\|b-c\|^2,
+\quad J=(b-a)_x(c-a)_y-(b-a)_y(c-a)_x.
+\]
+The squared minimum enclosing radius is
+\begin{equation}\label{eq:mec}
+\rho^2(a,b,c)=
+\begin{cases}
+\max(u,v,w)/4,&2\max(u,v,w)\ge u+v+w,\\[2pt]
+uvw/(4J^2),&2\max(u,v,w)<u+v+w.
+\end{cases}
+\end{equation}
+The first case includes right, obtuse, collinear and coincident configurations. The second is the circumradius formula for an acute triangle; its denominator is nonzero. Two equal-radius disks meet if their center distance squared is at most $4r^2$, and three meet if and only if $\rho^2\le r^2$. Planar Helly's theorem extends the triple criterion to every larger subfamily.
+
+Equation \cref{eq:mec} supplies a separate analytical criterion for testing a proposed facet and its one-contact extensions. Completeness of the witness list is supplied by \cref{thm:witness}; checking triples alone would not, for an arbitrary list of purported facets, prove that completeness.

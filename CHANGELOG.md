@@ -1,3 +1,13 @@
+# Standalone article package 1.0.0 — 2026-10-28
+
+- New standalone title: Universal Support Theorems for Resilient Coverage.
+- Author order: Deep Bhattacharjee, Ushashi Bhattacharya, Sanjeevan Singha Roy; Deep marked first and corresponding author.
+- Added the analytical support theorem for a common convex part and affine differences, power thresholds and the exact resilience staircase.
+- Included 49 pages, 13 figures, 11 footnotes and seven appendices, with two three-dimensional illustrations.
+- Separated computational benchmarks from all proof premises. Symbolic engineering examples have direct derivations.
+- Added explicit user-declared human understanding and mixed text-origin metadata, funding/COI/ethics statements and historical acknowledgements.
+- Built one clean Hexagon package with a separate TeX-only source ZIP.
+
 # Version 3.0.1 — 2026-10-28
 
 - Shortened the title to *Sensor Coverage under Structured Failures*, with no conjunction or punctuation.

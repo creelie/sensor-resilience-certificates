@@ -1,63 +1,49 @@
-# Sensor Coverage under Structured Failures
+# Universal Support Theorems for Resilient Coverage
 
-**Version 3.0.1 — 28 October 2026**
+**Deep Bhattacharjee*** · **Ushashi Bhattacharya** · **Sanjeevan Singha Roy**
 
-Deep Bhattacharjee · Ushashi Bhattacharya · Sanjeevan Singha Roy
+*First and corresponding author: Deep Bhattacharjee, itsdeep@live.com.*
 
-This is the v3 research revision of *Iterated Nerve Complexes for k-Fold Sensor Coverage*. It develops one coherent manuscript around structured failures, facet-intersection nerve models, exact disk geometry and continuous target certificates.
+A standalone analytical paper in amsart format: **49 pages, 13 numbered figures, 11 footnotes and seven appendices**. The title has no conjunction or punctuation. The main paper is not presented as a v3 manuscript.
 
-The original v2 is [10.20944/preprints202606.1351.v2](https://doi.org/10.20944/preprints202606.1351.v2). The companion ECoG archive cited in the paper is [10.5281/zenodo.23731783](https://doi.org/10.5281/zenodo.23731783). That DOI identifies the companion archive, not this v3.
+## Single Hexagon package
 
-## Paper and package
+The release **standalone-1.0.0** provides one complete outer ZIP. Extract it and upload the inner TeX ZIP to Overleaf or Hexagon; `main.tex` is at the inner archive root.
 
-- [Manuscript source](paper/main.tex)
-- [Compiled manuscript](%5BPAPER%5D%20package/SensorCoverageStructuredFailuresV3.pdf)
-- [Overleaf/Hexagon TeX ZIP](%5BPAPER%5D%20package/SensorCoverageStructuredFailuresV3tex.zip)
-- [Submission metadata](%5BPAPER%5D%20package/hexagonsubmissionform.md)
-- [Journal preparation notes](%5BPAPER%5D%20package/journalsubmissiondetails.md)
+- [PDF](%5BPAPER%5D%20package/UniversalSupportTheoremsForResilientCoverage.pdf)
+- [TeX ZIP](%5BPAPER%5D%20package/UniversalSupportTheoremsForResilientCoveragetex.zip)
+- [Hexagon fields](%5BPAPER%5D%20package/hexagonsubmissionform.md)
+- [Declarations](%5BPAPER%5D%20package/DECLARATIONS.md)
 - [AI provenance](%5BPAPER%5D%20package/aiprovenance.md)
-- [Verification and scope](VERIFICATION.md)
+- [Journal notes](%5BPAPER%5D%20package/journalsubmissiondetails.md)
+- [Analytical manuscript source](standalone/main.tex)
 
-## Results
+The user declared **all parts checked and understood by a human** and **a mix of human-written and AI-generated text**. Those statements are recorded in the Hexagon metadata. No funding and no competing interests are declared; ethics approval is not applicable to the mathematical article.
 
-The surviving region is defined for any downward-closed family of allowed contact failures. It includes fixed-cardinality losses, weighted deletion budgets and complete fault-domain losses. Its facet-intersection complex is related to the geometric region by classical nerve and Dowker theory; these earlier results are credited explicitly.
+## Main result
 
-For closed planar disks, at most n² leftmost or circle-intersection witnesses suffice to recover every maximal nerve face. Exact rational sign tests construct those faces, including tangencies and coincident footprints. The complete dual two-skeleton determines H0 and H1 over GF(2). A separate proved margin certificate checks continuous coverage of specified triangulated targets.
+For functions with a common continuous convex part and affine differences on a polyhedral target, one finite set supports the maximum of every nonconstant monotone lattice selector. The set is independent of the rule and common convex term. On an f-dimensional face, at most f+1 functions are needed in a full-rank tie system.
 
-The previously unfinished dense Field E now has **two-fold Betti numbers (5, 6)**. Its dual complex has **130 vertices, 4,214 edges and 94,985 triangles**, with triangle-boundary rank **4,083**. The earlier figure of **836,991** is corrected to a count of **shadow edges**; the original two-fold shadow has **1,810 vertices**.
+The paper derives exact sensing thresholds, power-controlled unequal-footprint results, canonical target antichains and a complete power–failure-budget frontier. It also proves monotone relabeling, product-uncertainty reductions and rational primal–dual protection certificates. Its engineering examples are symbolic derivations. No simulation or optional code check is a premise of a proof.
 
-These are proved statements under the stated finite convex-cover and disk assumptions, together with exact finite computations. This package does not claim a new general nerve theorem, a resolution of an unrelated open conjecture, a Lean formalization or guaranteed acceptance by any journal. Independent assessment of the contribution's novelty and significance remains part of research review.
+Classical arrangements, power diagrams, lattice polynomials, minimal cuts, nerve theory, cover decomposition and LP duality are credited explicitly. The contribution's priority and significance need independent specialist review; neither a breakthrough label nor Annals acceptance is guaranteed.
 
-## Reproduce
+## Optional software
 
-The scientific calculations use Python 3.12 and only its standard library:
+The mathematical article stands independently of the supplementary programs. With Python 3.12, run:
 
 ```text
 python -m unittest discover -s code -v
-python code/run_fields.py
-python code/verify_fields.py
-python code/audit_shadow_edges.py
 ```
 
-The CSV files preserve the original binary64 coordinates. All Boolean geometric tests use exact rational arithmetic on those values. The input manifest records source-array and CSV hashes.
+There are 28 controls. One optional LP-hint test needs SciPy; the rational certificate check is independent of that solver. The new geometric routines preserve Fraction inputs and treat floats as their exact binary64 rationals. No Lean formalization is claimed.
 
-Figures require NumPy and Matplotlib; pre-generated PDF figures are already included:
+## References and identifiers
 
-```text
-python -m pip install -r requirements-figures.txt
-python code/make_figures.py
-```
+The related archive [10.5281/zenodo.23731783](https://doi.org/10.5281/zenodo.23731783) is cited with its original authors. The original sensor paper is cited at [10.20944/preprints202606.1351.v2](https://doi.org/10.20944/preprints202606.1351.v2). The bibliography uses the requested permitted platforms and published sources; it includes no Qeios, Authoria or arXiv source.
 
-For a first LaTeX build, run `pdflatex main.tex` three times in `paper/` until the contents and cross-references stabilize, or upload the TeX ZIP to Overleaf and select `main.tex`. There is no line numbering. Normal section, equation and page numbers remain.
+No new Zenodo DOI or Hexagon identifier has been minted for the standalone article. Software tag `standalone-1.0.0` identifies this package, not a third preprint version.
 
-## Authors
+The earlier v3 package is preserved in [historical/v3.0.1-package](historical/v3.0.1-package). Its releases remain historical records.
 
-1. Deep Bhattacharjee — EGSPL, Bhubaneswar, India; itsdeep@live.com; ORCID [0000-0003-0466-750X](https://orcid.org/0000-0003-0466-750X).
-2. Ushashi Bhattacharya — Dortmund, Germany; National Taiwan University, Taipei, Taiwan (details carried forward from the supplied v2).
-3. Sanjeevan Singha Roy — Formerly, Birla Institute of Technology (BIT) Mesra, India; sanjeevan9905@gmail.com; ORCID [0000-0002-6148-1421](https://orcid.org/0000-0002-6148-1421).
-
-Authors should confirm current affiliations and submission declarations before a journal submission. Author order follows the user's instructions and the v2 record. No contributions or approvals have been invented for any coauthor.
-
-## License and source lineage
-
-CC BY 4.0. The five synthetic input fields derive from the supplied supplementary archive for Bhattacharjee and Bhattacharya's v2. The new source records the original archive hashes and retains this attribution. The earlier ECoG work is cited with its full three-author attribution; its author list is distinct from this manuscript's author list.
+License: CC BY 4.0.

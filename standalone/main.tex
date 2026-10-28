@@ -1,0 +1,82 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{graphicx,booktabs,longtable,array,xcolor,placeins}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={Universal Support Theorems for Resilient Coverage},pdfauthor={Deep Bhattacharjee; Ushashi Bhattacharya; Sanjeevan Singha Roy}}
+\usepackage[capitalise,noabbrev]{cleveref}
+\setlength{\textwidth}{6.1in}
+\setlength{\oddsidemargin}{.2in}
+\setlength{\evensidemargin}{.2in}
+\setlength{\textheight}{8.65in}
+\setlength{\topmargin}{0in}
+\setcounter{tocdepth}{1}
+\renewcommand{\topfraction}{.9}
+\renewcommand{\textfraction}{.08}
+\renewcommand{\floatpagefraction}{.5}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathcal F}
+\newcommand{\M}{\mathcal M}
+\newcommand{\W}{\mathcal W}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\FF}{\mathbb F_2}
+\newcommand{\abs}[1]{\left|#1\right|}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\sd}{sd}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Max}{Max}
+\DeclareMathOperator{\Min}{Min}
+\title[Universal support theorems]{Universal Support Theorems for Resilient Coverage}
+\author{Deep Bhattacharjee\textsuperscript{*}}
+\address{Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha, India}
+\email{itsdeep@live.com}
+\urladdr{https://orcid.org/0000-0003-0466-750X}
+\author{Ushashi Bhattacharya}
+\address{Dortmund, Germany; National Taiwan University, Taipei, Taiwan}
+\author{Sanjeevan Singha Roy}
+\address{Formerly, Birla Institute of Technology (BIT) Mesra, India}
+\email{sanjeevan9905@gmail.com}
+\urladdr{https://orcid.org/0000-0002-6148-1421}
+\date{October 28, 2026}
+\subjclass[2020]{Primary 68U05; Secondary 05C65, 55U10, 90B25, 90C05}
+\keywords{sensor resilience, geometric certificates, monotone failure models, critical radius, robust optimization, computational topology}
+\thanks{\textsuperscript{*}First author and corresponding author: Deep Bhattacharjee, \texttt{itsdeep@live.com}.}
+\begin{document}
+\begin{abstract}
+We prove a finite support theorem for monotone combinations of functions with a common convex part. On a compact polyhedral target, one set of points suffices to locate the maximum for every monotone rule and every common convex term. A critical point on a face of dimension $f$ needs at most $f+1$ supporting functions. For rational geometric data, the support points are rational. Applied to sensing disks, the theorem determines exact coverage radii and power thresholds for every monotone failure rule. It also gives the complete radius--failure-budget frontier from one finite construction. At a fixed geometry, the inclusion-minimal contact sets form a canonical target certificate with explicit failure witnesses. We prove exact update rules, reductions for independent geometric uncertainty and primal--dual certificates for protection allocation. Symbolic engineering examples distinguish overlap count, fault-domain resilience and protection cost. The proofs are analytical throughout. Detailed derivations, diagrams, counterexamples and appendices make the assumptions and conclusions explicit; the established geometric, topological and reliability foundations are credited.
+\end{abstract}
+\maketitle
+\tableofcontents
+\input{overview}
+\input{failures}
+\input{universal}
+\input{target-algorithm}
+\input{radius-theorem}
+\input{power-frontier}
+\input{uncertainty}
+\input{optimization}
+\input{reliability}
+\input{duality}
+\input{geometry}
+\input{certificates}
+\input{analytic-engineering}
+\input{technical-appendices}
+\input{declarations}
+\input{references}
+\end{document}

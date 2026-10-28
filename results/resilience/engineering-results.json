@@ -1,0 +1,1088 @@
+[
+  {
+    "name": "three_asset_cycle",
+    "centres": [
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        "3/2"
+      ]
+    ],
+    "radius": "6/5",
+    "target": [
+      [
+        [
+          "-1/20",
+          "-1/20"
+        ],
+        [
+          "1/20",
+          "-1/20"
+        ],
+        [
+          0,
+          "1/20"
+        ]
+      ],
+      [
+        [
+          "-11/20",
+          "7/10"
+        ],
+        [
+          "-9/20",
+          "7/10"
+        ],
+        [
+          "-1/2",
+          "4/5"
+        ]
+      ],
+      [
+        [
+          "9/20",
+          "7/10"
+        ],
+        [
+          "11/20",
+          "7/10"
+        ],
+        [
+          "1/2",
+          "4/5"
+        ]
+      ]
+    ],
+    "certificate": {
+      "masks": [
+        3,
+        5,
+        6
+      ],
+      "witnesses": {
+        "3": [
+          "-1/40",
+          "-1/40"
+        ],
+        "5": [
+          "-21/40",
+          "29/40"
+        ],
+        "6": [
+          "19/40",
+          "29/40"
+        ]
+      },
+      "distinct_labels": 3,
+      "x_events": 13,
+      "bands": 60,
+      "target_samples": 6,
+      "primitive_disks": 3,
+      "target_edges": 9
+    },
+    "minimum_individual_deletions": {
+      "cost": "2",
+      "mask": 3,
+      "witness": [
+        "-1/40",
+        "-1/40"
+      ]
+    },
+    "protection": {
+      "allocation": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "lambda": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "mu": "2/3",
+      "lower": "2/3",
+      "upper": "2/3",
+      "verified_optimal": true,
+      "budget": "1",
+      "unit_costs": [
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "minimum_domains_for_one_domain_loss": 3,
+    "domain_assignment": [
+      0,
+      1,
+      2
+    ],
+    "independent_contact_reliability_at_p_0_1": "243/250",
+    "critical_radii": {
+      "rules": {
+        "one_contact": {
+          "squared": "401/400",
+          "witness": [
+            "0",
+            "-1/20"
+          ],
+          "prefix": 3
+        },
+        "two_contacts": {
+          "squared": "221/200",
+          "witness": [
+            "-1/20",
+            "-1/20"
+          ],
+          "prefix": 3
+        },
+        "three_contacts": {
+          "squared": "1157/400",
+          "witness": [
+            "-11/20",
+            "7/10"
+          ],
+          "prefix": 7
+        }
+      },
+      "candidate_count": 14,
+      "line_count": 3
+    },
+    "seconds": 1.38
+  },
+  {
+    "name": "four_corner_panel",
+    "centres": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "radius": "9/5",
+    "target": [
+      [
+        [
+          "-3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "3/5"
+        ]
+      ],
+      [
+        [
+          "-3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "3/5"
+        ],
+        [
+          "-3/5",
+          "3/5"
+        ]
+      ]
+    ],
+    "certificate": {
+      "masks": [
+        3,
+        5,
+        10,
+        12
+      ],
+      "witnesses": {
+        "3": [
+          "-11/20",
+          "0"
+        ],
+        "5": [
+          "-1/12",
+          "-93/160"
+        ],
+        "10": [
+          "-1/12",
+          "93/160"
+        ],
+        "12": [
+          "11/20",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 9,
+      "bands": 80,
+      "target_samples": 36,
+      "primitive_disks": 4,
+      "target_edges": 5
+    },
+    "minimum_individual_deletions": {
+      "cost": "2",
+      "mask": 3,
+      "witness": [
+        "-11/20",
+        "0"
+      ]
+    },
+    "protection": {
+      "allocation": [
+        "0",
+        "1/2",
+        "1/2",
+        "0"
+      ],
+      "lambda": [
+        "0",
+        "1/2",
+        "1/2",
+        "0"
+      ],
+      "mu": "1/2",
+      "lower": "1/2",
+      "upper": "1/2",
+      "verified_optimal": true,
+      "budget": "1",
+      "unit_costs": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "minimum_domains_for_one_domain_loss": 2,
+    "domain_assignment": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "independent_contact_reliability_at_p_0_1": "9639/10000",
+    "critical_radii": {
+      "rules": {
+        "one_contact": {
+          "squared": "2",
+          "witness": [
+            "0",
+            "0"
+          ],
+          "prefix": 15
+        },
+        "two_contacts": {
+          "squared": "68/25",
+          "witness": [
+            "-3/5",
+            "-3/5"
+          ],
+          "prefix": 7
+        },
+        "three_contacts": {
+          "squared": "89/25",
+          "witness": [
+            "-3/5",
+            "0"
+          ],
+          "prefix": 15
+        }
+      },
+      "candidate_count": 9,
+      "line_count": 4
+    },
+    "seconds": 0.021
+  },
+  {
+    "name": "nine_contact_panel",
+    "centres": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "radius": "11/10",
+    "target": [
+      [
+        [
+          "-4/5",
+          "-4/5"
+        ],
+        [
+          "4/5",
+          "-4/5"
+        ],
+        [
+          "4/5",
+          "4/5"
+        ]
+      ],
+      [
+        [
+          "-4/5",
+          "-4/5"
+        ],
+        [
+          "4/5",
+          "4/5"
+        ],
+        [
+          "-4/5",
+          "4/5"
+        ]
+      ]
+    ],
+    "certificate": {
+      "masks": [
+        18,
+        24,
+        48,
+        144,
+        11,
+        38,
+        200,
+        416
+      ],
+      "witnesses": {
+        "18": [
+          "-133/256",
+          "0"
+        ],
+        "24": [
+          "-5/512",
+          "-1/2"
+        ],
+        "48": [
+          "-5/512",
+          "1/2"
+        ],
+        "144": [
+          "123/256",
+          "0"
+        ],
+        "11": [
+          "-253/320",
+          "-509/640"
+        ],
+        "38": [
+          "-253/320",
+          "501/640"
+        ],
+        "200": [
+          "785/1024",
+          "-1017/1280"
+        ],
+        "416": [
+          "785/1024",
+          "1017/1280"
+        ]
+      },
+      "distinct_labels": 33,
+      "x_events": 25,
+      "bands": 384,
+      "target_samples": 200,
+      "primitive_disks": 9,
+      "target_edges": 5
+    },
+    "minimum_individual_deletions": {
+      "cost": "2",
+      "mask": 18,
+      "witness": [
+        "-133/256",
+        "0"
+      ]
+    },
+    "protection": {
+      "allocation": [
+        "0",
+        "1/5",
+        "0",
+        "1/5",
+        "1/5",
+        "1/5",
+        "0",
+        "1/5",
+        "0"
+      ],
+      "lambda": [
+        "0",
+        "0",
+        "1/5",
+        "1/5",
+        "2/5",
+        "0",
+        "0",
+        "1/5"
+      ],
+      "mu": "2/5",
+      "lower": "2/5",
+      "upper": "2/5",
+      "verified_optimal": true,
+      "budget": "1",
+      "unit_costs": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "minimum_domains_for_one_domain_loss": 2,
+    "domain_assignment": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
+    "independent_contact_reliability_at_p_0_1": "962047449/1000000000",
+    "critical_radii": {
+      "rules": {
+        "one_contact": {
+          "squared": "1/2",
+          "witness": [
+            "-1/2",
+            "-1/2"
+          ],
+          "prefix": 27
+        },
+        "two_contacts": {
+          "squared": "1",
+          "witness": [
+            "0",
+            "0"
+          ],
+          "prefix": 186
+        },
+        "three_contacts": {
+          "squared": "5/4",
+          "witness": [
+            "-1/2",
+            "0"
+          ],
+          "prefix": 63
+        }
+      },
+      "candidate_count": 57,
+      "line_count": 20
+    },
+    "seconds": 0.078
+  },
+  {
+    "name": "weak_nine_contact_panel",
+    "centres": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "radius": "4/5",
+    "target": [
+      [
+        [
+          "-4/5",
+          "-4/5"
+        ],
+        [
+          "4/5",
+          "-4/5"
+        ],
+        [
+          "4/5",
+          "4/5"
+        ]
+      ],
+      [
+        [
+          "-4/5",
+          "-4/5"
+        ],
+        [
+          "4/5",
+          "4/5"
+        ],
+        [
+          "-4/5",
+          "4/5"
+        ]
+      ]
+    ],
+    "certificate": {
+      "masks": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "witnesses": {
+        "1": [
+          "-253/320",
+          "-509/640"
+        ],
+        "2": [
+          "-253/320",
+          "-5/32"
+        ],
+        "4": [
+          "-253/320",
+          "1007/1280"
+        ],
+        "8": [
+          "-943/4096",
+          "-397/512"
+        ],
+        "16": [
+          "-943/4096",
+          "-1887/8192"
+        ],
+        "32": [
+          "-943/4096",
+          "397/512"
+        ],
+        "64": [
+          "3153/4096",
+          "-397/512"
+        ],
+        "128": [
+          "3153/4096",
+          "-115/512"
+        ],
+        "256": [
+          "3153/4096",
+          "6305/8192"
+        ]
+      },
+      "distinct_labels": 41,
+      "x_events": 23,
+      "bands": 296,
+      "target_samples": 204,
+      "primitive_disks": 9,
+      "target_edges": 5
+    },
+    "minimum_individual_deletions": {
+      "cost": "1",
+      "mask": 1,
+      "witness": [
+        "-253/320",
+        "-509/640"
+      ]
+    },
+    "protection": {
+      "allocation": [
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9"
+      ],
+      "lambda": [
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9",
+        "1/9"
+      ],
+      "mu": "1/9",
+      "lower": "1/9",
+      "upper": "1/9",
+      "verified_optimal": true,
+      "budget": "1",
+      "unit_costs": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "minimum_domains_for_one_domain_loss": null,
+    "domain_assignment": null,
+    "independent_contact_reliability_at_p_0_1": "387420489/1000000000",
+    "critical_radii": {
+      "rules": {
+        "one_contact": {
+          "squared": "1/2",
+          "witness": [
+            "-1/2",
+            "-1/2"
+          ],
+          "prefix": 27
+        },
+        "two_contacts": {
+          "squared": "1",
+          "witness": [
+            "0",
+            "0"
+          ],
+          "prefix": 186
+        },
+        "three_contacts": {
+          "squared": "5/4",
+          "witness": [
+            "-1/2",
+            "0"
+          ],
+          "prefix": 63
+        }
+      },
+      "candidate_count": 57,
+      "line_count": 20
+    },
+    "seconds": 0.067
+  },
+  {
+    "name": "five_contact_panel",
+    "centres": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "radius": "9/5",
+    "target": [
+      [
+        [
+          "-3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "3/5"
+        ]
+      ],
+      [
+        [
+          "-3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "3/5"
+        ],
+        [
+          "-3/5",
+          "3/5"
+        ]
+      ]
+    ],
+    "certificate": {
+      "masks": [
+        19,
+        21,
+        26,
+        28
+      ],
+      "witnesses": {
+        "19": [
+          "-11/20",
+          "0"
+        ],
+        "21": [
+          "-1/12",
+          "-93/160"
+        ],
+        "26": [
+          "-1/12",
+          "93/160"
+        ],
+        "28": [
+          "11/20",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 9,
+      "bands": 96,
+      "target_samples": 36,
+      "primitive_disks": 5,
+      "target_edges": 5
+    },
+    "minimum_individual_deletions": {
+      "cost": "3",
+      "mask": 19,
+      "witness": [
+        "-11/20",
+        "0"
+      ]
+    },
+    "protection": {
+      "allocation": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ],
+      "lambda": [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      "mu": "1",
+      "lower": "1",
+      "upper": "1",
+      "verified_optimal": true,
+      "budget": "1",
+      "unit_costs": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "minimum_domains_for_one_domain_loss": 2,
+    "domain_assignment": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "independent_contact_reliability_at_p_0_1": "99639/100000",
+    "critical_radii": {
+      "rules": {
+        "one_contact": {
+          "squared": "13/25",
+          "witness": [
+            "-3/5",
+            "-2/5"
+          ],
+          "prefix": 17
+        },
+        "two_contacts": {
+          "squared": "2",
+          "witness": [
+            "0",
+            "0"
+          ],
+          "prefix": 31
+        },
+        "three_contacts": {
+          "squared": "68/25",
+          "witness": [
+            "-3/5",
+            "-3/5"
+          ],
+          "prefix": 23
+        }
+      },
+      "candidate_count": 19,
+      "line_count": 8
+    },
+    "seconds": 0.022
+  },
+  {
+    "name": "duplicated_panel",
+    "centres": [
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "radius": "9/5",
+    "target": [
+      [
+        [
+          "-3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "3/5"
+        ]
+      ],
+      [
+        [
+          "-3/5",
+          "-3/5"
+        ],
+        [
+          "3/5",
+          "3/5"
+        ],
+        [
+          "-3/5",
+          "3/5"
+        ]
+      ]
+    ],
+    "certificate": {
+      "masks": [
+        15,
+        51,
+        204,
+        240
+      ],
+      "witnesses": {
+        "15": [
+          "-11/20",
+          "0"
+        ],
+        "51": [
+          "-1/12",
+          "-93/160"
+        ],
+        "204": [
+          "-1/12",
+          "93/160"
+        ],
+        "240": [
+          "11/20",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 9,
+      "bands": 80,
+      "target_samples": 36,
+      "primitive_disks": 8,
+      "target_edges": 5
+    },
+    "minimum_individual_deletions": {
+      "cost": "4",
+      "mask": 15,
+      "witness": [
+        "-11/20",
+        "0"
+      ]
+    },
+    "protection": {
+      "allocation": [
+        "0",
+        "0",
+        "1/2",
+        "0",
+        "1/2",
+        "0",
+        "0",
+        "0"
+      ],
+      "lambda": [
+        "0",
+        "1/2",
+        "1/2",
+        "0"
+      ],
+      "mu": "1/2",
+      "lower": "1/2",
+      "upper": "1/2",
+      "verified_optimal": true,
+      "budget": "1",
+      "unit_costs": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "minimum_domains_for_one_domain_loss": 2,
+    "domain_assignment": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "independent_contact_reliability_at_p_0_1": "99960399/100000000",
+    "critical_radii": {
+      "rules": {
+        "one_contact": {
+          "squared": "2",
+          "witness": [
+            "0",
+            "0"
+          ],
+          "prefix": 255
+        },
+        "two_contacts": {
+          "squared": "2",
+          "witness": [
+            "0",
+            "0"
+          ],
+          "prefix": 255
+        },
+        "three_contacts": {
+          "squared": "68/25",
+          "witness": [
+            "-3/5",
+            "-3/5"
+          ],
+          "prefix": 63
+        }
+      },
+      "candidate_count": 9,
+      "line_count": 4
+    },
+    "seconds": 0.038
+  }
+]

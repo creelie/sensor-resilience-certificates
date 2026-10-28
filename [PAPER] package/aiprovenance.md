@@ -1,24 +1,15 @@
-# AI provenance — Sensor Coverage under Structured Failures, v3
+# AI provenance
 
-The user supplied the v2 manuscript, its presentation PDF and supplementary code/data, requested a substantial amsart revision, retained the original authors, and added Sanjeevan Singha Roy as third author. OpenAI Codex assisted with the revision's proof development and exposition, exact geometry and homology code, independent controls, data audits, figure generation, LaTeX assembly and packaging.
+Title: **Universal Support Theorems for Resilient Coverage**
 
-The revision was prepared within the existing conversation. No subagents were run for this task. This statement records work performed; it does not expose private reasoning or represent a machine-generated text as exclusively human-written.
+Authors: **Deep Bhattacharjee · Ushashi Bhattacharya · Sanjeevan Singha Roy**. Deep is first and corresponding author.
 
-## Materials
+The submitting user explicitly declared **all parts checked and understood by a human** and **a mix of human-written and AI-generated text** on 28 October 2026. This file records those declarations without converting them into a claim of independent peer review or proof-assistant verification.
 
-- Original v2: https://doi.org/10.20944/preprints202606.1351.v2
-- Required related archive: https://doi.org/10.5281/zenodo.23731783
-- Supplied presentation, manuscript ZIP and supplementary ZIP; hashes in `data/source-provenance.json`.
-- Primary published or institutional sources for the nerve, Dowker, multicover and triangulation references.
+OpenAI Codex assisted with developing and writing mathematical arguments, supplementary exact code and controls, diagrams, typesetting, literature checks and packaging. The main manuscript contains analytical proofs and symbolic examples. Numerical benchmarks were separated from it. The optional programs do not replace a proof. No subagents were used for this task.
 
-## Assistance and checks
+The central proposed contribution is a common-convex support theorem whose finite support set is independent of the monotone rule and shared convex term, together with exact geometric resilience consequences. Classical nerve, arrangement, lattice-polynomial, reliability and LP foundations are cited explicitly. Priority of the full synthesis and journal suitability remain matters for independent specialist assessment.
 
-The new proofs were written out in the manuscript. The geometry and chain computations were actually executed. Ten unittest controls passed; the independent field audit checked 619,080 pairs and triples and recomputed all five two-fold boundary ranks with a different representation and pivot order. The dense result is (b0,b1)=(5,6). PDF generation and source-ZIP compilation are recorded separately.
+The paper cites the required DOI 10.5281/zenodo.23731783 with its original authors and includes the requested permitted author references. No Qeios, Authoria or arXiv source appears in its bibliography. The manuscript does not insert an external article or rely on an unproved external preprint as a theorem premise.
 
-These checks are not a Lean formalization and do not establish that a human has checked every part. Human-understanding and coauthor-approval declarations must be selected or confirmed by the authors themselves.
-
-## Scope and citation discipline
-
-Classical multicover and Dowker results are credited, not presented as newly discovered general theorems. The required DOI is identified as the related ECoG archive rather than the DOI of this v3. The requested Research Square, Preprints.org, SSRN and journal references are included with verified bibliographic identities; contextual self-citations are not mathematical premises. No Qeios, Authoria or arXiv work is cited in the manuscript.
-
-No claim of guaranteed journal acceptance, an unrelated conjecture resolution, or an independently certified revolutionary result is made. The public release is a research revision available for inspection.
+The supplied source archives and previous work remain credited. No private model reasoning or fabricated human review report is included. No new DOI or submission identifier is invented.

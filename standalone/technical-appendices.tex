@@ -1,0 +1,176 @@
+\appendix
+\section{Order maps and the comparison homotopies}
+\label{app:posets}
+We spell out the finite order argument used in \cref{thm:duality}. For a poset $P$, its order complex has vertices $p\in P$ and simplices the nonempty chains. An order-preserving map sends chains to chains, possibly with repetitions; deleting repetitions gives a simplicial map. An order-reversing map does the same after reversing the order of the image chain. The order complexes of a poset and its opposite are therefore the same abstract complex.
+
+\begin{lemma}[Order comparison homotopy]\label{lem:order-homotopy}
+If $a,b:P\to Q$ are order-preserving maps of finite posets with $a(p)\le b(p)$ for all $p$, their induced maps on realizations are homotopic.
+\end{lemma}
+\begin{proof}
+The map $H:P\times\{0<1\}\to Q$ defined by $H(p,0)=a(p)$ and $H(p,1)=b(p)$ is order preserving. The only mixed comparison needing verification is $(p,0)\le(p',1)$, which implies $p\le p'$ and hence $a(p)\le a(p')\le b(p')$. The order complex of this product triangulates each prism over a chain of $P$: a chain $p_0<\cdots<p_s$ is crossed with an interval and split at each possible transition from level zero to level one. These prism triangulations agree on shared faces. Realizing $H$ gives a continuous homotopy from the realization of $a$ to that of $b$.
+\end{proof}
+
+The maps $g f$ and $f g$ of \cref{eq:f-map,eq:g-map} are order preserving and lie above the identity. Applying \cref{lem:order-homotopy} gives both homotopies required there. This avoids choosing a maximal face for each simplex, which would obscure naturality when the failure rule changes.
+
+An alternative intermediate model is the order complex of the winning-face poset $\cP_{\F}$. Define
+\[
+u:Q_\Gamma\longrightarrow\cP_{\F},\qquad u(A)=\bigcup_{\sigma\in A}\sigma,
+\]
+and
+\[
+t:\cP_{\F}\longrightarrow Q_\Gamma,\qquad
+t(\sigma)=\{\tau\in\cP_{\F}:\tau\subseteq\sigma\}.
+\]
+These are order preserving, $u t$ is the identity, and $A\subseteq t u(A)$. Thus $\Gamma_{\F}$ is also homotopy equivalent to the winning-face order complex. For the cardinality rule, this is the subcomplex of the barycentric nerve subdivision on faces of size at least $k$, connecting the present formulation directly to the classical multicover nerve~\cite{sheehy}. The map $u$ commutes with inclusions of winning-face sets at fixed $N$.
+
+\section{A chain comparison for the disk covers}
+\label{app:nerve}
+This appendix explains the natural homology statement in the semialgebraic disk setting without treating an arbitrary closed cover as an open good cover. A finite family of compact semialgebraic sets admits a common finite compatible triangulation~\cite{realalgebraic,bauer}. Apply this to the finitely many disk intersections appearing in the secondary covers under consideration. Each such set is represented by a subcomplex of a common finite complex $L$. Every nonempty finite intersection remains contractible because it is convex before triangulation.
+
+Index one cover by a finite set $I$, write $L_i$ for its subcomplexes and $L_A=\bigcap_{i\in A}L_i$. Over a field, form the double-chain groups
+\begin{equation}\label{eq:double-chain}
+E_{p,q}=\bigoplus_{\substack{A\subseteq I\\|A|=p+1}}C_q(L_A),\qquad p,q\ge0,
+\end{equation}
+omitting empty intersections. The vertical boundary is the simplicial boundary of $L_A$. The horizontal boundary is the alternating sum of inclusions obtained by dropping one index of $A$. The standard total sign convention makes the total differential square to zero; over $\FF$ the signs disappear.
+
+Augment horizontally to the chain complex of the union. For a fixed simplex $s$ of the union, let $I_s=\{i:s\in L_i\}$. This set is nonempty. Its copies in the augmented row of \cref{eq:double-chain} form precisely the augmented chain complex of the full simplex on $I_s$. That complex is exact: fixing one index in $I_s$ and adjoining it gives a contracting homotopy. Splitting the row over the simplices $s$ proves horizontal exactness. Thus the total chain complex computes the homology of the union.
+
+In the other direction, take vertical homology first. Each nonempty $L_A$ is contractible, so it has one-dimensional ordinary $H_0$ and zero higher homology. Sending every vertex of a connected $L_A$ to $1$ identifies its $H_0$ with the coefficient field compatibly with inclusion. The remaining horizontal complex is exactly the simplicial chain complex of the nerve. The two filtrations of the finite double complex therefore identify nerve homology with union homology. This can be expressed as the two elementary finite spectral-sequence comparisons, or by successive elimination of the exact augmented rows and the positive-degree acyclic columns.
+
+If a cover subfamily is included in a larger cover, the same triangulation can be used for both, and inclusion of summands in \cref{eq:double-chain} commutes with both augmentations. Hence the resulting homology isomorphisms are natural. No human choice of one witness point per nerve simplex enters the induced homology comparison. The general closed-convex homotopy theorem used in \cref{thm:duality} is the standard theorem cited in~\cite{bauer}; this appendix supplies a detailed homological explanation for the disks actually computed.
+
+\section{Boundary arithmetic and exact input semantics}
+\label{app:arithmetic}
+\subsection{Binary columns over \texorpdfstring{$\FF$}{F2}}
+Number the dual edges from zero to $E-1$. A triangle with edge indices $a,b,c$ has boundary column
+\[
+z=2^a\mathbin{\oplus}2^b\mathbin{\oplus}2^c,
+\]
+where $\oplus$ is bitwise exclusive-or. This is simply an encoding of a vector in $\FF^E$; it is not integer linear algebra. Each edge has two vertex endpoints, so applying the edge boundary to a triangle boundary counts every vertex twice. Therefore $\partial_1\partial_2=0$.
+
+To compute the rank, maintain at most one pivot column for each leading nonzero row. A new column is repeatedly added to the stored column with the same leading row until it becomes zero or acquires a previously unused leading row. In the latter case store it. Every reduction step preserves the span of columns seen so far. Stored columns have distinct leading rows and are linearly independent. Each processed column is in their span, so the number stored is exactly the boundary rank. Termination follows because the leading nonzero row strictly decreases in the main implementation.
+
+One may instead represent columns by sets and use the smallest nonzero row. That leading row strictly increases. The same span invariant proves correctness for every finite input, independently of the chosen representation or pivot direction.
+
+\subsection{Rational comparisons and equality}
+A finite binary64 number is a rational of the form $m2^e$. The input conversion preserves that value as a Python \texttt{Fraction}. Products, sums and divisions in \cref{eq:circle-parameters,eq:quadratic-membership,eq:mec} therefore have exact integer numerators and denominators. The only radicals are eliminated by the signed comparisons of \cref{lem:sign}. Unconditional squaring would be wrong when the compared sides have uncontrolled signs; the sign cases are part of the algorithm.
+
+The geometry API explicitly converts supplied numerical values to binary64 before making their rational representations. Passing a rational with a non-dyadic denominator to that API does not request symbolic preservation of the original rational; it requests exact treatment of its binary64 conversion. The abstract rational algorithm of \cref{thm:algorithm} can instead be implemented with rational inputs directly. The rational analytical statements are independent of either software input convention.
+
+No geometric epsilon is used to merge circles, enlarge radii or decide tangency. Equal centers are tested as exact rational pairs. Coincident disks retain distinct labels because a failure model can distinguish the two contacts even when their geometry is identical. Equality in a closed-disk test is accepted. The companion archive's open-disk routines~\cite{ecog} use strict inequalities, so they must not be interchanged without specifying the convention.
+
+\section{Counterexamples to stronger interpretations}
+\label{app:counterexamples}
+\begin{example}[Hole-free does not imply target coverage]
+Let $D_1$ be the unit disk at the origin and let the target be the unit disk centered at $(10,0)$. The ordinary covered region is contractible and has $b_1=0$, but its intersection with the target is empty. No theorem using only the absolute Betti numbers of the covered region can certify containment of every possible externally supplied target.
+\end{example}
+
+\begin{example}[Pairwise overlap does not determine a triangle]
+Three disks centered at the vertices of an equilateral triangle of side $d$ overlap pairwise when $r\ge d/2$, but share a common point only when $r\ge d/\sqrt3$. For $d/2<r<d/\sqrt3$, their nerve contains a cycle without a filled triangle. Replacing the nerve by the flag complex of pairwise overlaps changes $H_1$. The same issue appears again in the facet-intersection model, as noted after \cref{prop:two-skeleton}.
+\end{example}
+
+\begin{example}[Geometric uncertainty can hide temporary homology]
+Even when an inner region and an outer region are both disks, an intermediate subset containing the inner disk and contained in the outer disk can be an annulus attached to that disk, or a disk with a separate small component. Thus knowledge of endpoint Betti numbers alone does not determine all intermediate Betti numbers. The rank lower bound after \cref{thm:stability} is the conclusion that follows from the factorization; a stronger exactness assertion would require additional hypotheses.
+\end{example}
+
+\section{Finite minimax and rational protection certificates}
+\label{app:minimax}
+We give the finite minimax argument used in \cref{thm:protection}. This is a classical duality principle. The proof is included to make the verification inequalities and their attainment transparent.
+
+\begin{lemma}[Finite matrix minimax]
+For any real $m\times n$ matrix $B$,
+\[
+\max_{x\in\Delta_n}\min_{a\in[m]}(Bx)_a
+=\min_{\lambda\in\Delta_m}\max_{i\in[n]}(\lambda^TB)_i.
+\]
+\end{lemma}
+\begin{proof}
+Call the left value $v$. For every $x$ and $\lambda$, the minimum coordinate of $Bx$ is at most $\lambda^TBx$, which is at most the maximum coordinate of $\lambda^TB$. This gives the weak inequality.
+
+For the converse, let $P$ be the convex hull of the columns of $B$, and fix $t>v$. The compact convex set $P$ is disjoint from $K_t=\{u\in\R^m:u_a\ge t\text{ for all }a\}$. Their distance is positive and is attained at a pair $(z_0,u_0)$. Indeed, distance to a closed set is continuous on compact $P$, and the nearest point in $K_t$ to a given $z$ is obtained by replacing each coordinate below $t$ by $t$.
+
+Put $b=u_0-z_0\ne0$. First-order comparison of squared distances along segments in $P$ and $K_t$ gives
+\[
+b\cdot z\le b\cdot z_0\quad(z\in P),\qquad
+b\cdot u\ge b\cdot u_0\quad(u\in K_t).
+\]
+Since $K_t$ contains $u_0+s e_a$ for $s\ge0$, each $b_a\ge0$. Normalize $\lambda=b/(\sum_a b_a)$. Then $\lambda\in\Delta_m$. The separating inequalities are strict between $z_0$ and $u_0$, because their scalar-product difference is $\|b\|^2>0$. The minimum of $\lambda\cdot u$ on $K_t$ is $t$, so
+\[
+\max_i(\lambda^TB)_i=\max_{z\in P}\lambda\cdot z<t.
+\]
+Take a sequence $t\downarrow v$ and use compactness of $\Delta_m$ and continuity of the finite coordinate maximum. A limiting $\lambda$ gives dual value at most $v$, proving the reverse inequality and attainment.
+\end{proof}
+
+For rational protection data, the primal can be restricted to a bounded rational polytope by using $c_i\le C/d_i$ and $0\le t\le C/\min_i d_i$. A maximizing face has a vertex obtained by solving independent active constraints, so a rational optimum exists. The dual has a rational optimal vertex after imposing any known feasible upper bound on $\mu$. Rational certificates are therefore appropriate exact objects for this model, although recovering them from a numerical hint may fail in a particular implementation.
+
+\subsection{A checker independent of the LP solver}
+Given a cut list and rational arrays $c$, $\lambda$, $d$ and numbers $C,\mu$, a checker verifies:
+\begin{enumerate}
+\item $c_i\ge0$, $d_i>0$, $\sum_i d_i c_i\le C$;
+\item $\lambda_A\ge0$ and $\sum_A\lambda_A=1$;
+\item $\sum_{A\ni i}\lambda_A\le\mu d_i$ for every contact;
+\item $\min_A c(A)=C\mu$.
+\end{enumerate}
+The weak-duality chain in \cref{thm:protection} proves optimality from these finite checks. The checker need not trust a simplex basis, floating-point tolerance or solver implementation. It does depend on the completeness of the geometric cut list, which is justified separately by \cref{thm:sweep} or \cref{cor:all-radii}.
+
+\section{Direct derivations for the four-corner panel}
+\label{app:worked}
+Let $a=3/5$, let $T=[-a,a]^2$, and place the four sites at $(\pm1,\pm1)$. For a target point write $u=\max\{|x|,|y|\}$ and $v=\min\{|x|,|y|\}$. Then $0\le v\le u\le a$. The ordered squared distances are
+\begin{align*}
+d_1^2&=2+u^2+v^2-2u-2v,\\
+d_2^2&=2+u^2+v^2-2u+2v,\\
+d_3^2&=2+u^2+v^2+2u-2v,\\
+d_4^2&=2+u^2+v^2+2u+2v.
+\end{align*}
+Each is convex on the triangle with vertices $(0,0)$, $(a,0)$ and $(a,a)$, so its maximum there is attained at a vertex. It follows that
+\[
+\max_T d_1^2=2,\qquad
+\max_T d_2^2=2+2a^2=68/25,
+\]
+\[
+\max_T d_3^2=2+2a+a^2=89/25,\qquad
+\max_T d_4^2=2+4a+2a^2=128/25.
+\]
+These give all four contact thresholds independently of the support algorithm, including every step of \cref{eq:panel-staircase}.
+
+At any generic target point the two nearest corners share an edge. At a tie, the active group contains such a pair. Since $(9/5)^2>68/25$, every active set at nominal radius $9/5$ contains an adjacent pair. At $(-11/20,0)$ the squared distances to the left corners are $481/400$, while those to the right corners are $1361/400$. They lie on opposite sides of $81/25=1296/400$, giving exactly the left pair. The three symmetric locations give the other adjacent pairs. This proves \cref{eq:panel-cuts} directly.
+
+\subsection{Column and diagonal domains}
+To tolerate a column-domain loss, either column alone must cover $T$. The farthest target point from the nearer site in a surviving column is the midpoint of the opposite target edge. Its squared distance is $(1+a)^2+1=89/25$.
+
+For the diagonal containing $(1,1)$ and $(-1,-1)$, the nearer squared distance is
+\[
+2+x^2+y^2-2|x+y|.
+\]
+On each side of the line $x+y=0$ this is a squared norm to one fixed corner, hence convex. Its maximum over the two triangular halves of $T$ occurs at their vertices, giving $2+2a^2=68/25$. The other diagonal has the same value. These calculations prove the distinct domain thresholds directly.
+
+\subsection{Box displacement uncertainty}
+Give every site independent coordinate errors in $[-b,b]^2$ with $b=1/10$. Throughout $T$, the farthest allowed center for a corner site is its outward shifted corner $(\pm(1+b),\pm(1+b))$. This follows coordinatewise because target coordinates stay strictly between the nominal corner coordinates. Thus, restricted to $T$, the guaranteed distance for each physical contact is the distance to that one outward center.
+
+Repeating the ordered-distance calculation with corner magnitude $1+b$ gives the two-contact critical square
+\[
+2(1+b)^2+2a^2=2(11/10)^2+2(3/5)^2=157/50.
+\]
+This independently verifies the sixteen-primitive bundle computation. The reduction to one outward corner is special to this target's position inside the nominal square; the general uncertainty algorithm keeps all four box vertices.
+
+\subsection{The three target patches}
+For the three-asset example, the farthest point of each triangular patch from either of its two intended centers is one of the patch vertices, by convexity of squared distance. Direct substitution gives values below $(6/5)^2$. At the patch about $(0,0)$, every point has distance at least $3/2-\sqrt2/20>6/5$ from the third center. At the other patches the corresponding pair midpoint has distance $\sqrt{45}/4$ from the excluded center, and subtracting $\sqrt2/20$ still exceeds $6/5$. Hence each patch has exactly its intended pair of active contacts. The three masks and odd-cycle obstruction follow.
+
+The exact state reliability is $1-3p^2+2p^3$. The protection allocation and dual distribution both equal $(1/3,1/3,1/3)$, with value $2/3$. Thus the geometry, coloring, reliability and optimization conclusions for this example each have a direct derivation as well as an executable control.
+
+\section{Support degeneracies and boundary conventions}
+\label{app:support-degeneracy}
+\subsection{Coincident sites}
+Coincident physical contacts have equal distance functions everywhere but can have different failure labels. The support proof groups their equal geometric positions while retaining every label in the winning predicate. A collection of coincident sites supplies no independent bisector equations. If fewer than $f$ independent restricted differences occur at a candidate maximizer on an $f$-face, the tangent-direction contradiction in \cref{thm:support-radius} still applies.
+
+\subsection{Collinear triples}
+In the plane, three distinct collinear centers cannot all be at the same distance from a point, since a circle meets a line in at most two points. They therefore do not determine a finite circumcenter and are skipped by the support construction. A nonsingular triple uses two exact linear equations. Near-collinearity changes rational denominator sizes but does not justify replacing the determinant by a tolerance.
+
+\subsection{An edge coinciding with a bisector}
+If a target edge lies on a site-pair bisector, that equality gives no isolated support point on the edge. Along it, the two distances remain equal and their common square is a strictly convex quadratic in an edge parameter. A relative interior maximum therefore requires a further threshold tie, or else occurs at an endpoint. The extra tie yields a triple support; the endpoints are already supplied target vertices. This is the rank test in \cref{thm:support-radius}, not a missing numerical special case.
+
+\subsection{Why open footprints change the fixed-radius question}
+For closed footprints, coverage at the critical common radius is accepted: $r\ge r_w^*$. With open disks, equality may fail at a maximizing witness. Moreover, interior-cell masks alone need not describe coverage of all target boundary points by open sets. The vertical target theorem and its closed-set witness lemma are therefore not silently transferred to strict inequalities.
+
+\subsection{Why lower-dimensional targets need their own strata}
+An isolated target point on a disk tangency can have an active mask absent from every two-dimensional cell. A target containing a line segment as a separate appendage can have the same issue on that segment. The regular-closed target hypothesis excludes these cases from the full-dimensional sweep. The common-radius support theorem itself can be applied face by face to prescribed simplices of the appropriate dimension, but that is a different stratified input specification.

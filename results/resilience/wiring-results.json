@@ -1,0 +1,85 @@
+{
+  "columns": {
+    "colors": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "domain_certificate": {
+      "masks": [
+        1,
+        2
+      ],
+      "witnesses": {
+        "1": [
+          "-11/20",
+          "0"
+        ],
+        "2": [
+          "11/20",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 9,
+      "bands": 80,
+      "target_samples": 36,
+      "primitive_disks": 4,
+      "target_edges": 5
+    },
+    "minimum_domain_deletions": {
+      "cost": "1",
+      "mask": 1,
+      "witness": [
+        "-11/20",
+        "0"
+      ]
+    },
+    "reliability_at_p_0_1": "81/100",
+    "critical_radius_squared": "89/25",
+    "worst_point": [
+      "-3/5",
+      "0"
+    ]
+  },
+  "diagonal": {
+    "colors": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "domain_certificate": {
+      "masks": [
+        3
+      ],
+      "witnesses": {
+        "3": [
+          "-11/20",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 9,
+      "bands": 80,
+      "target_samples": 36,
+      "primitive_disks": 4,
+      "target_edges": 5
+    },
+    "minimum_domain_deletions": {
+      "cost": "2",
+      "mask": 3,
+      "witness": [
+        "-11/20",
+        "0"
+      ]
+    },
+    "reliability_at_p_0_1": "99/100",
+    "critical_radius_squared": "68/25",
+    "worst_point": [
+      "-3/5",
+      "-3/5"
+    ]
+  }
+}

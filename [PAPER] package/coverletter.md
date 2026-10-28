@@ -1,15 +1,13 @@
-# Cover letter draft
+To the Editors,
 
-To the Editors of the Journal of Applied and Computational Topology,
+Please consider **Universal Support Theorems for Resilient Coverage**, by Deep Bhattacharjee, Ushashi Bhattacharya and Sanjeevan Singha Roy.
 
-Please consider **Sensor Coverage under Structured Failures**, by Deep Bhattacharjee, Ushashi Bhattacharya and Sanjeevan Singha Roy, as a research article.
+The paper proves a finite support theorem for monotone combinations of functions with a common convex part and affine differences. The finite support set works for every monotone rule and every continuous common convex term. The geometric applications include exact common-radius and unequal-footprint power thresholds, canonical target certificates, failure-budget frontiers and independently uncertain placements. Protection allocation has exact primal–dual certificates. The proofs and engineering examples are analytical.
 
-The manuscript studies sensor coverage that survives a prescribed downward-closed family of contact failures, including weighted budgets and losses of complete fault domains. It presents explicit comparisons between the geometric region and a complex on maximal nerve faces, proves a disk-witness enumeration bound, and gives an exact sufficient certificate for continuous coverage of a triangulated target. The underlying nerve and Dowker theory is credited to the established literature.
+The paper develops the arguments in detail and supplies vector diagrams, footnotes and appendices. It credits the established arrangement, lattice-polynomial, topological and reliability foundations. Related work is cited at https://doi.org/10.5281/zenodo.23731783 and https://doi.org/10.20944/preprints202606.1351.v2. The article is presented as a standalone contribution.
 
-The computational part completes a dense example left unfinished in our earlier preprint. For the supplied 95-disk field, two-fold coverage has Betti numbers (5,6), obtained from the complete dual two-skeleton and independently checked boundary rank. The revision also corrects an earlier confusion between shadow vertices and edges and separates target containment from absolute homology. Source code, data, exact arithmetic conventions and verification records accompany the manuscript.
+No external funding was received, and the authors declare no competing interests. Ethics approval is not applicable to this mathematical work. Generative assistance is disclosed in the manuscript and provenance file.
 
-The earlier two-author version is available at https://doi.org/10.20944/preprints202606.1351.v2. The new title and third author are recorded in the revision history. The related ECoG archive is cited at https://doi.org/10.5281/zenodo.23731783 with its original authors.
+The authors must confirm the journal's coauthor-approval and submission-exclusivity statements at the time of submission; this draft does not invent those attestations.
 
-**Before use, the authors should insert their actual coauthor-approval, exclusivity, competing-interest and funding statements. This draft does not attest to those facts.**
-
-Correspondence: Deep Bhattacharjee, itsdeep@live.com.
+Corresponding author: **Deep Bhattacharjee***, **itsdeep@live.com**.

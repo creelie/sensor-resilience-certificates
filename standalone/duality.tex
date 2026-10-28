@@ -1,0 +1,93 @@
+\section{The facet-intersection model}
+\label{sec:duality}
+Let $N$ be the nerve of a finite family of nonempty compact convex sets. Every face lies in a maximal face. Empty footprints can be removed beforehand without changing any pointwise active set on the remaining labels. Keep the failure rule restricted to those labels.
+
+\begin{definition}
+The \emph{winning-face complex} $\Gamma_{\F}(N)$ has one vertex for each $\sigma\in\cP_{\F}$. A nonempty collection $A$ of its vertices is a simplex if
+\begin{equation}\label{eq:Gamma}
+\bigcup_{\sigma\in A}\sigma\in N.
+\end{equation}
+With $\M=\Max N$, the \emph{facet-intersection complex} has nonempty faces
+\begin{equation}\label{eq:dual-intro}
+\cC_{\F}(N)=\{B\subseteq\M:B\ne\varnothing,\ \bigcap_{M\in B}M\notin\F\}.
+\end{equation}
+\end{definition}
+Upward closure of winning sets implies that \cref{eq:dual-intro} is closed under taking nonempty subsets of $A$: removing a maximal face makes the intersection larger. Thus it does define an abstract simplicial complex. In contrast, enlarging a contact set in $N$ need not preserve being a face, so the directions of the union and intersection tests must not be reversed.
+
+\begin{theorem}[Coverage duality]\label{thm:duality}
+For compact convex footprints and any failure family,
+\begin{equation}\label{eq:homotopy-chain}
+R_{\F}\simeq\abs{\Gamma_{\F}(N)}\simeq\abs{\cC_{\F}(N)}.
+\end{equation}
+The combinatorial equivalence is an instance of Dowker duality~\cite{dowker,chowdhury} for the containment relation between winning faces and maximal nerve faces. It does not require a bound on the sizes of those faces.
+\end{theorem}
+\begin{proof}
+By \cref{prop:pointwise}, the sets $D_\sigma$, indexed by $\sigma\in\cP_{\F}$, cover $R_{\F}$. A finite intersection of these sets is
+\[
+\bigcap_{\sigma\in A}D_\sigma=D_{\bigcup_{\sigma\in A}\sigma}.
+\]
+It is nonempty exactly when \cref{eq:Gamma} holds, and when nonempty it is compact and convex. The finite closed-convex nerve theorem therefore identifies its nerve $\Gamma_{\F}(N)$ with $R_{\F}$ up to homotopy. The closed-convex hypothesis is used here; an arbitrary cover by closed contractible sets would not justify the same argument~\cite{bauer}.
+
+For completeness, we prove the combinatorial equivalence by explicit maps. Let $Q_\Gamma$ and $Q_C$ be the nonempty face posets of $\Gamma_{\F}(N)$ and $\cC_{\F}(N)$. Set
+\begin{align}
+f(A)&=\left\{M\in\M:\bigcup_{\sigma\in A}\sigma\subseteq M\right\},\label{eq:f-map}\\
+g(B)&=\left\{\sigma\in\cP_{\F}:\sigma\subseteq\bigcap_{M\in B}M\right\}.\label{eq:g-map}
+\end{align}
+For a face $A$, its union is in $N$, so $f(A)$ is nonempty. The intersection of all members of $f(A)$ contains that union, which contains a winning face. Hence $f(A)$ is a face of $\cC_{\F}$. For a face $B$, its intersection $I_B$ is a winning face of $N$. In particular, $I_B\in g(B)$, and the union of all members of $g(B)$ is exactly $I_B$. Thus $g(B)$ is a nonempty face of $\Gamma_{\F}$.
+
+Both maps reverse inclusion. Their composites preserve inclusion and satisfy
+\begin{equation}\label{eq:closure-inequalities}
+A\subseteq g f(A),\qquad B\subseteq f g(B).
+\end{equation}
+For the first inclusion, each $\sigma\in A$ lies in every maximal face containing the union of $A$. For the second, $\bigcup g(B)=I_B$ lies in every $M\in B$.
+
+An order-preserving map pointwise above the identity induces a map homotopic to the identity on the order complex; a proof by prisms is given in \cref{app:posets}. An order-reversing map also induces a simplicial map on order complexes, by reversing the order of each image chain. Applying this observation to \cref{eq:closure-inequalities}, the realizations of $f$ and $g$ are mutually inverse up to homotopy. The order complexes are the barycentric subdivisions of $\Gamma_{\F}$ and $\cC_{\F}$, whose realizations are homeomorphic to those of the original complexes.
+
+If there is no winning nerve face, all three spaces are empty by definition and the assertion is immediate.
+\end{proof}
+
+\begin{corollary}[Minimal-coalition shadow]\label{cor:minimal}
+Let $\Lambda_{\F}=\Min\W\cap N$. Form a complex on $\Lambda_{\F}$ by declaring $A$ a face when $\bigcup_{\sigma\in A}\sigma\in N$. Its realization is homotopy equivalent to $R_{\F}$ and to $\abs{\cC_{\F}(N)}$. For $\F=\F_{k-1}$ this is exactly the $k$-shadow $\Delta_k(N)$.
+\end{corollary}
+\begin{proof}
+The subfamily $(D_\sigma)_{\sigma\in\Lambda_{\F}}$ is still a finite convex cover of $R_{\F}$ by \cref{eq:region-unions}. Its nerve is the stated union complex. Apply the same closed-convex nerve theorem and \cref{thm:duality}.
+\end{proof}
+
+Using every winning face in $\Gamma_{\F}$ is convenient for naturality but unnecessary in the implementation. Using only minimal winners is often still expensive. The dual complex evaluates the predicate only on intersections of maximal nerve faces and does not list either collection of coalitions.
+
+\begin{theorem}[Increasing failure families]\label{thm:natural}
+Fix the footprints, their nerve $N$ and its full set of maximal faces $\M$. If $\F_1\subseteq\F_2$, there are inclusions
+\[
+\Gamma_{\F_2}\subseteq\Gamma_{\F_1},\qquad
+\cC_{\F_2}\subseteq\cC_{\F_1},\qquad
+R_{\F_2}\subseteq R_{\F_1}.
+\]
+For every homological degree and fixed coefficient field the isomorphisms in \cref{thm:duality} can be taken natural for these inclusions. Therefore a nested sequence of failure families gives isomorphic homology persistence modules in the geometric and dual models.
+\end{theorem}
+\begin{proof}
+A face winning against $\F_2$ wins against $\F_1$, proving the first two inclusions directly from their defining tests. The region inclusion is \cref{lem:monotonicity}. On nonempty face posets the map $f$ in \cref{eq:f-map} is independent of the failure family: it lists all maximal faces containing a given union. Hence its square with the two inclusion maps commutes exactly. Since $f$ is an objectwise homotopy equivalence, it induces a natural homology isomorphism.
+
+The convex cover for $\F_2$ is a subfamily of the one for $\F_1$, with the same geometric set attached to each surviving index. The functorial closed-convex nerve theorem supplies natural homology isomorphisms for this inclusion. In the disk setting, compatible semialgebraic triangulations and the double-chain comparison in \cref{app:nerve} give an additional chain-level explanation. Composing the two comparisons proves the assertion.
+\end{proof}
+
+\begin{remark}[Changing geometry]
+Maximal nerve faces can change when radii or positions change. The literal vertex sets of the corresponding facet-intersection complexes then need not be nested. \Cref{thm:natural} fixes the geometry; it does not assert a raw simplicial inclusion for moving radii. Geometric perturbation inclusions are proved in \cref{sec:certificates}, and standard multicover bifiltrations already address simultaneous radius and multiplicity parameters~\cite{corbet,alonso}.
+\end{remark}
+
+\begin{proposition}[Two-skeleton sufficiency]\label{prop:two-skeleton}
+For any finite complex $K$, its full two-skeleton determines $H_0(K;\FF)$ and $H_1(K;\FF)$. If its graph has $V$ vertices, $E$ edges and $c$ components, then
+\begin{equation}\label{eq:betti-formula}
+b_0=c,\qquad b_1=E-V+c-\rank\partial_2.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The chain groups and boundary maps relevant to degrees zero and one are
+\[
+C_2(K;\FF)\xrightarrow{\partial_2}C_1(K;\FF)\xrightarrow{\partial_1}C_0(K;\FF).
+\]
+Higher-dimensional simplices do not change these maps. In the graph of $K$, the incidence matrix has rank $V-c$: a spanning tree gives rank $v-1$ on a connected component with $v$ vertices, and every additional edge has boundary equal to the sum of boundaries along its tree path. Thus $\dim\ker\partial_1=E-V+c$. Quotient by $\im\partial_2$ to obtain \cref{eq:betti-formula}.
+\end{proof}
+
+\begin{example}[The dual complex need not be a flag complex]
+Take maximal nerve faces $M_1=\{1,2\}$, $M_2=\{2,3\}$ and $M_3=\{1,3\}$, with the rule that one contact suffices. Every pair of maximal faces intersects in a winning singleton, but all three have empty intersection. The dual complex has three edges and no triangle. Filling its graph clique would erase its first homology. The implementation checks the three-fold facet intersection for every candidate triangle.
+\end{example}

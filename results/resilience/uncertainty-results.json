@@ -1,0 +1,321 @@
+[
+  {
+    "type": "independent_displacement_balls",
+    "error": "0",
+    "certificate": {
+      "masks": [
+        3,
+        5,
+        10,
+        12
+      ],
+      "witnesses": {
+        "3": [
+          "-11/20",
+          "0"
+        ],
+        "5": [
+          "-1/12",
+          "-93/160"
+        ],
+        "10": [
+          "-1/12",
+          "93/160"
+        ],
+        "12": [
+          "11/20",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 9,
+      "bands": 80,
+      "target_samples": 36,
+      "primitive_disks": 4,
+      "target_edges": 5
+    },
+    "minimum_deletions": {
+      "cost": "2",
+      "mask": 3,
+      "witness": [
+        "-11/20",
+        "0"
+      ]
+    }
+  },
+  {
+    "type": "independent_displacement_balls",
+    "error": "1/10",
+    "certificate": {
+      "masks": [
+        3,
+        5,
+        10,
+        12
+      ],
+      "witnesses": {
+        "3": [
+          "-493/960",
+          "0"
+        ],
+        "5": [
+          "-149/384",
+          "-1523/2560"
+        ],
+        "10": [
+          "-149/384",
+          "1523/2560"
+        ],
+        "12": [
+          "149/384",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 9,
+      "bands": 80,
+      "target_samples": 44,
+      "primitive_disks": 4,
+      "target_edges": 5
+    },
+    "minimum_deletions": {
+      "cost": "2",
+      "mask": 3,
+      "witness": [
+        "-493/960",
+        "0"
+      ]
+    }
+  },
+  {
+    "type": "independent_displacement_balls",
+    "error": "1/5",
+    "certificate": {
+      "masks": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "witnesses": {
+        "1": [
+          "-93/160",
+          "-189/320"
+        ],
+        "2": [
+          "-93/160",
+          "93/160"
+        ],
+        "4": [
+          "1105/2048",
+          "-281/512"
+        ],
+        "8": [
+          "1105/2048",
+          "2201/4096"
+        ]
+      },
+      "distinct_labels": 13,
+      "x_events": 11,
+      "bands": 100,
+      "target_samples": 56,
+      "primitive_disks": 4,
+      "target_edges": 5
+    },
+    "minimum_deletions": {
+      "cost": "1",
+      "mask": 1,
+      "witness": [
+        "-93/160",
+        "-189/320"
+      ]
+    }
+  },
+  {
+    "type": "independent_displacement_balls",
+    "error": "3/10",
+    "certificate": {
+      "masks": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "witnesses": {
+        "1": [
+          "-11/20",
+          "-23/40"
+        ],
+        "2": [
+          "-11/20",
+          "83/160"
+        ],
+        "4": [
+          "155/384",
+          "-217/512"
+        ],
+        "8": [
+          "155/384",
+          "601/1536"
+        ]
+      },
+      "distinct_labels": 13,
+      "x_events": 13,
+      "bands": 112,
+      "target_samples": 64,
+      "primitive_disks": 4,
+      "target_edges": 5
+    },
+    "minimum_deletions": {
+      "cost": "1",
+      "mask": 1,
+      "witness": [
+        "-11/20",
+        "-23/40"
+      ]
+    }
+  },
+  {
+    "type": "independent_displacement_boxes",
+    "halfwidth": "1/10",
+    "primitive_centres": [
+      [
+        "-11/10",
+        "-11/10"
+      ],
+      [
+        "-11/10",
+        "-9/10"
+      ],
+      [
+        "-9/10",
+        "-11/10"
+      ],
+      [
+        "-9/10",
+        "-9/10"
+      ],
+      [
+        "-11/10",
+        "9/10"
+      ],
+      [
+        "-11/10",
+        "11/10"
+      ],
+      [
+        "-9/10",
+        "9/10"
+      ],
+      [
+        "-9/10",
+        "11/10"
+      ],
+      [
+        "9/10",
+        "-11/10"
+      ],
+      [
+        "9/10",
+        "-9/10"
+      ],
+      [
+        "11/10",
+        "-11/10"
+      ],
+      [
+        "11/10",
+        "-9/10"
+      ],
+      [
+        "9/10",
+        "9/10"
+      ],
+      [
+        "9/10",
+        "11/10"
+      ],
+      [
+        "11/10",
+        "9/10"
+      ],
+      [
+        "11/10",
+        "11/10"
+      ]
+    ],
+    "bundles": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        12,
+        13,
+        14,
+        15
+      ]
+    ],
+    "certificate": {
+      "masks": [
+        3,
+        5,
+        10,
+        12
+      ],
+      "witnesses": {
+        "3": [
+          "-196063/327680",
+          "-13/32"
+        ],
+        "5": [
+          "-961/1920",
+          "-307/512"
+        ],
+        "10": [
+          "-961/1920",
+          "307/512"
+        ],
+        "12": [
+          "5371/15360",
+          "0"
+        ]
+      },
+      "distinct_labels": 9,
+      "x_events": 43,
+      "bands": 1428,
+      "target_samples": 536,
+      "primitive_disks": 16,
+      "target_edges": 5
+    },
+    "minimum_deletions": {
+      "cost": "2",
+      "mask": 3,
+      "witness": [
+        "-196063/327680",
+        "-13/32"
+      ]
+    },
+    "critical_radius_squared": "157/50",
+    "critical_radius_witness": [
+      "-3/5",
+      "-3/5"
+    ],
+    "radius_candidate_count": 245,
+    "seconds": 0.361
+  }
+]

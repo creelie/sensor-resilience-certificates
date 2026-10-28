@@ -9,3 +9,9 @@ paper/*.synctex.gz
 paper/*.fls
 paper/*.fdb_latexmk
 .DS_Store
+
+standalone/*.aux
+standalone/*.log
+standalone/*.out
+standalone/*.toc
+standalone/main.pdf

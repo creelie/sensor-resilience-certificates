@@ -1,39 +1,23 @@
-# Journal preparation details
+# Journal submission details
 
-Title: **Sensor Coverage under Structured Failures**
+**Universal Support Theorems for Resilient Coverage** is a standalone analytical manuscript in amsart format. It contains 49 pages, explicit proofs, symbolic engineering examples, footnotes and vector figures, including two three-dimensional illustrations. There is no line numbering.
 
-Version: **3.0.1**, prepared 28 October 2026. This is a new research revision of the supplied Preprints.org v2; a Preprints.org v3 identifier has not been minted by this work.
+## Requested mathematical target
+Annals of Mathematics is the user's target. Official instructions checked 28 October 2026 require a brief self-contained abstract, complete cited references and publication-quality vector figures. They do not require aomart for an initial submission. The present abstract has 162 words. The source uses amsart as requested. No acceptance or breakthrough-priority guarantee is made.
 
-Authors, in order: Deep Bhattacharjee; Ushashi Bhattacharya; Sanjeevan Singha Roy.
+Official guidelines: https://annals.math.princeton.edu/submission-guidelines
+Current submission link: https://ef.msp.org/submit/annals
 
-## Recommended subject fit
+## Subject-fit alternatives
+Discrete & Computational Geometry covers arrangements, geometric algorithms, covering, Voronoi geometry and computational topology. SIAM Journal on Applied Mathematics covers mathematically substantive work arising in scientific and engineering settings. These are scope comparisons, not acceptance predictions.
 
-**Journal of Applied and Computational Topology** is a subject-fit candidate for the topology, computational geometry and reproducibility content. This is a recommendation about scope, not an acceptance prediction. The contribution's novelty and significance require independent specialist evaluation; the underlying Dowker and multicover theorems are already established and explicitly credited.
+https://link.springer.com/journal/454/aims-and-scope
+https://www.siam.org/publications/siam-journals/siam-journal-on-applied-mathematics/
 
-Official instructions checked 28 October 2026:
-https://link.springer.com/journal/41468/submission-guidelines
+## Scientific claim for review
+The principal statement is the universal support theorem for functions with a common convex part and affine differences. The support set is independent of the monotone rule and common convex term. Applications give exact power thresholds, target antichains, failure-budget frontiers, product-uncertainty reductions and rational protection certificates. The core proofs are analytical and do not depend on an unproved external preprint. Classical foundations are credited. Specialist assessment of novelty and significance remains necessary.
 
-The supplied paper follows the user's requested **amsart** format with no line numbering. The journal recommends its Springer Nature LaTeX template and uses author–year references; the present amsart source uses numbered references and would need the corresponding style adaptation if this target is selected. The complete editable sources and figures are included.
+## Submission materials
+The package provides the PDF, clean TeX ZIP, abstract and classifications, authors and correspondence, funding/COI/ethics statements, AI provenance, a cover-letter draft and optional verification material. No manuscript has been submitted to a journal by creating this package.
 
-## Scientific scope suitable for a cover letter
-
-- A failure-family formulation covering weighted budgets and correlated domain losses.
-- An explicit facet-intersection implementation of known nerve/Dowker theory, including naturality at fixed geometry.
-- An n² witness argument for exact disk-facet enumeration and a separate continuous target certificate.
-- Completion of the dense v2 field with exact Betti numbers (5,6), plus a correction to the old vertex/edge count.
-- Reproducible inputs, all 25 model runs, ten controls and an independent geometric/rank audit.
-
-## Author-supplied declarations still needed before journal submission
-
-The authors must supply their actual funding, competing interests, individual contributions, coauthor approval and submission exclusivity information. These have not been invented. Current affiliations should be confirmed, particularly the historical BIT Mesra affiliation requested for the third author and the details carried forward for Ushashi. The corresponding author used in the draft is Deep Bhattacharjee, itsdeep@live.com.
-
-The journal requires disclosure of generative assistance beyond copy editing. The manuscript has a preparation-tools paragraph, and `aiprovenance.md` gives the actual assistance and verification scope. AI is not listed as an author. The paper has only synthetic data; no clinical efficacy claim or human-subject experiment is included in this revision.
-
-The linked Zenodo DOI 10.5281/zenodo.23731783 belongs to the companion ECoG archive. No new Zenodo DOI is asserted for this v3.
-
-## Suggested submission files
-
-- `SensorCoverageStructuredFailuresV3.pdf`
-- `SensorCoverageStructuredFailuresV3tex.zip`
-- The data/code and saved result records in the TeX ZIP's `anc/` directory, or as a separate supplement according to the journal's interface.
-- A finalized cover letter based on `coverletter.md`, after the authors confirm the declarations above.
+No new DOI is asserted. The required DOI 10.5281/zenodo.23731783 is a cited related archive, not this paper's DOI.

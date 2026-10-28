@@ -1,0 +1,119 @@
+\section{Common convex parts and exact resilience frontiers}
+\label{sec:power-frontier}
+The support argument does not depend on the distance functions themselves. What it uses is a common convex part and affine differences. This gives a more general analytical theorem and an exact two-parameter consequence for coverage design.
+
+\subsection{A support theorem for lattice selectors}
+Let $T$ be a finite union of nondegenerate $d$-simplices. Suppose $\psi$ is continuous and convex on every supplied simplex, and define
+\begin{equation}\label{eq:common-convex}
+f_i(x)=\psi(x)+a_i\cdot x+b_i,\qquad i\in[n].
+\end{equation}
+For a monotone rule $w$ with $w(\varnothing)=0$ and $w([n])=1$, set
+\begin{equation}\label{eq:lattice-selector}
+L_w(f)(x)=\min_{\sigma:\,w(\sigma)=1}\max_{i\in\sigma}f_i(x).
+\end{equation}
+This is a lattice polynomial without added constant arguments. Its value is one of the input values at every point. It commutes with a common additive shift of all those values. These elementary properties follow directly from the finite minimum and maximum operations.
+
+Construct $Q_T(a,b)$ by including all target vertices and, on each $s$-dimensional simplex face, the unique solutions of $s$ independent equations
+\begin{equation}\label{eq:affine-ties}
+(a_{i_j}-a_{i_0})\cdot x+b_{i_j}-b_{i_0}=0,
+\qquad j=1,\ldots,s,
+\end{equation}
+that lie in that face. The set depends on the affine data and target, but not on $w$ or $\psi$.
+
+\begin{theorem}[Universal support for a common convex part]\label{thm:convex-support}
+For every family \cref{eq:common-convex} and every nonconstant monotone rule,
+\begin{equation}\label{eq:convex-support}
+\max_{x\in T}L_w(f)(x)=\max_{q\in Q_T(a,b)}L_w(f)(q).
+\end{equation}
+The same support set works simultaneously for every continuous common convex part $\psi$, every such rule and every level threshold. Its size satisfies \cref{eq:support-count}. If the target and affine data are rational, all support points are rational.
+\end{theorem}
+\begin{proof}
+First suppose that $\psi$ is strictly convex on every nontrivial segment of every simplex. Let $x$ maximize $L_w(f)$ and lie in the relative interior of a target face $G$ of dimension $s$. If $s=0$, it is a supplied vertex. Otherwise let $J$ consist of the indices whose input value equals $L_w(f)(x)$, and let $I$ contain those with strictly smaller value. The prefix argument gives $w(I)=0$ and $w(I\cup J)=1$.
+
+If the affine differences in \cref{eq:affine-ties} for indices in $J$ do not span the dual tangent space of $G$, choose a nonzero tangent direction $v$ annihilated by them. Along a sufficiently short segment $x+uv$, the values for all indices in $J$ remain equal. By continuity, the smaller and larger input groups remain separated from this tied group. The selected value along that segment is therefore
+\[
+\psi(x+uv)+a_{i_0}\cdot(x+uv)+b_{i_0}.
+\]
+It is strictly convex as a function of $u$. Its value at the middle of two distinct points is strictly smaller than their average, so at least one nearby endpoint has a greater value. Both endpoints remain in $G$, contradicting maximality. Thus $s$ independent differences occur, and $x$ is the unique solution of one of the listed systems.
+
+For merely convex $\psi$, replace it by $\psi_\varepsilon(x)=\psi(x)+\varepsilon\|x\|^2$, with $\varepsilon>0$. The affine differences and hence $Q_T(a,b)$ do not change. Common-shift commutation gives
+\[
+L_w(f_1+\varepsilon\|x\|^2,\ldots,f_n+\varepsilon\|x\|^2)
+=L_w(f)(x)+\varepsilon\|x\|^2.
+\]
+The strictly convex case applies. Since $T$ is compact, these functions converge uniformly to $L_w(f)$ as $\varepsilon\downarrow0$. Their maxima on $T$ and on its finite support set converge to the respective maxima, proving \cref{eq:convex-support}.
+
+The count and rationality follow by enumerating the faces and index sets, then solving rational linear systems exactly. No differentiability of $\psi$ is required.
+\end{proof}
+
+\begin{remark}[The convexity boundary]
+The common-convex-part hypothesis is substantive. With one input $f_1(x)=-x^2$ on $[-1,1]$, the support construction contains only the endpoints, while the maximum is attained at zero. No statement for arbitrary shared nonconvex parts follows from \cref{thm:convex-support}.\footnote{Strict convexity is used only inside the proof. Adding a common positive quadratic term and taking a uniform limit removes that extra assumption without changing any tie equations.}
+\end{remark}
+
+The theorem identifies a finite set of places at which any one of a large family of spatial logical requirements can be hardest to meet. It is not a theorem asserting that a prescribed nonconvex target becomes convex, nor a claim that the resulting optimization over positions is easy.
+
+\subsection{Power-controlled unequal footprints}
+Fix rational site weights $\omega_i$ and define
+\begin{equation}\label{eq:power}
+p_i(x)=\|x-c_i\|^2-\omega_i.
+\end{equation}
+At a common power parameter $t\in\R$, contact $i$ is active when $p_i(x)\le t$. Its footprint is a disk of squared radius $t+\omega_i$ when this is nonnegative and is empty otherwise. A zero squared radius gives a point. The footprints may therefore have unequal radii.
+
+Equation \cref{eq:power} has common convex part $\|x\|^2$, affine coefficient $-2c_i$ and constant $\|c_i\|^2-\omega_i$. Its tie hyperplanes are the standard radical or power bisectors~\cite{aurenhammer}. The underlying power-diagram geometry is established; the theorem here uses all required support systems for simultaneous monotone-rule certification.\footnote{An additive change in squared radius is a different parameter model from an additive change in radius. The rational threshold conclusion below is for the former.}
+
+\begin{corollary}[Exact unequal-footprint power threshold]\label{cor:power-threshold}
+Let $Q_T^\omega$ be the support set from these power functions. For every nonconstant monotone rule $w$, the least real power parameter giving full target coverage is
+\begin{equation}\label{eq:power-threshold}
+t_w^*=\max_{q\in Q_T^\omega}\min_{\sigma:\,w(\sigma)=1}\max_{i\in\sigma}p_i(q).
+\end{equation}
+This value is rational for rational input data. If the parameter is constrained to $t\ge t_0$, the least feasible value is $\max\{t_0,t_w^*\}$. A maximizing support point fails for every $t<t_w^*$.
+\end{corollary}
+\begin{proof}
+At a target point, the least power parameter for which the active prefix wins is the inner minimum--maximum. Apply \cref{thm:convex-support}. The input power values at rational support points are rational, and the finite selector and maximum retain rationality. The lower-bound constraint and the witness assertion follow immediately.
+\end{proof}
+
+The equal-radius theorem is recovered by taking every $\omega_i=0$ and $t=r^2$. A common positive-definite rational quadratic form also fits: replacing the squared norm by $(x-c_i)^TA(x-c_i)$ gives a common convex part $x^TAx$ and affine differences. Thus the same argument covers a common anisotropic ellipsoidal metric. Semidefinite $A$ is allowed by \cref{thm:convex-support}, although its sublevel sets may be unbounded before intersection with the compact target.
+
+\subsection{A finite exact radius--budget frontier}
+For each power parameter $t$, let $S_t(q)=\{i:p_i(q)\le t\}$. The same support set has the antichain identity
+\begin{equation}\label{eq:power-antichain}
+\mathcal A_T(t)=\Min\{S_t(q):q\in Q_T^\omega\}.
+\end{equation}
+The proof of \cref{cor:all-radii} applies with \cref{thm:convex-support}: if a true minimal pattern were absent from the sampled lower closure, the failure query $2^A$ would contradict the universal maximum identity.
+
+For nonnegative deletion costs, define
+\begin{equation}\label{eq:frontier}
+K_T(t,c)=\min_{q\in Q_T^\omega}\sum_{i:p_i(q)\le t}c_i.
+\end{equation}
+This is the minimum deletion cost that destroys full target coverage at parameter $t$.
+
+\begin{theorem}[Exact geometric resilience staircase]\label{thm:frontier}
+The following statements hold simultaneously:
+\begin{enumerate}
+\item $K_T(t,c)$ is nondecreasing and right-continuous in $t$ and can change only at the finitely many levels $p_i(q)$, for $q\in Q_T^\omega$ and $i\in[n]$;
+\item at every fixed $t$, it is a concave, positively homogeneous function of the nonnegative cost vector;
+\item tolerance of every deletion with cost at most $B$ is equivalent to $B<K_T(t,c)$;
+\item every rejected budget query has a support-point witness and a deletion attaining the stated minimum.
+\end{enumerate}
+Thus one exact geometric construction supplies the full power--budget frontier for every nonnegative deletion-cost vector, without recomputing an arrangement when either $t$ or $c$ changes.
+\end{theorem}
+\begin{proof}
+For each support point, the summands in \cref{eq:frontier} enter at their exact power levels and stay present. Its cost function is a finite nondecreasing right-continuous step function. A finite minimum of such functions is again nondecreasing and right-continuous, with no additional breakpoints. At fixed $t$, the minimum is over finitely many linear forms in $c$, proving concavity and homogeneity. The budget and witness conclusions are \cref{cor:budgets} combined with \cref{eq:power-antichain}.
+\end{proof}
+
+There are at most $n|Q_T^\omega|$ event levels before removing duplicates. Coincident levels are inserted together; closed footprints accept equality. The number of actual jumps may be much smaller. The theorem gives an exact finite frontier, not a claim of optimal data-structure complexity or a solution to continuous sensor placement.
+
+\subsection{Exact verification of every selected subnetwork}
+Let $U\subseteq[n]$ be the contacts retained by a design, and let $w_0$ specify the required residual service. The rule
+\[
+w_U(S)=w_0(S\cap U)
+\]
+is monotone. If it never wins, the design is infeasible. Otherwise the same support theorem gives its exact coverage threshold. In particular, the canonical support set is valid for every one of the $2^n$ subnetworks without being constructed anew for each.
+
+For $k$-coverage at a fixed power parameter, binary selection variables $z_i$ satisfy the complete target constraints
+\begin{equation}\label{eq:selection-constraints}
+\sum_{i\in S_t(q)}z_i\ge k\quad(q\in Q_T^\omega),\qquad z_i\in\{0,1\}.
+\end{equation}
+Any proposed design can be checked by these inequalities. They turn continuous target feasibility into a finite exact system but leave the combinatorial design optimization intact. A minimum-cost selection problem is still an integer program; its difficulty is not removed by the geometric theorem.
+
+The distinction between geometry and decision variables is useful. The support set and power values can be checked once. Changing costs, failure rules, domain assignments or selected contacts then changes only the finite logical and optimization layer. The proofs above establish this separation analytically.

@@ -1,0 +1,11 @@
+{
+  "stored_target_witnesses_verified": 52,
+  "rational_protection_optima_verified_without_solver": 6,
+  "stored_radius_rules_verified_with_full_order_control": 19,
+  "unit_test_methods_passed": 28,
+  "exhaustive_nonconstant_monotone_four_contact_rules": 166,
+  "additional_five_contact_rule_comparisons": 250,
+  "additional_random_target_antichain_comparisons": 20,
+  "proof_assistant_formalization": false,
+  "all_checks_passed": true
+}
