@@ -3,7 +3,7 @@
   "upload_type": "publication",
   "publication_type": "preprint",
   "publication_date": "2026-10-28",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "We prove that one finite set of points decides whether sensors cover a polygonal target under every failure rule in which an extra working sensor never hurts. The set is the same for every such rule, and on a face of dimension f the weakest point is fixed by f+1 sensors. The theorem holds in any dimension for functions that share a convex part and differ by affine terms. For sensing disks it gives the exact radius and power that keep the target covered under each rule, as rational numbers, the full trade-off between radius and budget, the smallest list of sensor groups whose loss breaks coverage, exact tests under independent placement errors, and protection plans proved optimal by a matching dual certificate. This archive holds the LaTeX source, the compiled paper and the exact-arithmetic checks of the worked examples.",
   "creators": [
     {
