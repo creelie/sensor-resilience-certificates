@@ -43,7 +43,8 @@ jobs:
           awk -v v="$VERSION" '$0 ~ "^# Version "v" " {f=1; next} /^# / && f {exit} f' CHANGELOG.md > notes.md
           test -s notes.md || { echo "no CHANGELOG entry for $VERSION"; exit 1; }
           SHA=$(git rev-parse HEAD)
-          gh release create "$TAG" "[PAPER] package/"* \
+          mkdir dist && cp "[PAPER] package/"* dist/
+          gh release create "$TAG" dist/* \
             --target "$SHA" \
             --title "Universal Support Theorems for Resilient Coverage $TAG" \
             --notes-file notes.md
