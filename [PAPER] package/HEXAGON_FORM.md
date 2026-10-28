@@ -45,7 +45,7 @@ Manuscript licence: CC BY 4.0.
 ## Archive
 
 Repository: https://github.com/creelie/sensor-resilience-certificates , release v1.1.0: https://github.com/creelie/sensor-resilience-certificates/releases/tag/v1.1.0 .
-Concept DOI (all versions; resolves to the newest release): https://doi.org/10.5281/zenodo.23734252 .
+Version DOI: https://doi.org/10.5281/zenodo.23742106 . Concept DOI (all versions): https://doi.org/10.5281/zenodo.23734252 .
 
 Funding: none. Competing interests: none. Ethics: not applicable.
 Upload order: UniversalSupportTheoremsForResilientCoverage_final2.pdf, UniversalSupportTheoremsForResilientCoverage_final2-tex.zip, AI_PROVENANCE.md, HEXAGON_FORM.md.
