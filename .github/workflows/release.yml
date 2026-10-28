@@ -1,22 +1,49 @@
 name: Release
+
+# Run from the Actions tab after the pull request is merged: it tags the chosen
+# commit and publishes a GitHub release with the paper package and the notes of
+# that version in CHANGELOG.md. Zenodo archives the release and mints a DOI.
+
 on:
-  push:
-    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, e.g. v1.1.0"
+        required: true
+        default: "v1.1.0"
+      target:
+        description: "Branch or commit to tag"
+        required: true
+        default: "main"
+
 permissions:
   contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Create release with the paper package
+        with:
+          ref: ${{ inputs.target }}
+      - name: Check the release files
+        run: |
+          for f in "[PAPER] package/UniversalSupportTheoremsForResilientCoverage_final2.pdf" \
+                   "[PAPER] package/UniversalSupportTheoremsForResilientCoverage_final2-tex.zip" \
+                   "[PAPER] package/UniversalSupportTheoremsForResilientCoverage_final2-arxiv.tar.gz"; do
+            test -s "$f" || { echo "missing $f"; exit 1; }
+          done
+      - name: Publish the release
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG: ${{ github.ref_name }}
+          TAG: ${{ inputs.tag }}
+          TARGET: ${{ inputs.target }}
         run: |
           VERSION="${TAG#v}"
           awk -v v="$VERSION" '$0 ~ "^# Version "v" " {f=1; next} /^# / && f {exit} f' CHANGELOG.md > notes.md
-          gh release create "$TAG" \
+          test -s notes.md || { echo "no CHANGELOG entry for $VERSION"; exit 1; }
+          SHA=$(git rev-parse HEAD)
+          gh release create "$TAG" "[PAPER] package/"* \
+            --target "$SHA" \
             --title "Universal Support Theorems for Resilient Coverage $TAG" \
-            --notes-file notes.md \
-            "[PAPER] package/"*
+            --notes-file notes.md

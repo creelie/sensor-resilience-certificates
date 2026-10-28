@@ -5,7 +5,7 @@
 - Support-comparison figure redrawn to match its caption: five sites, 57 arrangement candidates against 44 support points.
 - Software remarks and hedging sentences removed from the paper; declarations rewritten with a data availability paragraph.
 - New paper package in `[PAPER] package/`; the 1.0.0 package moved to `historical/standalone-1.0.0-package/`.
-- Release workflow `.github/workflows/release.yml`.
+- Release workflow `.github/workflows/release.yml`, run by hand with the tag to publish.
 
 # Standalone article package 1.0.0 — 2026-10-28
 
