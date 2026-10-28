@@ -30,7 +30,7 @@ No statement of the paper rests on these programs. `code/make_resilience_figures
 
 | Release | DOI |
 | --- | --- |
-| v1.1.0 | to be recorded |
+| v1.1.0 | [10.5281/zenodo.23742106](https://doi.org/10.5281/zenodo.23742106) |
 | standalone-1.0.0 (v1.0.0) | [10.5281/zenodo.23739824](https://doi.org/10.5281/zenodo.23739824) |
 | all versions (concept) | [10.5281/zenodo.23734252](https://doi.org/10.5281/zenodo.23734252) |
 

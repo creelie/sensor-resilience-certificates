@@ -16,4 +16,4 @@ No statement of the paper rests on the programs; every theorem and every number 
 
 AI systems are not authors. The package does not contain prompts or hidden reasoning traces.
 
-Archive: release v1.1.0 of https://github.com/creelie/sensor-resilience-certificates , DOI https://doi.org/10.5281/zenodo.23734252 (concept).
+Archive: release v1.1.0 of https://github.com/creelie/sensor-resilience-certificates , DOI https://doi.org/10.5281/zenodo.23742106.
