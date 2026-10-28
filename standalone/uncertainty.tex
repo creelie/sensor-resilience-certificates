@@ -15,9 +15,10 @@ The fault rule $w$ is fixed on the contact labels and does not depend on the rea
 \begin{theorem}[Product uncertainty commutes with monotone logic]\label{thm:product}
 For every monotone winning rule $w$ and every point $x$,
 \begin{equation}\label{eq:product-logic}
-\bigl[\ w(S_\theta(x))=1\text{ for every }\theta\in\Theta\ \bigr]
-\quad\Longleftrightarrow\quad
-w(\{i:x\in E_i\})=1.
+\begin{aligned}
+&w(S_\theta(x))=1\text{ for every }\theta\in\Theta\\
+&\quad\Longleftrightarrow\quad w(\{i:x\in E_i\})=1.
+\end{aligned}
 \end{equation}
 Consequently the region covered under the rule for every allowed geometric realization is exactly the winning region of the guaranteed footprints. In particular,
 \begin{equation}\label{eq:product-target}
@@ -72,7 +73,7 @@ E_i=\bigcap_{v\in V_i}\overline B(c_i+v,\underline r_i).
 For product polygonal displacement uncertainty, introduce one primitive disk for every shifted center in \cref{eq:uncertainty-bundle}. A physical contact is active exactly when every primitive disk in its bundle is active. Applying that monotone bundle map to the primitive target antichain gives an exact robust target certificate for every failure family on the physical contacts. If the lower radii are common, the same bundle map can be used in the exact common-radius theorem.
 \end{theorem}
 \begin{proof}
-Equation \cref{eq:uncertainty-bundle} proves the bundle activation statement. \Cref{thm:relabel} gives its target antichain, and \cref{thm:product} identifies the robust region. With common radii, the winning predicate on primitive sets is the composition of the monotone physical rule and the monotone bundle map. It meets the hypotheses of \cref{thm:master-radius} when the full primitive set wins.
+\Cref{eq:uncertainty-bundle} proves the bundle activation statement. \Cref{thm:relabel} gives its target antichain, and \cref{thm:product} identifies the robust region. With common radii, the winning predicate on primitive sets is the composition of the monotone physical rule and the monotone bundle map. It meets the hypotheses of \cref{thm:master-radius} when the full primitive set wins.
 \end{proof}
 
 There are $N=\sum_i|V_i|$ primitive disks. The target certificate-size bound uses $N$ in place of the number of physical contacts. This is an exact vertex reduction of the stated uncertainty polytope, not an approximation of a displacement ball by a polygon. For independent boxes, four corner disks per physical contact suffice in the plane.
@@ -100,14 +101,13 @@ The shared-error model therefore covers the whole square for every $u$. Eroding 
 
 Fault-domain correlation and geometric correlation are different inputs. The failure family may correlate contact losses arbitrarily in \cref{thm:product}; the theorem restricts the support of the geometric parameters. Statistical independence is not a substitute for stating that support. These distinctions are central to applying robust optimization correctly~\cite{robustbook}.
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\textwidth]{figures/product-errors.pdf}
+\begin{figure*}[tb]
+\centering\includegraphics[width=\textwidth]{figures/product-errors.png}
 \caption{The difference between product and shared geometric errors in the counterexample of \cref{sec:uncertainty}. Independent choices may move both disks outward. A shared displacement cannot make those opposite moves simultaneously.}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=.95\textwidth]{figures/uncertainty-panel.pdf}
+\begin{figure*}[tb]
+\centering\includegraphics[width=.72\textwidth]{figures/uncertainty-panel.png}
 \caption{Guaranteed two-contact target coverage under four placement models. Shading illustrates the winning region; exact target antichains and the support-radius certificate determine acceptance. The box model is represented by finite conjunction bundles, not by an unproved circular approximation.}
-\end{figure}
+\end{figure*}
 
-\FloatBarrier

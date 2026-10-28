@@ -50,7 +50,7 @@ The count and rationality follow by enumerating the faces and index sets, then s
 The common-convex-part hypothesis is substantive. With one input $f_1(x)=-x^2$ on $[-1,1]$, the support construction contains only the endpoints, while the maximum is attained at zero. No statement for arbitrary shared nonconvex parts follows from \cref{thm:convex-support}.\footnote{Strict convexity is used only inside the proof. Adding a common positive quadratic term and taking a uniform limit removes that extra assumption without changing any tie equations.}
 \end{remark}
 
-The theorem identifies a finite set of places at which any one of a large family of spatial logical requirements can be hardest to meet. It is not a theorem asserting that a prescribed nonconvex target becomes convex, nor a claim that the resulting optimization over positions is easy.
+The theorem identifies a finite set of places at which any one of a large family of spatial logical requirements can be hardest to meet.
 
 \subsection{Power-controlled unequal footprints}
 Fix rational site weights $\omega_i$ and define
@@ -59,7 +59,7 @@ p_i(x)=\|x-c_i\|^2-\omega_i.
 \end{equation}
 At a common power parameter $t\in\R$, contact $i$ is active when $p_i(x)\le t$. Its footprint is a disk of squared radius $t+\omega_i$ when this is nonnegative and is empty otherwise. A zero squared radius gives a point. The footprints may therefore have unequal radii.
 
-Equation \cref{eq:power} has common convex part $\|x\|^2$, affine coefficient $-2c_i$ and constant $\|c_i\|^2-\omega_i$. Its tie hyperplanes are the standard radical or power bisectors~\cite{aurenhammer}. The underlying power-diagram geometry is established; the theorem here uses all required support systems for simultaneous monotone-rule certification.\footnote{An additive change in squared radius is a different parameter model from an additive change in radius. The rational threshold conclusion below is for the former.}
+\Cref{eq:power} has common convex part $\|x\|^2$, affine coefficient $-2c_i$ and constant $\|c_i\|^2-\omega_i$. Its tie hyperplanes are the standard radical or power bisectors~\cite{aurenhammer}. The underlying power-diagram geometry is established; the theorem here uses all required support systems for simultaneous monotone-rule certification.\footnote{An additive change in squared radius is a different parameter model from an additive change in radius. The rational threshold conclusion below is for the former.}
 
 \begin{corollary}[Exact unequal-footprint power threshold]\label{cor:power-threshold}
 Let $Q_T^\omega$ be the support set from these power functions. For every nonconstant monotone rule $w$, the least real power parameter giving full target coverage is
@@ -101,7 +101,7 @@ Thus one exact geometric construction supplies the full power--budget frontier f
 For each support point, the summands in \cref{eq:frontier} enter at their exact power levels and stay present. Its cost function is a finite nondecreasing right-continuous step function. A finite minimum of such functions is again nondecreasing and right-continuous, with no additional breakpoints. At fixed $t$, the minimum is over finitely many linear forms in $c$, proving concavity and homogeneity. The budget and witness conclusions are \cref{cor:budgets} combined with \cref{eq:power-antichain}.
 \end{proof}
 
-There are at most $n|Q_T^\omega|$ event levels before removing duplicates. Coincident levels are inserted together; closed footprints accept equality. The number of actual jumps may be much smaller. The theorem gives an exact finite frontier, not a claim of optimal data-structure complexity or a solution to continuous sensor placement.
+There are at most $n|Q_T^\omega|$ event levels before removing duplicates. Coincident levels are inserted together; closed footprints accept equality. The number of actual jumps may be much smaller. The frontier is exact and finite; optimising the positions themselves is a different problem.
 
 \subsection{Exact verification of every selected subnetwork}
 Let $U\subseteq[n]$ be the contacts retained by a design, and let $w_0$ specify the required residual service. The rule

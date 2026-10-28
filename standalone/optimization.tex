@@ -3,7 +3,7 @@
 The target antichain converts a continuum of spatial failure opportunities into a finite family of cuts. We now use that family to design a protection allocation. The cost model is explicit: allocating a nonnegative value $c_i$ makes deletion of contact $i$ cost $c_i$ to the adversary, and providing that protection consumes $d_i c_i$ units of resource, where $d_i>0$.\footnote{A linear hardening law is a mathematical engineering model. A physical deployment needs an experimentally justified map from protection resource to attack or failure cost. The paper does not infer that law from sensor geometry.}
 
 \subsection{Concavity and weakest-point certificates}
-Equation \cref{eq:kappa} shows that $\kappa_T$ is a finite minimum of linear forms. It is concave, positively homogeneous and coordinatewise nondecreasing on $\R_{\ge0}^n$. A minimizing cut $A$ supplies both an attack and a supergradient:
+\Cref{eq:kappa} shows that $\kappa_T$ is a finite minimum of linear forms. It is concave, positively homogeneous and coordinatewise nondecreasing on $\R_{\ge0}^n$. A minimizing cut $A$ supplies both an attack and a supergradient:
 \begin{equation}\label{eq:supergradient}
 \kappa_T(c')\le\kappa_T(c)+\boldsymbol1_A\cdot(c'-c).
 \end{equation}
@@ -45,9 +45,11 @@ If the two displayed bounds are equal, these data constitute an exact optimality
 \begin{proof}
 For any primal-feasible allocation and any dual-feasible pair,
 \[
-\min_A c(A)\le\sum_A\lambda_Ac(A)
-=\sum_i c_i\sum_{A\ni i}\lambda_A
-\le\mu\sum_i d_i c_i\le C\mu.
+\begin{aligned}
+\min_A c(A)&\le\sum_A\lambda_Ac(A)
+=\sum_i c_i\sum_{A\ni i}\lambda_A\\
+&\le\mu\sum_i d_i c_i\le C\mu.
+\end{aligned}
 \]
 This proves weak duality and the certificate assertion using only finite sums and inequalities.
 
@@ -85,13 +87,12 @@ Given copy allocations $c_{i,j}$, put $\bar c_i=\sum_jc_{i,j}$. Every expanded c
 The four-corner panel and its duplicated eight-contact version illustrate the distinction. Their minimum numbers of individual deletions are two and four, respectively, but their unit-budget optimal protection values are both $1/2$. Independent Bernoulli reliability can still improve after duplication. A design comparison must specify which of these objectives is being optimized.
 
 \subsection{Numerical proposals and rational verification}
-The implementation may ask a floating-point LP solver for a candidate allocation and dual multipliers. It then converts proposed rationals, enforces nonnegativity and budget feasibility, normalizes the dual distribution, and sets $\mu$ to the largest exact ratio in \cref{eq:dual-feasible}. It computes both bounds of \cref{eq:certificate-interval} using rational arithmetic.
+A candidate allocation and dual multipliers may come from any source, for instance a floating-point linear program. Round them to rationals, enforce nonnegativity and budget feasibility, normalise the dual distribution, and set $\mu$ to the largest exact ratio in \cref{eq:dual-feasible}. Both bounds of \cref{eq:certificate-interval} are then rational.
 
-Only exact equality establishes verified optimality. If rational recovery yields a gap, the valid conclusion is the interval in \cref{eq:certificate-interval}. Solver status alone is never a proof. The allocations in the analytical examples below are derived symbolically with matching dual bounds, so their optimality does not depend on a numerical optimizer.
+Only exact equality establishes verified optimality. If rational recovery yields a gap, the valid conclusion is the interval in \cref{eq:certificate-interval}. The allocations in the analytical examples below are derived symbolically with matching dual bounds.
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\textwidth]{figures/budget-game.pdf}
-\caption{Protection design for the three-asset example. On the unit simplex, $\kappa_T(c)=1-\max_i c_i$. The surface is piecewise linear and attains $2/3$ at the balanced allocation. The diagram displays the exact formula; numerical plotting does not determine the optimum.}
-\end{figure}
+\begin{figure*}[tb]
+\centering\includegraphics[width=\textwidth]{figures/budget-game.png}
+\caption{Protection design for the three-asset example. On the unit simplex, $\kappa_T(c)=1-\max_i c_i$. The surface is piecewise linear and attains $2/3$ at the balanced allocation.}
+\end{figure*}
 
-\FloatBarrier

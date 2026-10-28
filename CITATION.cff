@@ -1,15 +1,16 @@
 cff-version: 1.2.0
-message: "Please cite the standalone manuscript and version used."
+message: "Please cite the paper and the archived version used."
 type: software
+doi: 10.5281/zenodo.23734252
 title: "Universal Support Theorems for Resilient Coverage"
-version: 1.0.0
+version: 1.1.0
 date-released: 2026-10-28
 url: "https://github.com/creelie/sensor-resilience-certificates"
 license: CC-BY-4.0
 authors:
   - family-names: Bhattacharjee
     given-names: Deep
-    email: "itsdeep@live.com"
+    email: "d.bhattacharjee@erl-forschung.de"
     orcid: "https://orcid.org/0000-0003-0466-750X"
   - family-names: Bhattacharya
     given-names: Ushashi

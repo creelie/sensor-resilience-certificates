@@ -48,16 +48,16 @@ z=2^a\mathbin{\oplus}2^b\mathbin{\oplus}2^c,
 \]
 where $\oplus$ is bitwise exclusive-or. This is simply an encoding of a vector in $\FF^E$; it is not integer linear algebra. Each edge has two vertex endpoints, so applying the edge boundary to a triangle boundary counts every vertex twice. Therefore $\partial_1\partial_2=0$.
 
-To compute the rank, maintain at most one pivot column for each leading nonzero row. A new column is repeatedly added to the stored column with the same leading row until it becomes zero or acquires a previously unused leading row. In the latter case store it. Every reduction step preserves the span of columns seen so far. Stored columns have distinct leading rows and are linearly independent. Each processed column is in their span, so the number stored is exactly the boundary rank. Termination follows because the leading nonzero row strictly decreases in the main implementation.
+To compute the rank, maintain at most one pivot column for each leading nonzero row. A new column is repeatedly added to the stored column with the same leading row until it becomes zero or acquires a previously unused leading row. In the latter case store it. Every reduction step preserves the span of columns seen so far. Stored columns have distinct leading rows and are linearly independent. Each processed column is in their span, so the number stored is exactly the boundary rank. Termination follows because the leading nonzero row strictly decreases.
 
 One may instead represent columns by sets and use the smallest nonzero row. That leading row strictly increases. The same span invariant proves correctness for every finite input, independently of the chosen representation or pivot direction.
 
 \subsection{Rational comparisons and equality}
-A finite binary64 number is a rational of the form $m2^e$. The input conversion preserves that value as a Python \texttt{Fraction}. Products, sums and divisions in \cref{eq:circle-parameters,eq:quadratic-membership,eq:mec} therefore have exact integer numerators and denominators. The only radicals are eliminated by the signed comparisons of \cref{lem:sign}. Unconditional squaring would be wrong when the compared sides have uncontrolled signs; the sign cases are part of the algorithm.
+All inputs are rational. Products, sums and divisions in \cref{eq:circle-parameters,eq:quadratic-membership,eq:mec} therefore have exact integer numerators and denominators. The only radicals are eliminated by the signed comparisons of \cref{lem:sign}. Unconditional squaring would be wrong when the compared sides have uncontrolled signs; the sign cases are part of the algorithm.
 
-The geometry API explicitly converts supplied numerical values to binary64 before making their rational representations. Passing a rational with a non-dyadic denominator to that API does not request symbolic preservation of the original rational; it requests exact treatment of its binary64 conversion. The abstract rational algorithm of \cref{thm:algorithm} can instead be implemented with rational inputs directly. The rational analytical statements are independent of either software input convention.
+A floating-point input is a dyadic rational $m2^e$ and is treated as that rational.
 
-No geometric epsilon is used to merge circles, enlarge radii or decide tangency. Equal centers are tested as exact rational pairs. Coincident disks retain distinct labels because a failure model can distinguish the two contacts even when their geometry is identical. Equality in a closed-disk test is accepted. The companion archive's open-disk routines~\cite{ecog} use strict inequalities, so they must not be interchanged without specifying the convention.
+No geometric epsilon is used to merge circles, enlarge radii or decide tangency. Equal centers are tested as exact rational pairs. Coincident disks retain distinct labels because a failure model can distinguish the two contacts even when their geometry is identical. Equality in a closed-disk test is accepted; open disks, as in~\cite{ecog}, require strict inequalities throughout.
 
 \section{Counterexamples to stronger interpretations}
 \label{app:counterexamples}
@@ -101,7 +101,7 @@ Since $K_t$ contains $u_0+s e_a$ for $s\ge0$, each $b_a\ge0$. Normalize $\lambda
 Take a sequence $t\downarrow v$ and use compactness of $\Delta_m$ and continuity of the finite coordinate maximum. A limiting $\lambda$ gives dual value at most $v$, proving the reverse inequality and attainment.
 \end{proof}
 
-For rational protection data, the primal can be restricted to a bounded rational polytope by using $c_i\le C/d_i$ and $0\le t\le C/\min_i d_i$. A maximizing face has a vertex obtained by solving independent active constraints, so a rational optimum exists. The dual has a rational optimal vertex after imposing any known feasible upper bound on $\mu$. Rational certificates are therefore appropriate exact objects for this model, although recovering them from a numerical hint may fail in a particular implementation.
+For rational protection data, the primal can be restricted to a bounded rational polytope by using $c_i\le C/d_i$ and $0\le t\le C/\min_i d_i$. A maximizing face has a vertex obtained by solving independent active constraints, so a rational optimum exists. The dual has a rational optimal vertex after imposing any known feasible upper bound on $\mu$. Rational certificates are therefore appropriate exact objects for this model, although a rational certificate need not be recoverable from an approximate numerical optimum.
 
 \subsection{A checker independent of the LP solver}
 Given a cut list and rational arrays $c$, $\lambda$, $d$ and numbers $C,\mu$, a checker verifies:
@@ -111,7 +111,7 @@ Given a cut list and rational arrays $c$, $\lambda$, $d$ and numbers $C,\mu$, a 
 \item $\sum_{A\ni i}\lambda_A\le\mu d_i$ for every contact;
 \item $\min_A c(A)=C\mu$.
 \end{enumerate}
-The weak-duality chain in \cref{thm:protection} proves optimality from these finite checks. The checker need not trust a simplex basis, floating-point tolerance or solver implementation. It does depend on the completeness of the geometric cut list, which is justified separately by \cref{thm:sweep} or \cref{cor:all-radii}.
+The weak-duality chain in \cref{thm:protection} proves optimality from these finite checks. No simplex basis or floating-point tolerance is involved. The conclusion does depend on the completeness of the geometric cut list, which is justified separately by \cref{thm:sweep} or \cref{cor:all-radii}.
 
 \section{Direct derivations for the four-corner panel}
 \label{app:worked}
@@ -124,14 +124,12 @@ d_4^2&=2+u^2+v^2+2u+2v.
 \end{align*}
 Each is convex on the triangle with vertices $(0,0)$, $(a,0)$ and $(a,a)$, so its maximum there is attained at a vertex. It follows that
 \[
-\max_T d_1^2=2,\qquad
-\max_T d_2^2=2+2a^2=68/25,
+\begin{aligned}
+\max_T d_1^2&=2,& \max_T d_2^2&=2+2a^2=\tfrac{68}{25},\\
+\max_T d_3^2&=\tfrac{89}{25},& \max_T d_4^2&=2+4a+2a^2=\tfrac{128}{25},
+\end{aligned}
 \]
-\[
-\max_T d_3^2=2+2a+a^2=89/25,\qquad
-\max_T d_4^2=2+4a+2a^2=128/25.
-\]
-These give all four contact thresholds independently of the support algorithm, including every step of \cref{eq:panel-staircase}.
+with $\max_T d_3^2=2+2a+a^2$. These give all four contact thresholds independently of the support algorithm, including every step of \cref{eq:panel-staircase}.
 
 At any generic target point the two nearest corners share an edge. At a tie, the active group contains such a pair. Since $(9/5)^2>68/25$, every active set at nominal radius $9/5$ contains an adjacent pair. At $(-11/20,0)$ the squared distances to the left corners are $481/400$, while those to the right corners are $1361/400$. They lie on opposite sides of $81/25=1296/400$, giving exactly the left pair. The three symmetric locations give the other adjacent pairs. This proves \cref{eq:panel-cuts} directly.
 
