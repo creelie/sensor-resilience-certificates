@@ -53,13 +53,24 @@ for ax,key in zip(axes,['columns','diagonal']):
     ax.set_title(key.capitalize()+' wiring\n$r_*^2='+wiring[key]['critical_radius_squared']+'$')
     ax.set_xlim(-2.2,2.2);ax.set_ylim(-2.2,2.2)
 save(fig,'radius-supports')
-sites=[(-2,0),(1,0),(0,2),(1,-2)];target=[[(-1.5,-.75),(1.5,-.75),(1.5,.75)],[(-1.5,-.75),(1.5,.75),(-1.5,.75)]]
+sites=[(Q(-1),Q(1,5)),(Q(1),Q(0)),(Q(0),Q(1)),(Q(1,2),Q(-1)),(Q(-4,5),Q(-1))]
+target=[[(Q(-3,2),Q(-3,4)),(Q(3,2),Q(-3,4)),(Q(3,2),Q(3,4))],[(Q(-3,2),Q(-3,4)),(Q(3,2),Q(3,4)),(Q(-3,2),Q(3,4))]]
 full=order_candidates(sites,target);small=support_candidates(sites,target)
-fig,axes=plt.subplots(1,2,figsize=(7.2,3.4),constrained_layout=True)
-for ax,master,title in [(axes[0],full,'Full order arrangement'),(axes[1],small,'Three-site support construction')]:
-    pts=np.array([[f(x) for x in p] for p in master['points']]);ax.scatter(pts[:,0],pts[:,1],s=16,color=blue)
-    ax.add_patch(Polygon([(-1.5,-.75),(1.5,-.75),(1.5,.75),(-1.5,.75)],fill=False,edgecolor=gray))
+key=lambda p:(Q(p[0]),Q(p[1]));smallset={key(p) for p in small['points']}
+sp=np.array([[f(x) for x in p] for p in sites])
+fig,axes=plt.subplots(1,2,figsize=(7.2,3.1),layout='constrained')
+for ax,master,title in [(axes[0],full,'Full order arrangement'),(axes[1],small,'Support construction')]:
+    pts=[p for p in master['points']]
+    kept=np.array([[f(x) for x in p] for p in pts if key(p) in smallset]);extra=[[f(x) for x in p] for p in pts if key(p) not in smallset]
+    ax.add_patch(Polygon([(-1.5,-.75),(1.5,-.75),(1.5,.75),(-1.5,.75)],facecolor='#dde7eb',alpha=.45,edgecolor=gray))
+    ax.plot([-1.5,1.5],[-.75,.75],color=gray,lw=.7)
+    ax.scatter(kept[:,0],kept[:,1],s=14,color=blue,zorder=4,label='support points')
+    if extra:
+        e=np.array(extra);ax.scatter(e[:,0],e[:,1],s=22,marker='x',color=red,zorder=5,label='tie vertices not needed')
+    ax.scatter(sp[:,0],sp[:,1],s=40,marker='s',color=gold,zorder=6,label='sites')
+    ax.set_xlim(-1.75,1.75);ax.set_ylim(-1.2,1.2)
     ax.set_aspect('equal');ax.set_title(title+f'\n{len(pts)} rational candidates');ax.set_xlabel('$x$');ax.set_ylabel('$y$')
+h,l=axes[0].get_legend_handles_labels();fig.legend(h,l,loc='outside lower center',ncol=3,frameon=False,fontsize=8)
 save(fig,'support-comparison')
 
 fig,axes=plt.subplots(1,2,figsize=(7.2,3.4),constrained_layout=True)

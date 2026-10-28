@@ -1,22 +1,46 @@
-\documentclass[11pt,reqno]{amsart}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,mathrsfs}
-\usepackage{graphicx,booktabs,longtable,array,xcolor,placeins}
+\documentclass[aps,pra,twocolumn,superscriptaddress,nofootinbib,longbibliography,floatfix,amsmath,amssymb,10pt]{revtex4-2}
+
+\usepackage{amsthm}
+\usepackage{mathtools,mathrsfs}
+\usepackage{graphicx,booktabs,xcolor,placeins}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,fit,backgrounds}
-\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
-\hypersetup{pdftitle={Universal Support Theorems for Resilient Coverage},pdfauthor={Deep Bhattacharjee; Ushashi Bhattacharya; Sanjeevan Singha Roy}}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarksnumbered=true]{hyperref}
 \usepackage[capitalise,noabbrev]{cleveref}
-\setlength{\textwidth}{6.1in}
-\setlength{\oddsidemargin}{.2in}
-\setlength{\evensidemargin}{.2in}
-\setlength{\textheight}{8.65in}
-\setlength{\topmargin}{0in}
-\setcounter{tocdepth}{1}
+\usepackage{orcidlink}
+\usepackage{microtype}
+\usepackage{xurl}
+
+\makeatletter
+\AtBeginDocument{\def\NAT@bibsetup{\setlength{\labelwidth}{\z@}%
+ \setlength{\labelsep}{0.5em}\setlength{\itemindent}{\z@}%
+ \setlength{\listparindent}{\z@}\setlength{\topsep}{\z@}%
+ \setlength{\parsep}{\z@}\NATx@bibsetup}}
+\let\write@bibliographystyle\relax
+\let\bibliography@latex\@gobble
+\makeatother
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\makeatletter
+\renewcommand{\p@subsection}{}
+\renewcommand{\p@subsubsection}{}
+\makeatother
+
+\tolerance=2000
+\emergencystretch=3em
+\hbadness=2000
+\hfuzz=1pt
+\raggedbottom
 \renewcommand{\topfraction}{.9}
-\renewcommand{\textfraction}{.08}
-\renewcommand{\floatpagefraction}{.5}
+\renewcommand{\dbltopfraction}{.9}
+\renewcommand{\textfraction}{.07}
+\renewcommand{\floatpagefraction}{.8}
+\renewcommand{\dblfloatpagefraction}{.8}
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{3}
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -27,6 +51,9 @@
 \newtheorem{algorithm}[theorem]{Algorithm}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\crefname{algorithm}{Algorithm}{Algorithms}
+
 \newcommand{\R}{\mathbb R}
 \newcommand{\F}{\mathcal F}
 \newcommand{\M}{\mathcal M}
@@ -36,33 +63,63 @@
 \newcommand{\FF}{\mathbb F_2}
 \newcommand{\abs}[1]{\left|#1\right|}
 \DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\sd}{sd}
 \DeclareMathOperator{\conv}{conv}
-\DeclareMathOperator{\diam}{diam}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\Max}{Max}
 \DeclareMathOperator{\Min}{Min}
-\title[Universal support theorems]{Universal Support Theorems for Resilient Coverage}
-\author{Deep Bhattacharjee\textsuperscript{*}}
-\address{Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha, India}
-\email{itsdeep@live.com}
-\urladdr{https://orcid.org/0000-0003-0466-750X}
-\author{Ushashi Bhattacharya}
-\address{Dortmund, Germany; National Taiwan University, Taipei, Taiwan}
-\author{Sanjeevan Singha Roy}
-\address{Formerly, Birla Institute of Technology (BIT) Mesra, India}
-\email{sanjeevan9905@gmail.com}
-\urladdr{https://orcid.org/0000-0002-6148-1421}
-\date{October 28, 2026}
-\subjclass[2020]{Primary 68U05; Secondary 05C65, 55U10, 90B25, 90C05}
-\keywords{sensor resilience, geometric certificates, monotone failure models, critical radius, robust optimization, computational topology}
-\thanks{\textsuperscript{*}First author and corresponding author: Deep Bhattacharjee, \texttt{itsdeep@live.com}.}
+\newcommand{\zenodoCodeID}{10.5281/zenodo.23734252}
+\newcommand{\zenodoConceptID}{10.5281/zenodo.23734252}
+\newcommand{\releaseTag}{v1.1.0}
+
 \begin{document}
+
+\title{Universal Support Theorems for Resilient Coverage}
+
+\author{Deep Bhattacharjee$^{*}$\,\orcidlink{0000-0003-0466-750X}}
+\email{d.bhattacharjee@erl-forschung.de}
+\thanks{$^{*}$\,Corresponding author. Further addresses:
+\nolinkurl{itsdeep@live.com}, \nolinkurl{egspl@proton.me}.}
+\affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
+(EGSPL), Bhubaneswar, Odisha 751030, India}
+\affiliation{Formerly, University of Calcutta (Heramba Chandra College),
+23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
+
+\author{Ushashi Bhattacharya}
+\affiliation{Dortmund, Germany}
+\affiliation{National Taiwan University, Taipei, Taiwan}
+
+\author{Sanjeevan Singha Roy\,\orcidlink{0000-0002-6148-1421}}
+\email{sanjeevan9905@gmail.com}
+\affiliation{Formerly, Birla Institute of Technology (BIT) Mesra, India}
+
+\date{28 October 2026}
+
 \begin{abstract}
-We prove a finite support theorem for monotone combinations of functions with a common convex part. On a compact polyhedral target, one set of points suffices to locate the maximum for every monotone rule and every common convex term. A critical point on a face of dimension $f$ needs at most $f+1$ supporting functions. For rational geometric data, the support points are rational. Applied to sensing disks, the theorem determines exact coverage radii and power thresholds for every monotone failure rule. It also gives the complete radius--failure-budget frontier from one finite construction. At a fixed geometry, the inclusion-minimal contact sets form a canonical target certificate with explicit failure witnesses. We prove exact update rules, reductions for independent geometric uncertainty and primal--dual certificates for protection allocation. Symbolic engineering examples distinguish overlap count, fault-domain resilience and protection cost. The proofs are analytical throughout. Detailed derivations, diagrams, counterexamples and appendices make the assumptions and conclusions explicit; the established geometric, topological and reliability foundations are credited.
+\itshape
+On a polyhedral target, one finite set of points locates the maximum of every
+monotone max--min combination of functions that share a convex part and differ
+by affine terms, whatever the rule and the shared part; a maximiser on an
+$f$-dimensional face is fixed by $f+1$ of the functions. For sensing disks this
+gives exact rational coverage radii and power thresholds for every monotone
+failure rule, the whole radius--budget frontier, a canonical certificate of
+minimal contact sets with witnesses, exact robust tests under independent
+placement errors and dual certificates for protection.
 \end{abstract}
+
 \maketitle
-\tableofcontents
+
+\begingroup
+\renewcommand\thefootnote{}\footnotesize
+\footnotetext{\footnotesize\emph{2020 Mathematics Subject Classification.}
+Primary 68U05; Secondary 52A41, 90B25, 05C65, 55U10.
+\emph{Keywords.} support theorem; sensor coverage; monotone failure rules;
+resilience certificates.}
+\footnotetext{\footnotesize The \LaTeX{} source and the finite checks of the
+worked examples are archived on Zenodo, release \releaseTag,
+\href{https://doi.org/\zenodoCodeID}{doi:\zenodoCodeID}.}
+\endgroup
+\addtocounter{footnote}{-2}
+
 \input{overview}
 \input{failures}
 \input{universal}

@@ -16,19 +16,21 @@ The constraints are complete for the continuous target. If an assignment violate
 Apply \cref{thm:relabel} to the domain map. A domain contact set survives every loss of $q$ domains exactly when it has at least $q+1$ members, as in \cref{ex:domains}. \Cref{thm:universal} gives the equivalence and its failure witness.
 \end{proof}
 
-For $q=1$, the cut hypergraph must have no monochromatic edge. When all critical cuts have size two, this is ordinary proper graph coloring. Requiring every cut to contain every one of a specified set of colors is the familiar polychromatic or cover-decomposition formulation~\cite{polychromatic}. Equation \cref{eq:domain-design} allows more domains than the number of required surviving alternatives.
+For $q=1$, the cut hypergraph must have no monochromatic edge. When all critical cuts have size two, this is ordinary proper graph coloring. Requiring every cut to contain every one of a specified set of colors is the familiar polychromatic or cover-decomposition formulation~\cite{polychromatic}. \Cref{eq:domain-design} allows more domains than the number of required surviving alternatives.
 
 The finite constraints can be written as an integer program. Let $z_{ig}$ indicate assignment of contact $i$ to group $g$, and let $u_{Ag}$ indicate whether group $g$ occurs in cut $A$. Require
 \[
-\sum_g z_{ig}=1,\quad
-u_{Ag}\ge z_{ig}\ (i\in A),\quad
-u_{Ag}\le\sum_{i\in A}z_{ig},\quad
+\begin{gathered}
+\sum_g z_{ig}=1,\qquad
+u_{Ag}\ge z_{ig}\ (i\in A),\\
+u_{Ag}\le\sum_{i\in A}z_{ig},\qquad
 \sum_g u_{Ag}\ge q+1,
+\end{gathered}
 \]
-with binary variables. The middle two constraints enforce the exact logical disjunction. A solver-proposed assignment can be checked directly against every certified cut; solver success alone is unnecessary for that verification. Proving that fewer groups are impossible requires a separate lower bound or exhaustive proof.
+with binary variables. The middle two constraints enforce the exact logical disjunction. Any proposed assignment can be checked directly against every certified cut. Proving that fewer groups are impossible requires a separate lower bound or exhaustive proof.
 
 \begin{example}[An odd-cycle obstruction]\label{ex:oddcycle}
-The three-asset geometry in \cref{sec:engineering} has critical patterns $\{1,2\},\{1,3\},\{2,3\}$. It is two-fold covered, but two domains cannot make every pair nonmonochromatic. Three domains suffice. Thus two-fold geometric coverage need not decompose into two separately covering domain layers. This is a finite example of the distinction studied in cover-decomposition theory, not a new general obstruction theorem.
+The three-asset geometry in \cref{sec:engineering} has critical patterns $\{1,2\},\{1,3\},\{2,3\}$. It is two-fold covered, but two domains cannot make every pair nonmonochromatic. Three domains suffice. Thus two-fold geometric coverage need not decompose into two separately covering domain layers. This is the distinction studied in cover-decomposition theory~\cite{polychromatic}.
 \end{example}
 
 \subsection{Ordinary target-coverage reliability}
@@ -49,7 +51,7 @@ For cuts $A_1,\ldots,A_m$, inclusion--exclusion also gives
 \mathsf R(p)=\sum_{J\subseteq[m]}(-1)^{|J|}
 \prod_{i\in\bigcup_{j\in J}A_j}p_i.
 \end{equation}
-The empty $J$ contributes one. Both formulas are exact and generally exponential; the geometric size bound does not turn arbitrary reliability evaluation into a polynomial-time algorithm.\footnote{A polynomial list of minimal cuts can still encode a difficult counting problem. The displayed three-contact calculation is a symbolic evaluation of four successful states, not an asymptotic algorithmic claim.}
+The empty $J$ contributes one. Both formulas are exact and generally exponential; the geometric size bound does not turn arbitrary reliability evaluation into a polynomial-time algorithm.\footnote{A polynomial list of minimal cuts can still encode a difficult counting problem.}
 
 For the odd-cycle example with identical independent failure probability $p$,
 \[
@@ -81,7 +83,7 @@ If only marginal probabilities and selected dependence constraints are known, in
 subject to $\pi_F\ge0$, $\sum_F\pi_F=1$, $\sum_{F\ni i}\pi_F=p_i$ and any stated additional linear probability constraints. This is the logical probability formulation of Hailperin~\cite{hailperin}, applied to the exact geometric cut list. It can have $2^n$ variables. No efficient solution for every dependence model is claimed.
 
 \subsection{Maintaining a stronger residual requirement}
-Equations \cref{eq:random-success,eq:kappa} concern ordinary coverage after a failure. If the desired residual rule is a different monotone predicate $w_0$, the exact condition is instead
+\Cref{eq:random-success,eq:kappa} concern ordinary coverage after a failure. If the desired residual rule is a different monotone predicate $w_0$, the exact condition is instead
 \[
 w_0(A\setminus F)=1\quad\text{for every }A\in\mathcal A_T.
 \]
@@ -93,14 +95,13 @@ If some $A$ already loses under $w_0$, the inner minimum includes $B=\varnothing
 
 For residual $k$-coverage at a pattern of size $a\ge k$, delete its $a-k+1$ cheapest contacts. A general $w_0$ may require a difficult inner optimization, and its complete minimal attack family can be much larger than $\mathcal A_T$. The universal geometric reduction remains exact without implying that every logical optimization is easy.
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\textwidth]{figures/wiring-comparison.pdf}
+\begin{figure*}[tb]
+\centering\includegraphics[width=\textwidth]{figures/wiring-comparison.png}
 \caption{Wiring choices with the same geometry. The target shading illustrates whether two distinct domains are present. Exact certification gives the indicated minimum domain cuts. The geometric and stochastic conclusions use the separately stated models.}
-\end{figure}
+\end{figure*}
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\textwidth]{figures/reliability-curves.pdf}
+\begin{figure*}[tb]
+\centering\includegraphics[width=\textwidth]{figures/reliability-curves.png}
 \caption{Independent-domain reliability and sharp marginal-only bounds for the two wiring choices. The curves are the exact polynomials in \cref{eq:wiring-probability}; the shaded intervals allow arbitrary dependence with fixed marginals.}
-\end{figure}
+\end{figure*}
 
-\FloatBarrier

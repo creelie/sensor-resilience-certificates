@@ -3,12 +3,12 @@
   "upload_type": "publication",
   "publication_type": "preprint",
   "publication_date": "2026-10-28",
-  "version": "1.0.0",
-  "description": "We prove a finite support theorem for monotone combinations of functions with a common convex part. On a compact polyhedral target, one set of points suffices to locate the maximum for every monotone rule and every common convex term. A critical point on a face of dimension f needs at most f+1 supporting functions. For rational geometric data, the support points are rational. Applied to sensing disks, the theorem determines exact coverage radii and power thresholds for every monotone failure rule. It also gives the complete radius--failure-budget frontier from one finite construction. At a fixed geometry, the inclusion-minimal contact sets form a canonical target certificate with explicit failure witnesses. We prove exact update rules, reductions for independent geometric uncertainty and primal--dual certificates for protection allocation. Symbolic engineering examples distinguish overlap count, fault-domain resilience and protection cost. The proofs are analytical throughout. Detailed derivations, diagrams, counterexamples and appendices make the assumptions and conclusions explicit; the established geometric, topological and reliability foundations are credited.",
+  "version": "1.1.0",
+  "description": "On a polyhedral target, one finite set of points locates the maximum of every monotone max–min combination of functions that share a convex part and differ by affine terms, whatever the rule and the shared part; a maximiser on an f-dimensional face is fixed by f+1 of the functions. For sensing disks this gives exact rational coverage radii and power thresholds for every monotone failure rule, the whole radius–budget frontier, a canonical certificate of minimal contact sets with witnesses, exact robust tests under independent placement errors and dual certificates for protection. This archive holds the LaTeX source, the compiled paper and the exact-arithmetic checks of the worked examples.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
-      "affiliation": "Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha, India",
+      "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha, India; formerly, University of Calcutta (Heramba Chandra College), Kolkata, India",
       "orcid": "0000-0003-0466-750X"
     },
     {
@@ -24,11 +24,9 @@
   "license": "cc-by-4.0",
   "keywords": [
     "support theorem",
-    "convexity",
-    "geometric coverage",
-    "structured failures",
-    "reliability",
-    "robust optimization"
+    "sensor coverage",
+    "monotone failure rules",
+    "resilience certificates"
   ],
   "related_identifiers": [
     {
@@ -38,6 +36,21 @@
     },
     {
       "identifier": "10.20944/preprints202606.1351.v2",
+      "scheme": "doi",
+      "relation": "references"
+    },
+    {
+      "identifier": "10.1007/BF01008046",
+      "scheme": "doi",
+      "relation": "references"
+    },
+    {
+      "identifier": "10.1109/TC.1982.1676031",
+      "scheme": "doi",
+      "relation": "references"
+    },
+    {
+      "identifier": "10.1007/11600930_58",
       "scheme": "doi",
       "relation": "references"
     }

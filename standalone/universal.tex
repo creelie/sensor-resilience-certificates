@@ -40,7 +40,7 @@ where the harmless initial constant also bounds the $n=0$ case. Target membershi
 \end{proof}
 
 \begin{remark}
-The quadratic bound counts the retained certificate, not the number of vertical bands sampled by the implementation. It is inherited from ordinary arrangement complexity. No matching quadratic lower bound for this particular minimal-label family is asserted.
+The quadratic bound counts the retained certificate, not the vertical bands sampled in its construction. It is inherited from ordinary arrangement complexity. No matching quadratic lower bound for this particular minimal-label family is asserted.
 \end{remark}
 
 \begin{proposition}[Irredundancy for all failure rules]\label{prop:irredundant}
@@ -78,9 +78,8 @@ A deletion $F$ destroys coverage precisely when it contains a realized active se
 
 For unit costs, the maximum guaranteed number of arbitrary contact losses is $\min_A|A|-1$, provided the target is initially covered. For a domain partition, apply \cref{thm:relabel} first and use one cost per domain. The case $\kappa_T=0$ is not rounded up: it means that no nonnegative budget guarantee holds, either because the target is already uncovered or because a zero-cost cut is available.
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\textwidth]{figures/target-patterns.pdf}
+\begin{figure*}[tb]
+\centering\includegraphics[width=\textwidth]{figures/target-patterns.png}
 \caption{Target geometry with exact rational witnesses and the minimal cut graph of the four-contact panel. The witnesses and all four critical pair patterns are derived explicitly in \cref{sec:engineering}.}
-\end{figure}
+\end{figure*}
 
-\FloatBarrier

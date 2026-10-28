@@ -1,0 +1,22 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create release with the paper package
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          VERSION="${TAG#v}"
+          awk -v v="$VERSION" '$0 ~ "^# Version "v" " {f=1; next} /^# / && f {exit} f' CHANGELOG.md > notes.md
+          gh release create "$TAG" \
+            --title "Universal Support Theorems for Resilient Coverage $TAG" \
+            --notes-file notes.md \
+            "[PAPER] package/"*

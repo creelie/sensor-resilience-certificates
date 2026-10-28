@@ -34,7 +34,7 @@ Coverage at common radius $r$ is equivalent to $r\ge\rho_w(x)$ at every target p
 \end{proof}
 
 \begin{remark}[Universality and complexity]
-The same $Q_T$ works for cardinality thresholds, weighted budgets, domain rules and any fixed monotone activation of primitive contacts. It does not say that the critical radius is the same for those rules. Its purpose is reusability and a verifiable exact threshold, not a sharper complexity bound than specialized higher-order or colored Voronoi methods.
+The same $Q_T$ works for cardinality thresholds, weighted budgets, domain rules and any fixed monotone activation of primitive contacts. It does not say that the critical radius is the same for those rules. Its point is reusability and an exact threshold; specialised higher-order or coloured Voronoi methods can be faster for a single rule.
 \end{remark}
 
 \subsection{The support reduction in fixed dimension}
@@ -101,7 +101,7 @@ Represent a line by its rational coefficients $(a,b,c)$ in $ax+by+c=0$. Clearing
 \[
 x=\frac{bf-ec}{\Delta},\qquad y=\frac{cd-fa}{\Delta}.
 \]
-Every candidate membership test in a closed triangle is a rational orientation test. Every distance-prefix comparison uses rational squared distances. Consequently the radius routine uses no radical comparison at all; radicals appear only when displaying the final radius as $\sqrt s$.
+Every candidate membership test in a closed triangle is a rational orientation test. Every distance-prefix comparison uses rational squared distances. Consequently the radius computation uses no radical comparison; radicals appear only when displaying the final radius as $\sqrt s$.
 
 \subsection{A reusable engineering example}
 Take the four sites $(\pm1,\pm1)$ and target $[-3/5,3/5]^2$. Two-contact coverage requires squared radius $68/25$. Assigning both contacts in each column to the same failure domain requires squared radius $89/25$ to survive a domain loss. Assigning the two diagonals as the domains instead requires $68/25$. The saved rational worst points include $(-3/5,0)$ for column wiring and a target corner for diagonal wiring.
@@ -109,16 +109,15 @@ Take the four sites $(\pm1,\pm1)$ and target $[-3/5,3/5]^2$. Two-contact coverag
 These values are derived directly in \cref{app:worked}. The separation is operational: a nominal radius $9/5$ lies between the two thresholds. At that radius, diagonal wiring meets the one-domain-loss requirement and column wiring fails, although ordinary two-contact coverage is identical in both designs.
 
 \subsection{Why unequal offsets require a different proof}
-If contact $i$ has radius $r_i+s$ with a common additive design variable $s$, the relevant scalar functions are $\|x-c_i\|-r_i$. Their equality loci are generally hyperbolas, not the perpendicular bisectors used here. A distance-order arrangement for the unweighted sites would then omit changes in the active ranking. The exact fixed-radius sweep still applies after the radii are chosen, and a general semialgebraic optimization approach is possible, but no unproved rational squared-threshold assertion is made for that weighted problem.\footnote{The common-radius assumption is a structural hypothesis of the theorem, not an omitted physical parameter. The separate fixed-geometry algorithm accepts unequal radii.}
+If contact $i$ has radius $r_i+s$ with a common additive design variable $s$, the relevant scalar functions are $\|x-c_i\|-r_i$. Their equality loci are generally hyperbolas, not the perpendicular bisectors used here. A distance-order arrangement for the unweighted sites would then omit changes in the active ranking. The exact fixed-radius sweep still applies after the radii are chosen, and a general semialgebraic optimization approach is possible, but the rational threshold statement of this section does not cover that weighted problem.\footnote{The fixed-geometry sweep accepts unequal radii; only the radius theorem assumes a common radius.}
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\textwidth]{figures/support-comparison.pdf}
-\caption{Two support constructions on asymmetric four-site geometry. The full order arrangement contains more candidate points. The smaller set follows from the support theorem and is valid for every monotone rule. The diagram illustrates the constructions rather than serving as their proof.}
-\end{figure}
+\begin{figure*}[tb]
+\centering\includegraphics[width=\textwidth]{figures/support-comparison.png}
+\caption{Two support constructions for five sites (gold squares) on the same two-triangle target. Left: the full distance-order arrangement, $57$ candidate points. Right: the support set of \cref{thm:support-radius}, $44$ points, valid for every monotone rule; the red crosses mark tie points of the arrangement that it does not need.}
+\end{figure*}
 
-\begin{figure}[!htbp]
-\centering\includegraphics[width=\textwidth]{figures/radius-supports.pdf}
+\begin{figure*}[tb]
+\centering\includegraphics[width=\textwidth]{figures/radius-supports.png}
 \caption{Exact critical-radius witnesses for the two wiring choices. Stars mark maximizing target locations. The circles are drawn at the certified threshold radii, whose squares are rational.}
-\end{figure}
+\end{figure*}
 
-\FloatBarrier

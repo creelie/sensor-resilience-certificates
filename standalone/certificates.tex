@@ -25,7 +25,7 @@ R_{\F}=\{x:\phi_{\F}(x)\ge0\}.
 \end{equation}
 \end{lemma}
 \begin{proof}
-The reverse triangle inequality gives $\abs{g_i(x)-g_i(y)}\le\|x-y\|$. If finite collections of functions each change by at most $d$ between two points, their minima and their maxima change by at most $d$. Applying this twice to \cref{eq:margin} proves the Lipschitz assertion.
+By the reverse triangle inequality, $\abs{g_i(x)-g_i(y)}\le\|x-y\|$. If finite collections of functions each change by at most $d$ between two points, their minima and their maxima change by at most $d$. Applying this twice to \cref{eq:margin} proves the Lipschitz assertion.
 
 The left side of \cref{eq:slack-winning} means that one minimal winning set has every contact slack at least $t$. This is equivalent to the slack-threshold contact set containing a winning set, and therefore to that set itself being winning. At $t=0$, it is precisely the active contact set of the closed disks; use \cref{prop:pointwise}.
 \end{proof}
@@ -75,7 +75,7 @@ The triangle is certified if and only if the retained set at each vertex wins.
 By \cref{eq:slack-winning}, the desired test is winning of the set with $r_i-\|v-c_i\|\ge\sqrt h$. This requires $r_i\ge\sqrt h$, equivalent to the first inequality because $r_i\ge0$. Subject to it, both sides of $\|v-c_i\|\le r_i-\sqrt h$ are nonnegative. Squaring is therefore reversible and gives the second inequality of \cref{eq:exact-target}. All coefficients outside $\sqrt h$ are rational, so \cref{lem:sign} applies.
 \end{proof}
 
-The supplied \texttt{triangle\_certificate} routine implements \cref{eq:exact-target}. A zero-diameter triangle and zero-radius contacts are included. Its return value records the three eligible contact masks and the exact squared diameter. It does not use the homology routine as an inclusion oracle.
+The test \cref{eq:exact-target} includes zero-diameter triangles and zero-radius contacts, and it needs only the three eligible contact masks and the exact squared diameter; no homology computation enters.
 
 \subsection{Uncertain geometry}
 Suppose the actual parameters satisfy

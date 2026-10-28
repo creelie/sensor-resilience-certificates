@@ -90,22 +90,24 @@ For $n$ closed planar disks with rational input data, and an exactly evaluable m
 There are at most $n^2$ witnesses and $n$ membership tests per witness. A quadratic comparison of at most $n^2$ labels bounds the naive filtering step. Correctness of those steps follows from \cref{thm:witness,lem:sign}. The simplex count follows from $m\le n^2$, and every simplex through dimension two is included by its defining predicate. \Cref{thm:duality,prop:two-skeleton} identify the resulting homology with that of the surviving region.
 \end{proof}
 
-This is an arithmetic-operation and oracle-query bound. It is not a unit-time bit-complexity bound: rational numerator sizes, arbitrary-precision mask operations, predicate costs and elimination all matter. The worst-case number of dual triangles is $O(n^6)$, and the full dual complex may have exponentially many simplices. For $H_j$ with fixed $j$, its full $(j+1)$-skeleton suffices, giving at most $O(n^{2j+4})$ simplex tests by the same argument. These bounds are deliberately separate from the much more refined multicover bifiltration algorithms of~\cite{corbet,alonso}.
+This is an arithmetic-operation and oracle-query bound. It is not a unit-time bit-complexity bound: rational numerator sizes, arbitrary-precision mask operations, predicate costs and elimination all matter. The worst-case number of dual triangles is $O(n^6)$, and the full dual complex may have exponentially many simplices. For $H_j$ with fixed $j$, its full $(j+1)$-skeleton suffices, giving at most $O(n^{2j+4})$ simplex tests by the same argument. Much finer multicover bifiltration algorithms are given in~\cite{corbet,alonso}.
 
 \subsection{Equal-radius verification by a different geometric formula}
 For equal-radius disks there is another exact intersection criterion, expressed through minimum enclosing circles of center triples. If $a,b,c$ are three centers, let
 \[
-u=\|a-b\|^2,\quad v=\|a-c\|^2,\quad w=\|b-c\|^2,
-\quad J=(b-a)_x(c-a)_y-(b-a)_y(c-a)_x.
+\begin{gathered}
+u=\|a-b\|^2,\quad v=\|a-c\|^2,\quad w=\|b-c\|^2,\\
+J=(b-a)_x(c-a)_y-(b-a)_y(c-a)_x.
+\end{gathered}
 \]
 The squared minimum enclosing radius is
 \begin{equation}\label{eq:mec}
 \rho^2(a,b,c)=
 \begin{cases}
-\max(u,v,w)/4,&2\max(u,v,w)\ge u+v+w,\\[2pt]
-uvw/(4J^2),&2\max(u,v,w)<u+v+w.
+m/4,&2m\ge u+v+w,\\[2pt]
+uvw/(4J^2),&2m<u+v+w,
 \end{cases}
 \end{equation}
-The first case includes right, obtuse, collinear and coincident configurations. The second is the circumradius formula for an acute triangle; its denominator is nonzero. Two equal-radius disks meet if their center distance squared is at most $4r^2$, and three meet if and only if $\rho^2\le r^2$. Planar Helly's theorem extends the triple criterion to every larger subfamily.
+where $m=\max(u,v,w)$. The first case includes right, obtuse, collinear and coincident configurations. The second is the circumradius formula for an acute triangle; its denominator is nonzero. Two equal-radius disks meet if their center distance squared is at most $4r^2$, and three meet if and only if $\rho^2\le r^2$. Planar Helly's theorem extends the triple criterion to every larger subfamily.
 
-Equation \cref{eq:mec} supplies a separate analytical criterion for testing a proposed facet and its one-contact extensions. Completeness of the witness list is supplied by \cref{thm:witness}; checking triples alone would not, for an arbitrary list of purported facets, prove that completeness.
+\Cref{eq:mec} supplies a separate analytical criterion for testing a proposed facet and its one-contact extensions. Completeness of the witness list is supplied by \cref{thm:witness}; checking triples alone would not, for an arbitrary list of purported facets, prove that completeness.

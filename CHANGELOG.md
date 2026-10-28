@@ -1,3 +1,12 @@
+# Version 1.1.0 — 2026-10-28
+
+- REVTeX 4.2 two-column layout, 32 pages, PNG figures; two-sentence abstract, MSC codes and four keywords.
+- Introduction credits Toussaint (1983), Lee (1982) and So–Ye (2005): the support theorem specialises to the largest-empty-circle candidates and to the order-k Voronoi test for k-coverage.
+- Support-comparison figure redrawn to match its caption: five sites, 57 arrangement candidates against 44 support points.
+- Software remarks and hedging sentences removed from the paper; declarations rewritten with a data availability paragraph.
+- New paper package in `[PAPER] package/`; the 1.0.0 package moved to `historical/standalone-1.0.0-package/`.
+- Release workflow `.github/workflows/release.yml`.
+
 # Standalone article package 1.0.0 — 2026-10-28
 
 - New standalone title: Universal Support Theorems for Resilient Coverage.

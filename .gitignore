@@ -15,3 +15,5 @@ standalone/*.log
 standalone/*.out
 standalone/*.toc
 standalone/main.pdf
+standalone/output.*
+standalone/*Notes.bib
