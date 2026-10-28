@@ -1,3 +1,8 @@
+# Version 1.1.1 — 2026-10-28
+
+- Abstract rewritten in plain words, beginning "We prove"; the mathematics is unchanged.
+- Ushashi Bhattacharya's ORCID (0009-0002-2254-3914) added on the title page, in CITATION.cff and in .zenodo.json.
+
 # Version 1.1.0 — 2026-10-28
 
 - REVTeX 4.2 two-column layout, 32 pages, PNG figures; two-sentence abstract, MSC codes and four keywords.
