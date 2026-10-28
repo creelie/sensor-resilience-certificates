@@ -1,0 +1,95 @@
+\appendix
+\section{Order maps and the comparison homotopies}
+\label{app:posets}
+We spell out the finite order argument used in \cref{thm:duality}. For a poset $P$, its order complex has vertices $p\in P$ and simplices the nonempty chains. An order-preserving map sends chains to chains, possibly with repetitions; deleting repetitions gives a simplicial map. An order-reversing map does the same after reversing the order of the image chain. The order complexes of a poset and its opposite are therefore the same abstract complex.
+
+\begin{lemma}[Order comparison homotopy]\label{lem:order-homotopy}
+If $a,b:P\to Q$ are order-preserving maps of finite posets with $a(p)\le b(p)$ for all $p$, their induced maps on realizations are homotopic.
+\end{lemma}
+\begin{proof}
+The map $H:P\times\{0<1\}\to Q$ defined by $H(p,0)=a(p)$ and $H(p,1)=b(p)$ is order preserving. The only mixed comparison needing verification is $(p,0)\le(p',1)$, which implies $p\le p'$ and hence $a(p)\le a(p')\le b(p')$. The order complex of this product triangulates each prism over a chain of $P$: a chain $p_0<\cdots<p_s$ is crossed with an interval and split at each possible transition from level zero to level one. These prism triangulations agree on shared faces. Realizing $H$ gives a continuous homotopy from the realization of $a$ to that of $b$.
+\end{proof}
+
+The maps $g f$ and $f g$ of \cref{eq:f-map,eq:g-map} are order preserving and lie above the identity. Applying \cref{lem:order-homotopy} gives both homotopies required there. This avoids choosing a maximal face for each simplex, which would obscure naturality when the failure rule changes.
+
+An alternative intermediate model is the order complex of the winning-face poset $\cP_{\F}$. Define
+\[
+u:Q_\Gamma\longrightarrow\cP_{\F},\qquad u(A)=\bigcup_{\sigma\in A}\sigma,
+\]
+and
+\[
+t:\cP_{\F}\longrightarrow Q_\Gamma,\qquad
+t(\sigma)=\{\tau\in\cP_{\F}:\tau\subseteq\sigma\}.
+\]
+These are order preserving, $u t$ is the identity, and $A\subseteq t u(A)$. Thus $\Gamma_{\F}$ is also homotopy equivalent to the winning-face order complex. For the cardinality rule, this is the subcomplex of the barycentric nerve subdivision on faces of size at least $k$, connecting the present formulation directly to the classical multicover nerve~\cite{sheehy}. The map $u$ commutes with inclusions of winning-face sets at fixed $N$.
+
+\section{A chain comparison for the disk covers}
+\label{app:nerve}
+This appendix explains the natural homology statement in the semialgebraic disk setting without treating an arbitrary closed cover as an open good cover. A finite family of compact semialgebraic sets admits a common finite compatible triangulation~\cite{realalgebraic,bauer}. Apply this to the finitely many disk intersections appearing in the secondary covers under consideration. Each such set is represented by a subcomplex of a common finite complex $L$. Every nonempty finite intersection remains contractible because it is convex before triangulation.
+
+Index one cover by a finite set $I$, write $L_i$ for its subcomplexes and $L_A=\bigcap_{i\in A}L_i$. Over a field, form the double-chain groups
+\begin{equation}\label{eq:double-chain}
+E_{p,q}=\bigoplus_{\substack{A\subseteq I\\|A|=p+1}}C_q(L_A),\qquad p,q\ge0,
+\end{equation}
+omitting empty intersections. The vertical boundary is the simplicial boundary of $L_A$. The horizontal boundary is the alternating sum of inclusions obtained by dropping one index of $A$. The standard total sign convention makes the total differential square to zero; over $\FF$ the signs disappear.
+
+Augment horizontally to the chain complex of the union. For a fixed simplex $s$ of the union, let $I_s=\{i:s\in L_i\}$. This set is nonempty. Its copies in the augmented row of \cref{eq:double-chain} form precisely the augmented chain complex of the full simplex on $I_s$. That complex is exact: fixing one index in $I_s$ and adjoining it gives a contracting homotopy. Splitting the row over the simplices $s$ proves horizontal exactness. Thus the total chain complex computes the homology of the union.
+
+In the other direction, take vertical homology first. Each nonempty $L_A$ is contractible, so it has one-dimensional ordinary $H_0$ and zero higher homology. Sending every vertex of a connected $L_A$ to $1$ identifies its $H_0$ with the coefficient field compatibly with inclusion. The remaining horizontal complex is exactly the simplicial chain complex of the nerve. The two filtrations of the finite double complex therefore identify nerve homology with union homology. This can be expressed as the two elementary finite spectral-sequence comparisons, or by successive elimination of the exact augmented rows and the positive-degree acyclic columns.
+
+If a cover subfamily is included in a larger cover, the same triangulation can be used for both, and inclusion of summands in \cref{eq:double-chain} commutes with both augmentations. Hence the resulting homology isomorphisms are natural. No human choice of one witness point per nerve simplex enters the induced homology comparison. The general closed-convex homotopy theorem used in \cref{thm:duality} is the standard theorem cited in~\cite{bauer}; this appendix supplies a detailed homological explanation for the disks actually computed.
+
+\section{Boundary arithmetic and exact input semantics}
+\label{app:arithmetic}
+\subsection{Binary columns over \texorpdfstring{$\FF$}{F2}}
+Number the dual edges from zero to $E-1$. A triangle with edge indices $a,b,c$ has boundary column
+\[
+z=2^a\mathbin{\oplus}2^b\mathbin{\oplus}2^c,
+\]
+where $\oplus$ is bitwise exclusive-or. This is simply an encoding of a vector in $\FF^E$; it is not integer linear algebra. Each edge has two vertex endpoints, so applying the edge boundary to a triangle boundary counts every vertex twice. Therefore $\partial_1\partial_2=0$.
+
+To compute the rank, maintain at most one pivot column for each leading nonzero row. A new column is repeatedly added to the stored column with the same leading row until it becomes zero or acquires a previously unused leading row. In the latter case store it. Every reduction step preserves the span of columns seen so far. Stored columns have distinct leading rows and are linearly independent. Each processed column is in their span, so the number stored is exactly the boundary rank. Termination follows because the leading nonzero row strictly decreases in the main implementation.
+
+The independent audit represents columns by sets and instead uses the smallest nonzero row. That leading row strictly increases. Its correctness follows from the same span invariant, but its representation and pivot trajectory differ. Agreement is useful for detecting implementation errors, while the invariant supplies the proof of either algorithm for every finite input.
+
+\subsection{Rational comparisons and equality}
+A finite binary64 number is a rational of the form $m2^e$. The input conversion preserves that value as a Python \texttt{Fraction}. Products, sums and divisions in \cref{eq:circle-parameters,eq:quadratic-membership,eq:mec} therefore have exact integer numerators and denominators. The only radicals are eliminated by the signed comparisons of \cref{lem:sign}. Unconditional squaring would be wrong when the compared sides have uncontrolled signs; the sign cases are part of the algorithm.
+
+The geometry API explicitly converts supplied numerical values to binary64 before making their rational representations. Passing a rational with a non-dyadic denominator to that API does not request symbolic preservation of the original rational; it requests exact treatment of its binary64 conversion. The abstract rational algorithm of \cref{thm:algorithm} can instead be implemented with rational inputs directly. The released computations consistently use the former convention and record the input hashes.
+
+No geometric epsilon is used to merge circles, enlarge radii or decide tangency. Equal centers are tested as exact rational pairs. Coincident disks retain distinct labels because a failure model can distinguish the two contacts even when their geometry is identical. Equality in a closed-disk test is accepted. The companion archive's open-disk routines~\cite{ecog} use strict inequalities, so they must not be interchanged without specifying the convention.
+
+\section{Counterexamples to stronger interpretations}
+\label{app:counterexamples}
+\begin{example}[Hole-free does not imply target coverage]
+Let $D_1$ be the unit disk at the origin and let the target be the unit disk centered at $(10,0)$. The ordinary covered region is contractible and has $b_1=0$, but its intersection with the target is empty. No theorem using only the absolute Betti numbers of the covered region can certify containment of every possible externally supplied target.
+\end{example}
+
+\begin{example}[Pairwise overlap does not determine a triangle]
+Three disks centered at the vertices of an equilateral triangle of side $d$ overlap pairwise when $r\ge d/2$, but share a common point only when $r\ge d/\sqrt3$. For $d/2<r<d/\sqrt3$, their nerve contains a cycle without a filled triangle. Replacing the nerve by the flag complex of pairwise overlaps changes $H_1$. The same issue appears again in the facet-intersection model, as noted after \cref{prop:two-skeleton}.
+\end{example}
+
+\begin{example}[Geometric uncertainty can hide temporary homology]
+Even when an inner region and an outer region are both disks, an intermediate subset containing the inner disk and contained in the outer disk can be an annulus attached to that disk, or a disk with a separate small component. Thus knowledge of endpoint Betti numbers alone does not determine all intermediate Betti numbers. The rank lower bound after \cref{thm:stability} is the conclusion that follows from the factorization; a stronger exactness assertion would require additional hypotheses.
+\end{example}
+
+\section{Revision record and reproducible commands}
+The present v3 changes the title to reflect the failure-family extension, adds Sanjeevan Singha Roy as the third author, preserves the two original authors, corrects the dense-field vertex/edge description, replaces the unfinished dense calculation by a complete dual computation and separates target containment from absolute homology. It supplies explicit proofs and arithmetic conventions rather than appending an unrelated paper.
+
+From the repository root, with a standard Python installation, the scientific checks are:
+\begin{verbatim}
+python -m unittest discover -s code -v
+python code/run_fields.py
+python code/verify_fields.py
+python code/audit_shadow_edges.py
+\end{verbatim}
+Only the figure generator requires NumPy and Matplotlib:
+\begin{verbatim}
+python code/make_figures.py
+\end{verbatim}
+The figures and generated table are already included in the TeX package. For a first build with an ordinary LaTeX installation, run \texttt{pdflatex main.tex} three times in the \texttt{paper} directory so that the contents and cross-references stabilize. Overleaf normally handles these passes automatically. No external article PDF is embedded in the manuscript. The bibliography cites the specific earlier works relevant to its definitions, methods or context.
+
+The public source is the \href{https://github.com/creelie/nerve-coverage-v3}{nerve-coverage-v3 repository}. The DOI \href{https://doi.org/10.5281/zenodo.23731783}{10.5281/zenodo.23731783} identifies the companion ECoG archive cited in this paper; it is not presented as the DOI of this v3.
+
+\paragraph{Preparation tools.}
+OpenAI Codex assisted with the revision's mathematical exposition, code, numerical audits and figure preparation. The package supplies the arguments, executable checks and their stated scope for inspection. This assistance is distinct from proof-assistant formalization. The human authors remain responsible for reviewing the final work and for submission declarations.

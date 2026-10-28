@@ -1,0 +1,125 @@
+\section{Continuous target certificates and perturbation control}
+\label{sec:certificates}
+A homotopy model describes the surviving region once the footprints are known. An engineering target is additional data: a compact set $T$ for which one wants $T\subseteq R_{\F}$. This section gives a sufficient test for that inclusion, with the same winning rule as the dual complex. The constant in the triangle bound is the familiar planar covering constant used in the companion coverage archive~\cite{ecog}; the extension here is its formulation for a general monotone failure predicate.
+
+\subsection{The winning margin}
+Assume that $\W$ is nonempty and define the contact slack functions
+\[
+g_i(x)=r_i-\|x-c_i\|.
+\]
+The \emph{winning margin} is
+\begin{equation}\label{eq:margin}
+\phi_{\F}(x)=\max_{\sigma\in\Min\W}\ \min_{i\in\sigma}g_i(x).
+\end{equation}
+Minimal winning sets in this formula range over the full contact label set; they need not have a nonempty footprint intersection. The formula describes a real-valued function even outside the covered region. If $\W$ is empty, $R_{\F}$ is empty and target certification is handled separately.
+
+\begin{lemma}[Margin semantics and Lipschitz control]\label{lem:margin}
+The function $\phi_{\F}$ is $1$-Lipschitz. For each real $t$,
+\begin{equation}\label{eq:slack-winning}
+\phi_{\F}(x)\ge t\quad\Longleftrightarrow\quad
+\{i:g_i(x)\ge t\}\notin\F.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:margin-region}
+R_{\F}=\{x:\phi_{\F}(x)\ge0\}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The reverse triangle inequality gives $\abs{g_i(x)-g_i(y)}\le\|x-y\|$. If finite collections of functions each change by at most $d$ between two points, their minima and their maxima change by at most $d$. Applying this twice to \cref{eq:margin} proves the Lipschitz assertion.
+
+The left side of \cref{eq:slack-winning} means that one minimal winning set has every contact slack at least $t$. This is equivalent to the slack-threshold contact set containing a winning set, and therefore to that set itself being winning. At $t=0$, it is precisely the active contact set of the closed disks; use \cref{prop:pointwise}.
+\end{proof}
+
+For ordinary $k$-fold coverage, $\phi_{\F}$ is the $k$th largest slack. For a failure budget, sort the slacks in decreasing order and accumulate failure costs until their sum first exceeds $B$; the corresponding slack is the margin. Ties can be processed as a block, and zero-cost contacts do not change the threshold. For $q$ domain losses, first maximize the slack within each domain and then take the $(q+1)$st largest domain slack. These are ways of evaluating the same finite maximum--minimum formula, not assumptions of statistical independence.
+
+\subsection{A sharp triangle sampling bound}
+\begin{lemma}[Distance to triangle vertices]\label{lem:triangle}
+Let $T=\conv\{v_1,v_2,v_3\}\subset\R^2$ and $D=\max_{i,j}\|v_i-v_j\|$. Every $x\in T$ satisfies
+\begin{equation}\label{eq:triangle-distance}
+\min_i\|x-v_i\|\le\frac D{\sqrt3}.
+\end{equation}
+The constant is sharp for an equilateral triangle.
+\end{lemma}
+\begin{proof}
+If the triangle is degenerate, any point of its segment lies within half the segment length of one of its extreme vertices, so the bound follows. Otherwise partition $T$ into its three clipped vertex Voronoi cells. On a cell, squared distance to its vertex is convex and attains its maximum at an extreme point of that cell. On the boundary of $T$, a point of an edge lies within half the edge length of one of that edge's endpoints, giving a bound $D/2$ for its nearest vertex.
+
+The only possible interior Voronoi vertex is the circumcenter. If it lies inside $T$, the triangle is acute and its largest angle $A$ lies between $\pi/3$ and $\pi/2$. The circumradius is $D/(2\sin A)\le D/\sqrt3$. These are all the possible cell extremes relevant to a maximum, proving the claim. In an equilateral triangle, the center is at distance $D/\sqrt3$ from every vertex, proving sharpness.
+\end{proof}
+
+\begin{theorem}[Continuous target certificate]\label{thm:target}
+Let a compact target $T$ be the union of finitely many closed planar triangles. For each triangle $\tau$ let $D_\tau$ be its diameter. If every vertex $v$ of every triangle satisfies
+\begin{equation}\label{eq:triangle-cert}
+\phi_{\F}(v)\ge D_\tau/\sqrt3,
+\end{equation}
+then $T\subseteq R_{\F}$. The condition is sufficient, and a failed certificate is inconclusive about actual coverage.
+\end{theorem}
+\begin{proof}
+Fix $x\in\tau$ and choose a vertex $v$ at distance at most $D_\tau/\sqrt3$ by \cref{lem:triangle}. By \cref{lem:margin},
+\[
+\phi_{\F}(x)\ge\phi_{\F}(v)-\|x-v\|\ge0.
+\]
+Thus $x\in R_{\F}$. Apply the same argument to every triangle.
+\end{proof}
+
+The winning coalition is allowed to differ between vertices and triangles. The argument only needs a winning coalition at the selected nearest vertex with enough margin to reach the point. It does not assume that one fixed coalition covers an entire target. For an equilateral triangle with one disk of radius $b<D/\sqrt3$ centered at each vertex, the center is uncovered although each vertex has ordinary one-fold margin $b$. Hence a smaller universal vertex-margin constant cannot replace $1/\sqrt3$ in this form of certificate.
+
+\begin{proposition}[Exact evaluation of a triangle certificate]\label{prop:exact-target}
+For rational disk and triangle data, the sufficient test in \cref{thm:target} can be decided using the same radical sign predicate as \cref{lem:sign}. Let $h=D_\tau^2/3$. At a vertex $v$, keep contact $i$ precisely when
+\begin{equation}\label{eq:exact-target}
+r_i^2\ge h,\qquad
+\|v-c_i\|^2-r_i^2-h+2r_i\sqrt h\le0.
+\end{equation}
+The triangle is certified if and only if the retained set at each vertex wins.
+\end{proposition}
+\begin{proof}
+By \cref{eq:slack-winning}, the desired test is winning of the set with $r_i-\|v-c_i\|\ge\sqrt h$. This requires $r_i\ge\sqrt h$, equivalent to the first inequality because $r_i\ge0$. Subject to it, both sides of $\|v-c_i\|\le r_i-\sqrt h$ are nonnegative. Squaring is therefore reversible and gives the second inequality of \cref{eq:exact-target}. All coefficients outside $\sqrt h$ are rational, so \cref{lem:sign} applies.
+\end{proof}
+
+The supplied \texttt{triangle\_certificate} routine implements \cref{eq:exact-target}. A zero-diameter triangle and zero-radius contacts are included. Its return value records the three eligible contact masks and the exact squared diameter. It does not use the homology routine as an inclusion oracle.
+
+\subsection{Uncertain geometry}
+Suppose the actual parameters satisfy
+\[
+\|c_i'-c_i\|\le\epsilon_i,\qquad |r_i'-r_i|\le\eta_i,
+\quad r_i,r_i'\ge0,
+\]
+and put $\delta=\max_i(\epsilon_i+\eta_i)$. Write $\phi$ and $\phi'$ for the two winning margins with the same failure family.
+
+\begin{theorem}[Uniform margin stability]\label{thm:stability}
+For all $x$,
+\begin{equation}\label{eq:margin-stability}
+|\phi(x)-\phi'(x)|\le\delta.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:stable-sandwich}
+\{\phi\ge\delta\}\subseteq R_{\F}(D')\subseteq\{\phi\ge-\delta\}.
+\end{equation}
+If every target triangle vertex obeys
+\[
+\phi(v)\ge\delta+D_\tau/\sqrt3,
+\]
+then every geometry satisfying the error bounds covers the entire target under the prescribed failures.
+\end{theorem}
+\begin{proof}
+For every $i$,
+\[
+|g_i(x)-g_i'(x)|\le |r_i-r_i'|+
+\big|\|x-c_i\|-\|x-c_i'\|\big|\le\eta_i+\epsilon_i\le\delta.
+\]
+Finite minima and maxima preserve this uniform bound, proving \cref{eq:margin-stability}. If $\phi(x)\ge\delta$, then $\phi'(x)\ge0$. If $\phi'(x)\ge0$, then $\phi(x)\ge-\delta$. This proves the inclusions. For a target point choose its nearby triangle vertex and apply both the geometric Lipschitz bound and the parameter error bound.
+\end{proof}
+
+For each offset $t$ the same argument gives $\{\phi\ge t+\delta\}\subseteq\{\phi'\ge t\}\subseteq\{\phi\ge t-\delta\}$. Thus the superlevel homology modules are $\delta$-interleaved, with the superlevel parameter ordered in the usual reverse direction. This statement concerns the geometric modules; no unproved nesting of changing maximal-facet vertex sets is required.
+
+\begin{corollary}[A robust homology lower bound]
+Let $X^-=\{\phi\ge\delta\}$ and $X^+=\{\phi\ge-\delta\}$. For any admissible actual geometry and any degree $j$,
+\[
+\dim H_j(R_{\F}(D'))\ \ge\
+\rank\bigl(H_j(X^-)\longrightarrow H_j(X^+)\bigr).
+\]
+\end{corollary}
+\begin{proof}
+The inclusion-induced map on the right factors through $H_j(R_{\F}(D'))$ by \cref{eq:stable-sandwich}. The rank of a factorization cannot exceed the dimension of its middle vector space.
+\end{proof}
+
+The lower bound does not rule out extra classes born and killed inside the uncertainty interval. Equal endpoint Betti numbers, or even an isomorphism between endpoints, need not give the exact Betti number of every intermediate geometry. For a target failure certificate, on the other hand, a point $x\in T$ with $\phi(x)<-\delta$ remains uncovered for every admissible actual geometry by \cref{eq:margin-stability}. These are distinct conclusions and require distinct data.

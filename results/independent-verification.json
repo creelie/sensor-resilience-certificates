@@ -1,0 +1,62 @@
+[
+  {
+    "field": "A_ring_grid_seed3",
+    "pairs_and_triples_checked": 125580,
+    "nerve_faces": {
+      "2": 493,
+      "3": 922
+    },
+    "exact_tangencies": 0,
+    "all_facets_and_extensions_checked": true,
+    "independent_k2_rank_d2": 877,
+    "seconds": 6.742
+  },
+  {
+    "field": "B_ring_grid_seed7",
+    "pairs_and_triples_checked": 125580,
+    "nerve_faces": {
+      "2": 496,
+      "3": 928
+    },
+    "exact_tangencies": 0,
+    "all_facets_and_extensions_checked": true,
+    "independent_k2_rank_d2": 833,
+    "seconds": 6.97
+  },
+  {
+    "field": "C_poisson_random",
+    "pairs_and_triples_checked": 142880,
+    "nerve_faces": {
+      "2": 619,
+      "3": 1677
+    },
+    "exact_tangencies": 0,
+    "all_facets_and_extensions_checked": true,
+    "independent_k2_rank_d2": 569,
+    "seconds": 8.199
+  },
+  {
+    "field": "D_hex_dead_zone",
+    "pairs_and_triples_checked": 82160,
+    "nerve_faces": {
+      "2": 197,
+      "3": 118
+    },
+    "exact_tangencies": 0,
+    "all_facets_and_extensions_checked": true,
+    "independent_k2_rank_d2": 0,
+    "seconds": 4.436
+  },
+  {
+    "field": "E_two_cluster",
+    "pairs_and_triples_checked": 142880,
+    "nerve_faces": {
+      "2": 1810,
+      "3": 24956
+    },
+    "exact_tangencies": 0,
+    "all_facets_and_extensions_checked": true,
+    "independent_k2_rank_d2": 4083,
+    "seconds": 56.967
+  }
+]

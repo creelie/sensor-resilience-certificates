@@ -1,0 +1,16 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_zip_sha256": "a43677deae0f869dcf5800e5fd12483177ef3bc8e45851545b89a5ed57f8b883",
+  "pdf_sha256": "d19f46419886e4154ec491b8d467852dcec36df1bb1da7b160b5c90bff097d48",
+  "unittest_methods_passed": 10,
+  "independent_pair_triple_comparisons": 619080,
+  "all_25_model_runs_completed": true,
+  "new_zenodo_doi": null,
+  "companion_reference_doi": "10.5281/zenodo.23731783",
+  "clean_extracted_zip_compiles": true,
+  "clean_zip_pdf_text_matches": true,
+  "clean_zip_unittest_controls_pass": true,
+  "source_zip_crc_check": null,
+  "pages": 22
+}

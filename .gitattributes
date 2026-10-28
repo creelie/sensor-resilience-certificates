@@ -1,0 +1,4 @@
+* text=auto
+*.csv -text
+*.pdf -text
+*.zip -text

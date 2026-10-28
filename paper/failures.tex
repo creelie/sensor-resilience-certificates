@@ -1,0 +1,84 @@
+\section{Failure families and surviving regions}
+\label{sec:failures}
+\begin{definition}
+A \emph{failure family} is a downward-closed set $\F\subseteq2^{[n]}$ with $\varnothing\in\F$. Its complement $\W=2^{[n]}\setminus\F$ is the family of \emph{winning contact sets}. Thus $S\in\W$ and $S\subseteq S'$ imply $S'\in\W$. The active contact set at $x$ is
+\[
+S(x)=\{i\in[n]:x\in D_i\}.
+\]
+\end{definition}
+The word ``winning'' refers solely to survival of the prescribed failure model. It does not encode a probability, sensor independence or a clinical performance measure.
+
+\begin{proposition}[Pointwise failure reduction]\label{prop:pointwise}
+For every $x$ the following conditions are equivalent:
+\begin{enumerate}
+\item $x$ remains covered after every failure $F\in\F$;
+\item $S(x)\notin\F$;
+\item some $\sigma\subseteq S(x)$ is a minimal member of $\W$.
+\end{enumerate}
+Consequently, with $D_\sigma=\bigcap_{i\in\sigma}D_i$ and $\cP_{\F}=\{\sigma\in N:\sigma\notin\F\}$,
+\begin{equation}\label{eq:region-unions}
+R_{\F}=\bigcup_{\sigma\in\cP_{\F}}D_\sigma
+=\bigcup_{\sigma\in\Min\W}D_\sigma,
+\end{equation}
+where empty geometric intersections contribute nothing.
+\end{proposition}
+\begin{proof}
+Failure of coverage at $x$ after deleting $F$ means precisely that every active contact is deleted: $S(x)\subseteq F$. If $F\in\F$, downward closure then gives $S(x)\in\F$. Conversely, if $S(x)\in\F$, the allowed choice $F=S(x)$ deletes every active contact. This proves the equivalence of the first two statements. In a finite upward-closed family every member contains a minimal member, and any set containing a winning set is winning. This proves the third equivalence and both union identities.
+\end{proof}
+
+\begin{example}[Independent failures]
+For an integer $q\ge0$, let $\F_q=\{F:\abs F\le q\}$. A set wins exactly when it contains at least $q+1$ contacts. Thus $R_{\F_q}$ is the ordinary $(q+1)$-fold covered region. For $q\ge n$ it is empty.
+\end{example}
+
+\begin{example}[Weighted failure budgets]\label{ex:weighted}
+Give contact $i$ a nonnegative integer failure cost $c_i$ and fix an integer budget $B\ge0$. Set
+\[
+\F_{c,B}=\left\{F:\sum_{i\in F}c_i\le B\right\}.
+\]
+Then
+\begin{equation}\label{eq:weighted-rule}
+S\in\W\quad\Longleftrightarrow\quad\sum_{i\in S}c_i>B.
+\end{equation}
+This is an adversarial deletion-cost model. It is not a statement that measurements have additive quality or that physical reliability is proportional to $c_i$. Zero-cost contacts can be deleted freely; the formula still applies. Nonintegral nonnegative costs also define a mathematical failure family, but the supplied budget implementation deliberately accepts only integers.
+\end{example}
+
+\begin{example}[Correlated fault domains]\label{ex:domains}
+Partition contacts into labeled domains $G_1,\ldots,G_s$ and allow the loss of any $q$ complete domains. Its downward closure is
+\[
+\F_{G,q}=\{F:F\subseteq\textstyle\bigcup_{j\in J}G_j\text{ for some }\abs J\le q\}.
+\]
+If $d(S)=\{j:S\cap G_j\ne\varnothing\}$, the winning rule is
+\begin{equation}\label{eq:domain-rule}
+S\in\W\quad\Longleftrightarrow\quad\abs{d(S)}>q.
+\end{equation}
+Indeed, at most $q$ domains contain $S$ exactly when all its active domains can be deleted. The downward closure includes partial deletions, but its universal survival region equals that of the allowed complete-domain losses: any partial deletion is contained in one of those losses.
+\end{example}
+
+\begin{example}[Two-fold coverage can fail a one-domain test]
+Take two identical disks and assign both contacts to one domain. Their common disk is two-fold covered. Deleting that domain leaves no coverage. If instead the two contacts belong to different domains, the same geometry survives every loss of one domain. Ordinary overlap counts and the ordinary nerve without domain labels cannot distinguish these two reliability requirements.
+\end{example}
+
+\begin{proposition}[Combining requirements]\label{prop:combining}
+If $\F_1,\F_2$ are failure families, then
+\[
+R_{\F_1\cup\F_2}=R_{\F_1}\cap R_{\F_2},\qquad
+R_{\F_1\cap\F_2}=R_{\F_1}\cup R_{\F_2}.
+\]
+Both union and intersection on the left are downward closed.
+\end{proposition}
+\begin{proof}
+At each point, the first equality says that $S(x)$ belongs to neither failure family. The second says that it does not belong to both. Apply De Morgan's laws to \cref{prop:pointwise}.
+\end{proof}
+
+For a simultaneous requirement of a budget bound and a domain-loss bound one must specify whether the adversary may use either rule separately, both at once, or a composed deletion. These are different failure families. The framework accepts each, but it does not identify them without a stated model.
+
+\begin{example}[Independence systems]
+An independence system on $[n]$ is, by definition, downward closed. Taking it as $\F$ makes its dependent sets the winning coalitions. For a matroid, the minimal winning coalitions are its circuits. This observation is a translation of definitions; no matroid representation hypothesis is needed for the dual construction. The number of minimal winning coalitions can nevertheless be large, which is a reason to evaluate a winning predicate on facet intersections instead of listing all such coalitions.
+\end{example}
+
+\begin{lemma}[Monotonicity]\label{lem:monotonicity}
+If $D_i\subseteq D_i'$ for every label $i$, then $R_{\F}(D)\subseteq R_{\F}(D')$. If $\F_1\subseteq\F_2$, then $R_{\F_2}(D)\subseteq R_{\F_1}(D)$.
+\end{lemma}
+\begin{proof}
+In the first case $S_D(x)\subseteq S_{D'}(x)$ and winning is upward closed. In the second case $S(x)\notin\F_2$ implies $S(x)\notin\F_1$.
+\end{proof}

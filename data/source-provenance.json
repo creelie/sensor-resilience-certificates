@@ -1,0 +1,20 @@
+{
+  "original_v2_doi": "10.20944/preprints202606.1351.v2",
+  "files": [
+    {
+      "name": "preprints-220964-presentation.pdf",
+      "bytes": 1466623,
+      "sha256": "35b0852d633ba29481e3d538ea2f5db0e8c8f8c17a09969538e88880f2c0fe25"
+    },
+    {
+      "name": "preprints-220964-manuscript.zip",
+      "bytes": 2843630,
+      "sha256": "647e266675f567a4e718009b0440484b770d04231cfc59dae27b8baa93be2245"
+    },
+    {
+      "name": "preprints-220964-supplementary.zip",
+      "bytes": 1649014,
+      "sha256": "556a0a6186326315f0e3a327d6a040547dac81bd3a7e9fe17bf700b7146aa27e"
+    }
+  ]
+}

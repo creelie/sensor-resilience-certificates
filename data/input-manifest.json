@@ -1,0 +1,32 @@
+[
+  {
+    "field": "A_ring_grid_seed3",
+    "original_npy_sha256": "c7dc3d6ed0642a1c83386d1f084d646b7f58c0a3c0d59000c2d2968d8ff974b9",
+    "csv_sha256": "d1ccd9c4e5cbf63eb05b4953d4b7b7081804e905241cefee5736968bf76fef6c",
+    "binary64_roundtrip_equal": true
+  },
+  {
+    "field": "B_ring_grid_seed7",
+    "original_npy_sha256": "46f0b84e1c13c86c2fe1d862d097e6bff8f2c1720964d8fa2374b1aa685fb7d4",
+    "csv_sha256": "ba61f70be7c8a2bdca6d2cb6472f94a367897c0b50b77209a16295946afa398a",
+    "binary64_roundtrip_equal": true
+  },
+  {
+    "field": "C_poisson_random",
+    "original_npy_sha256": "a712ab47a932cde6f2af828a1789dd1c1583fc96a8c50e5e0443e59428b27c3c",
+    "csv_sha256": "00eb4166ac2fc08c8de31fd62c1155fb9e283f330a40abf84ea6eede673d7cf2",
+    "binary64_roundtrip_equal": true
+  },
+  {
+    "field": "D_hex_dead_zone",
+    "original_npy_sha256": "a7fc1dd100b78e9f132f97d9ecb952231b3c4e749dd63aa5778da7a7a35fc282",
+    "csv_sha256": "eb30e921803d3f910478512f2709dfc30738369140de8df16f4cb18ee4ced049",
+    "binary64_roundtrip_equal": true
+  },
+  {
+    "field": "E_two_cluster",
+    "original_npy_sha256": "1a3b3b774b5384255632ad56c12c384d0b0e929a5f311d9fd79efbf56ed2a545",
+    "csv_sha256": "6da91a0777f871d97dc93df87c5cecfa9ead98415e7b66fb35055536bc8ea718",
+    "binary64_roundtrip_equal": true
+  }
+]

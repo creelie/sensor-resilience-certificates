@@ -1,0 +1,32 @@
+[
+  {
+    "field": "A_ring_grid_seed3",
+    "shadow_k2_vertices": 493,
+    "shadow_k2_edges": 5124,
+    "seconds": 1.304
+  },
+  {
+    "field": "B_ring_grid_seed7",
+    "shadow_k2_vertices": 496,
+    "shadow_k2_edges": 5148,
+    "seconds": 1.283
+  },
+  {
+    "field": "C_poisson_random",
+    "shadow_k2_vertices": 619,
+    "shadow_k2_edges": 12858,
+    "seconds": 1.479
+  },
+  {
+    "field": "D_hex_dead_zone",
+    "shadow_k2_vertices": 197,
+    "shadow_k2_edges": 354,
+    "seconds": 0.181
+  },
+  {
+    "field": "E_two_cluster",
+    "shadow_k2_vertices": 1810,
+    "shadow_k2_edges": 836991,
+    "seconds": 8.934
+  }
+]

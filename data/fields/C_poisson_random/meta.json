@@ -1,0 +1,11 @@
+{
+  "n_sensors": 95,
+  "R": 1.4,
+  "description": "uniform random field (n=95, seed 11)",
+  "window": [
+    -3.0,
+    15.0,
+    -3.0,
+    15.0
+  ]
+}

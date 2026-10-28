@@ -1,0 +1,11 @@
+{
+  "n_sensors": 79,
+  "R": 1.35,
+  "description": "hexagonal lattice with rectangular dead zone (seed 13)",
+  "window": [
+    -3.0290591772844726,
+    17.459496747715086,
+    -3.059684309564844,
+    14.829351917697133
+  ]
+}

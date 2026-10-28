@@ -1,0 +1,4 @@
+# Scientific predicates, homology, tests and audits use only Python's stdlib.
+# Optional figure generation; pre-generated figures are included.
+numpy>=1.26
+matplotlib>=3.8

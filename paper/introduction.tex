@@ -1,0 +1,61 @@
+\section{Introduction}
+\label{sec:intro}
+Redundant coverage is often specified as an overlap count: every point should lie in at least $k$ footprints. That specification is adequate when any $k-1$ individual contacts may fail. It can be inadequate when several contacts share a power source, communication link or acquisition channel. Two contacts in the same failed group provide no surviving measurement, even though their footprints give two-fold coverage. The appropriate mathematical input is therefore a family of allowed failures, together with the geometric footprints.
+
+The ordinary nerve records which collections of footprints have a common point. Classical nerve theory identifies the topology of their union, while multicover constructions recover the regions of higher overlap. Our starting point is the earlier two-author manuscript~\cite{original}, whose $k$-shadow is the nerve of the family of $k$-wise footprint intersections. The underlying multicover equivalence is an application of the nerve theorem. It is part of an established literature, including Sheehy's multicover nerve~\cite{sheehy}, the multicover bifiltration of Corbet, Kerber, Lesnick and Osang~\cite{corbet}, and Alonso's sparse approximation~\cite{alonso}. We do not claim to introduce the first nerve model of multiple coverage or a new general Dowker theorem.
+
+The present revision addresses a different practical question. Can one evaluate coverage for a general monotone failure rule without first constructing every coalition vertex and every high-dimensional face of the original nerve? We use the maximal faces of the nerve as vertices of a dual complex. Their intersection supplies the contact set on which the failure rule is evaluated. The construction is a direct instance of Dowker duality~\cite{dowker,chowdhury}; its use here makes the failure semantics explicit and permits a geometry-first implementation.
+
+\subsection{Statements and computational outcome}
+Write $D_1,\ldots,D_n$ for compact convex sensor footprints and let $\F\subseteq 2^{[n]}$ be a downward-closed family containing the empty set. A member of $\F$ is a contact set that is allowed to fail. The region of guaranteed survival is
+\begin{equation}\label{eq:survival-intro}
+R_{\F}=\bigcap_{F\in\F}\ \bigcup_{i\notin F}D_i.
+\end{equation}
+Let $N$ be the nerve of the footprints and $\M=\Max N$ its maximal faces. Define the nonempty simplices of a complex by
+\begin{equation}\label{eq:dual-intro}
+\cC_{\F}(N)=\left\{A\subseteq\M:A\ne\varnothing,\quad \bigcap_{M\in A}M\notin\F\right\}.
+\end{equation}
+Singletons that do not satisfy the displayed rule are absent; thus not every member of $\M$ is necessarily a vertex.
+
+\Cref{thm:duality} proves $\abs{\cC_{\F}(N)}\simeq R_{\F}$. Its combinatorial proof gives explicit order maps rather than relying on a count of faces or a raster image. \Cref{thm:natural} treats inclusions of failure families at fixed geometry. \Cref{thm:witness} proves that all maximal faces for planar disks occur among the contact labels of at most $n^2$ circle points. \Cref{thm:algorithm} turns this observation into an exact finite algorithm for $H_0$ and $H_1$. \Cref{thm:target} supplies a sufficient continuous target certificate, separately from any homology computation.
+
+The dense Field~E of~\cite{original} contains $95$ equal-radius disks. The previous two-fold shadow computation stopped before its triangle boundary rank was obtained. The dual calculation gives
+\begin{equation}\label{eq:E-result}
+\begin{split}
+(V,E,T)&=(130,4214,94985),\\
+\rank\partial_2&=4083,\qquad (b_0,b_1)=(5,6).
+\end{split}
+\end{equation}
+The full two-skeleton is included in this count. There is no cutoff on clique size, no omitted triangle class and no substitution of pairwise overlap for common intersection.
+
+\subsection{What is corrected from version 2}
+Two distinctions matter for the interpretation of the earlier computations. First, the reported number $836\,991$ in the dense example counts \emph{edges} of the two-fold shadow, not its vertices. Its vertices are the $1810$ edges of the ordinary nerve. We recount these quantities in \cref{sec:experiments}. Second, vanishing first homology does not establish that a specified target lies inside the covered region. A contractible disk far from a target has $b_1=0$ while leaving that target entirely uncovered. The target test developed below is a separate sufficient criterion.
+
+These corrections do not invalidate the elementary nerve equivalence for the secondary cover. They change the size interpretation and the conclusion that can be drawn from a Betti number. We record both corrections explicitly so that the present version can be read against the archived v2.
+
+\subsection{Relation to prior work}
+The homological study of sensor coverage includes the work of Ghrist and Muhammad~\cite{ghrist}, and the persistent and controlled-boundary criteria of de Silva and Ghrist~\cite{desilva,controlled}. Those criteria include hypotheses concerning boundaries and relative homology; they are not interchangeable with the assertion $b_1=0$. The finite closed-convex nerve theorem and its functorial forms are treated systematically in~\cite{bauer}. Dowker's relation complexes and their functorial extension~\cite{dowker,chowdhury} explain the duality used in this paper.
+
+Our companion ECoG archive~\cite{ecog} distinguishes exact intersection predicates, target mesh certification and numerical illustrations. We retain that distinction and extend the margin argument to arbitrary monotone failure rules. Earlier work of the authors on circuit topoi~\cite{topoi}, topological deformation~\cite{suspension}, and stability of linked spaces~\cite{linkage} provides broader context for local-to-global network questions. These latter references are contextual; none of their claims is a premise of a proof here. The geometry, combinatorial maps and chain calculations required below are specified directly.
+
+\subsection{Conventions}
+All abstract complexes are finite. Empty faces are understood, but face posets contain only nonempty faces. The realization of a complex with no vertices is empty, and its ordinary $H_0$ is zero. Unless stated otherwise, homology is ordinary homology over $\FF$. The topological theorems also hold with any fixed field of coefficients. Footprints in the general topological statements are compact convex subsets of a Euclidean space. Exact enumeration and the numerical experiments concern \emph{closed} disks in $\R^2$.
+
+The distinction between open and closed footprints is material at tangency. In the supplied fields the independent pair and triple check detects no exact tangency, but the implementation also tests tangent and coincident examples. All claims of numerical exactness refer to the finite binary64 input numbers interpreted as rational numbers; they are not claims of exact knowledge of physical sensor positions.
+
+\begin{figure}[tb]
+\centering
+\begin{tikzpicture}[node distance=8mm and 9mm,box/.style={draw=blue!45!black,rounded corners=2pt,align=center,inner sep=5pt,font=\small},>=Latex]
+\node[box] (geo) {Closed footprints\\$D_1,\ldots,D_n$};
+\node[box,right=of geo] (fac) {Maximal nerve faces\\$\M=\Max N$};
+\node[box,right=of fac] (dual) {Facet intersections\\$\bigcap_{M\in A}M$};
+\node[box,below=of dual] (test) {Failure rule\\$S\notin\F$};
+\node[box,below=of fac] (hom) {Dual complex\\$H_0,\ H_1$};
+\node[box,below=of geo] (target) {Target margin test\\$T\subseteq R_{\F}$};
+\draw[->] (geo)--(fac);\draw[->] (fac)--(dual);\draw[->] (dual)--(test);
+\draw[->] (test)--(hom);\draw[->] (geo)--(target);
+\draw[->,dashed] (test.south) -- ++(0,-.35) -| (target.south);
+\end{tikzpicture}
+\caption{Two outputs from one failure rule. The dual complex determines topology. A margin certificate establishes coverage of a prescribed target. Neither output is silently substituted for the other.}
+\label{fig:workflow}
+\end{figure}
