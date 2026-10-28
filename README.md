@@ -1,6 +1,6 @@
 # Sensor Coverage under Structured Failures
 
-**Version 3.0.0 — 28 October 2026**
+**Version 3.0.1 — 28 October 2026**
 
 Deep Bhattacharjee · Ushashi Bhattacharya · Sanjeevan Singha Roy
 

@@ -1,7 +1,7 @@
 # Hexagon / preprint submission metadata — prepared v3
 
 ## Title
-Sensor Coverage under Structured Failures: Dual Nerve Models and Exact Geometry
+Sensor Coverage under Structured Failures
 
 ## Abstract
 We study the part of a sensor field that remains covered after every failure in a prescribed downward-closed family. The model includes independent contact failures, weighted failure budgets and losses of entire fault domains. For a convex sensor cover with nerve $N$, we express the surviving region by a complex on the maximal faces of $N$: a collection of maximal faces is a simplex exactly when its common contact set cannot fail. This is a coverage formulation of classical nerve and Dowker duality, for which we give explicit comparison maps and prove naturality under increasing failure families. For $n$ closed planar disks, all maximal nerve faces are witnessed by at most $n^2$ circle points. Exact rational sign tests consequently construct the full two-skeleton of the dual model without enumerating the original nerve or the coalition shadow. A separate Lipschitz margin theorem gives continuous coverage certificates for prescribed triangulated targets under the same failure rules. Recomputing five supplied fields completes the previously unfinished dense example: its two-fold covered region has Betti numbers $(5,6)$, calculated from a dual complex with $130$ vertices and independently checked boundary rank. The implementation, inputs, exact arithmetic conventions and verification records are supplied.

@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "Please cite the manuscript and version used, and retain the original data attribution."
 type: software
-title: "Sensor Coverage under Structured Failures: Dual Nerve Models and Exact Geometry"
-version: 3.0.0
+title: "Sensor Coverage under Structured Failures"
+version: 3.0.1
 date-released: 2026-10-28
 url: "https://github.com/creelie/nerve-coverage-v3"
 license: CC-BY-4.0

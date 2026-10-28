@@ -2,7 +2,7 @@
 
 To the Editors of the Journal of Applied and Computational Topology,
 
-Please consider **Sensor Coverage under Structured Failures: Dual Nerve Models and Exact Geometry**, by Deep Bhattacharjee, Ushashi Bhattacharya and Sanjeevan Singha Roy, as a research article.
+Please consider **Sensor Coverage under Structured Failures**, by Deep Bhattacharjee, Ushashi Bhattacharya and Sanjeevan Singha Roy, as a research article.
 
 The manuscript studies sensor coverage that survives a prescribed downward-closed family of contact failures, including weighted budgets and losses of complete fault domains. It presents explicit comparisons between the geometric region and a complex on maximal nerve faces, proves a disk-witness enumeration bound, and gives an exact sufficient certificate for continuous coverage of a triangulated target. The underlying nerve and Dowker theory is credited to the established literature.
 

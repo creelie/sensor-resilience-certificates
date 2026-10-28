@@ -1,8 +1,8 @@
 # Journal preparation details
 
-Title: **Sensor Coverage under Structured Failures: Dual Nerve Models and Exact Geometry**
+Title: **Sensor Coverage under Structured Failures**
 
-Version: **3.0.0**, prepared 28 October 2026. This is a new research revision of the supplied Preprints.org v2; a Preprints.org v3 identifier has not been minted by this work.
+Version: **3.0.1**, prepared 28 October 2026. This is a new research revision of the supplied Preprints.org v2; a Preprints.org v3 identifier has not been minted by this work.
 
 Authors, in order: Deep Bhattacharjee; Ushashi Bhattacharya; Sanjeevan Singha Roy.
 

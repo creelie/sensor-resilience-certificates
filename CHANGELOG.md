@@ -1,6 +1,12 @@
+# Version 3.0.1 — 2026-10-28
+
+- Shortened the title to *Sensor Coverage under Structured Failures*, with no conjunction or punctuation.
+- Rebuilt the manuscript and source package and synchronized the citation and submission metadata.
+- Mathematical content and computational results are unchanged.
+
 # Version 3.0.0 — 2026-10-28
 
-- Retitled the v2 lineage as *Sensor Coverage under Structured Failures: Dual Nerve Models and Exact Geometry*.
+- Retitled the v2 lineage as *Sensor Coverage under Structured Failures*.
 - Preserved Deep Bhattacharjee and Ushashi Bhattacharya, and added Sanjeevan Singha Roy as third author with the supplied affiliation, email and ORCID.
 - Added failure-family semantics for weighted budgets and correlated domain losses.
 - Supplied explicit Dowker comparison maps and a naturality proof at fixed geometry.
